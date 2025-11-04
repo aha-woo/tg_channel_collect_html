@@ -126,12 +126,27 @@ function createCard(item) {
     const description = document.createElement('p');
     // 安全清理：移除所有HTML标签和脚本，防止XSS攻击
     const descriptionText = item.description || '暂无描述';
-    const plainText = descriptionText
+    
+    // 第一步：移除HTML标签和脚本
+    let plainText = descriptionText
         .replace(/<script[^>]*>.*?<\/script>/gi, '')  // 移除script标签
         .replace(/<style[^>]*>.*?<\/style>/gi, '')    // 移除style标签
         .replace(/<[^>]+>/g, '')                       // 移除所有HTML标签
         .replace(/javascript:/gi, '')                  // 移除javascript:协议
         .trim();
+    
+    // 第二步：移除URL（http/https链接、t.me链接等）
+    // 匹配各种URL格式：http://, https://, www., t.me, 等等
+    plainText = plainText
+        .replace(/https?:\/\/[^\s]+/gi, '')           // 移除 http:// 或 https:// 开头的URL
+        .replace(/www\.[^\s]+/gi, '')                  // 移除 www. 开头的URL
+        .replace(/t\.me\/[^\s]+/gi, '')               // 移除 t.me/ 开头的链接
+        .replace(/[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/[^\s]*/gi, '')  // 移除域名/路径格式的URL
+        .replace(/[a-zA-Z0-9-]+\.(com|org|net|io|co|cn|me|xyz|top|site|online)\/[^\s]*/gi, '')  // 移除常见域名后缀的URL
+        .replace(/\s+/g, ' ')                          // 合并多个空格为一个
+        .trim();
+    
+    // 显示清理后的文本（不包含URL）
     description.textContent = plainText || '暂无描述';
     
     info.appendChild(title);
@@ -141,11 +156,26 @@ function createCard(item) {
     card.appendChild(link);
     card.appendChild(info);
     
-    // 添加tooltip（安全：使用清理后的文本）
-    if (plainText && plainText.length > 50) {
+    // 添加tooltip（显示完整描述，但也要清理URL）
+    // tooltip显示原始描述（清理HTML和脚本后），但移除URL
+    const tooltipText = descriptionText
+        .replace(/<script[^>]*>.*?<\/script>/gi, '')
+        .replace(/<style[^>]*>.*?<\/style>/gi, '')
+        .replace(/<[^>]+>/g, '')
+        .replace(/javascript:/gi, '')
+        .replace(/https?:\/\/[^\s]+/gi, '')
+        .replace(/www\.[^\s]+/gi, '')
+        .replace(/t\.me\/[^\s]+/gi, '')
+        .replace(/[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/[^\s]*/gi, '')
+        .replace(/[a-zA-Z0-9-]+\.(com|org|net|io|co|cn|me|xyz|top|site|online)\/[^\s]*/gi, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    
+    // 如果描述文本较长（超过显示长度），添加tooltip
+    if (tooltipText && tooltipText.length > 0) {
         const tooltip = document.createElement('div');
         tooltip.classList.add('card-tooltip');
-        tooltip.textContent = plainText;
+        tooltip.textContent = tooltipText;
         card.appendChild(tooltip);
     }
     

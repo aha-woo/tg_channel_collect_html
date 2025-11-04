@@ -217,17 +217,29 @@ function createCard(item) {
     const description = document.createElement('p');
     const descriptionText = item.description || '';
     // 安全清理：移除所有HTML标签和脚本，防止XSS攻击
-    const plainText = descriptionText
+    let plainText = descriptionText
         .replace(/<script[^>]*>.*?<\/script>/gi, '')  // 移除script标签
         .replace(/<style[^>]*>.*?<\/style>/gi, '')    // 移除style标签
         .replace(/<[^>]+>/g, '')                       // 移除所有HTML标签
         .replace(/javascript:/gi, '')                  // 移除javascript:协议
         .trim();
+    
+    // 移除URL（http/https链接、t.me链接等）
+    plainText = plainText
+        .replace(/https?:\/\/[^\s]+/gi, '')           // 移除 http:// 或 https:// 开头的URL
+        .replace(/www\.[^\s]+/gi, '')                  // 移除 www. 开头的URL
+        .replace(/t\.me\/[^\s]+/gi, '')               // 移除 t.me/ 开头的链接
+        .replace(/[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/[^\s]*/gi, '')  // 移除域名/路径格式的URL
+        .replace(/[a-zA-Z0-9-]+\.(com|org|net|io|co|cn|me|xyz|top|site|online)\/[^\s]*/gi, '')  // 移除常见域名后缀的URL
+        .replace(/\s+/g, ' ')                          // 合并多个空格为一个
+        .trim();
+    
     description.textContent = plainText;
     infoDiv.appendChild(title);
     infoDiv.appendChild(description);
     
-    // 创建tooltip（如果描述文字被截断）
+    // 创建tooltip（显示完整描述，但也要清理URL）
+    // tooltip使用清理URL后的文本
     if (plainText.length > 0) {
         const tooltip = document.createElement('div');
         tooltip.classList.add('card-tooltip');
