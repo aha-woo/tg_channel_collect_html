@@ -24,7 +24,7 @@ function getFaviconUrl(url, customLogo) {
         
         // 对于Telegram链接，使用Telegram的favicon
         if (domain.includes('t.me') || domain.includes('telegram.org')) {
-            return `https://telegram.org/favicon.ico`;
+            return `https://telegram.org/img/t_logo.png`;
         }
         
         // 对于GitHub链接
@@ -32,7 +32,8 @@ function getFaviconUrl(url, customLogo) {
             return `https://github.com/favicon.ico`;
         }
         
-        // 使用Google Favicon服务
+        // 使用多个favicon服务（按优先级）
+        // 优先使用Google，失败时img的onerror会处理
         return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
     } catch (e) {
         console.error('Error parsing URL:', url, e);
@@ -69,11 +70,40 @@ function createCard(item) {
         const img = document.createElement('img');
         img.src = faviconUrl;
         img.alt = item.title;
+        
+        // 多重备选方案（6层备选）
+        let fallbackIndex = 0;
+        const fallbackSources = [
+            () => `https://www.google.com/s2/favicons?domain=${new URL(item.url).hostname}&sz=128`,
+            () => `https://${new URL(item.url).hostname}/favicon.ico`,
+            () => `https://icon.horse/icon/${new URL(item.url).hostname}`,
+            () => `https://www.google.com/s2/favicons?domain=${new URL(item.url).hostname}&sz=64`,
+            () => `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent(item.url)}&size=128`,
+            () => `https://favicons.githubusercontent.com/${new URL(item.url).hostname}`
+        ];
+        
         img.onerror = function() {
-            this.style.display = 'none';
-            const icon = document.createElement('i');
-            icon.className = 'fas fa-link';
-            logo.appendChild(icon);
+            fallbackIndex++;
+            if (fallbackIndex < fallbackSources.length) {
+                try {
+                    this.src = fallbackSources[fallbackIndex]();
+                } catch (e) {
+                    fallbackIndex = fallbackSources.length; // 跳到最后
+                }
+            }
+            
+            // 所有方案都失败，显示默认图标
+            if (fallbackIndex >= fallbackSources.length) {
+                this.style.display = 'none';
+                const icon = document.createElement('i');
+                // 根据链接类型显示不同图标（安全：不使用innerHTML）
+                if (item.url && item.url.includes('t.me')) {
+                    icon.className = 'fab fa-telegram';
+                } else {
+                    icon.className = 'fas fa-link';
+                }
+                logo.appendChild(icon);
+            }
         };
         logo.appendChild(img);
     } else {
@@ -94,7 +124,15 @@ function createCard(item) {
     title.appendChild(titleLink);
     
     const description = document.createElement('p');
-    description.textContent = item.description || '暂无描述';
+    // 安全清理：移除所有HTML标签和脚本，防止XSS攻击
+    const descriptionText = item.description || '暂无描述';
+    const plainText = descriptionText
+        .replace(/<script[^>]*>.*?<\/script>/gi, '')  // 移除script标签
+        .replace(/<style[^>]*>.*?<\/style>/gi, '')    // 移除style标签
+        .replace(/<[^>]+>/g, '')                       // 移除所有HTML标签
+        .replace(/javascript:/gi, '')                  // 移除javascript:协议
+        .trim();
+    description.textContent = plainText || '暂无描述';
     
     info.appendChild(title);
     info.appendChild(description);
@@ -103,11 +141,11 @@ function createCard(item) {
     card.appendChild(link);
     card.appendChild(info);
     
-    // 添加tooltip
-    if (item.description && item.description.length > 50) {
+    // 添加tooltip（安全：使用清理后的文本）
+    if (plainText && plainText.length > 50) {
         const tooltip = document.createElement('div');
         tooltip.classList.add('card-tooltip');
-        tooltip.textContent = item.description;
+        tooltip.textContent = plainText;
         card.appendChild(tooltip);
     }
     
@@ -266,7 +304,8 @@ function setupSidebar() {
     // 检查本地存储的侧边栏状态（仅桌面端）
     if (window.innerWidth > 768) {
         const savedState = localStorage.getItem('sidebarExpanded');
-        if (savedState === 'true') {
+        // 默认展开，除非用户手动设置为收起
+        if (savedState === null || savedState === 'true') {
             sidebar.classList.add('expanded');
         }
     }
@@ -389,14 +428,30 @@ function loadAndRenderData() {
         .catch(error => {
             console.error('加载数据时出错:', error);
             const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = `
-                <div style="padding: 40px; text-align: center; color: #999;">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 20px; color: #ff6b6b;"></i>
-                    <h2>数据加载失败</h2>
-                    <p>请确保 data.json 文件存在且格式正确</p>
-                    <p style="font-size: 0.9em; color: #999;">错误信息: ${error.message}</p>
-                </div>
-            `;
+            contentDiv.innerHTML = '';
+            
+            const errorContainer = document.createElement('div');
+            errorContainer.style.cssText = 'padding: 40px; text-align: center; color: #999;';
+            
+            const errorIcon = document.createElement('i');
+            errorIcon.className = 'fas fa-exclamation-triangle';
+            errorIcon.style.cssText = 'font-size: 3rem; margin-bottom: 20px; color: #ff6b6b;';
+            
+            const errorTitle = document.createElement('h2');
+            errorTitle.textContent = '数据加载失败';
+            
+            const errorMsg = document.createElement('p');
+            errorMsg.textContent = '请确保 data.json 文件存在且格式正确';
+            
+            const errorDetail = document.createElement('p');
+            errorDetail.style.cssText = 'font-size: 0.9em; color: #999;';
+            errorDetail.textContent = `错误信息: ${error.message}`;
+            
+            errorContainer.appendChild(errorIcon);
+            errorContainer.appendChild(errorTitle);
+            errorContainer.appendChild(errorMsg);
+            errorContainer.appendChild(errorDetail);
+            contentDiv.appendChild(errorContainer);
         });
 }
 

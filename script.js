@@ -12,9 +12,9 @@ function getFaviconUrl(url) {
         const urlObj = new URL(url);
         const domain = urlObj.hostname;
         
-        // 对于Telegram链接，使用Telegram的favicon
+        // 对于Telegram链接，使用Telegram的logo
         if (domain.includes('t.me') || domain.includes('telegram.org')) {
-            return `https://telegram.org/favicon.ico`;
+            return `https://telegram.org/img/t_logo.png`;
         }
         
         // 对于GitHub链接
@@ -22,11 +22,8 @@ function getFaviconUrl(url) {
             return `https://github.com/favicon.ico`;
         }
         
-        // 使用多个favicon服务作为备选
-        // 1. Google S2 Favicons (主要)
-        // 2. DuckDuckGo Icons (备选)
-        // 3. 直接访问网站favicon (备选)
-        
+        // 使用多个favicon服务（按优先级）
+        // 优先使用Google，失败时img的onerror会处理
         return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
     } catch (e) {
         console.error('Error parsing URL:', url, e);
@@ -154,19 +151,54 @@ function createCard(item) {
         const img = document.createElement('img');
         img.src = faviconUrl;
         img.alt = item.name;
+        
+        // 多重备选方案（6层备选）
+        let fallbackIndex = 0;
+        const url = linkInfo.url;
+        const fallbackSources = [
+            () => `https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=128`,
+            () => `https://${new URL(url).hostname}/favicon.ico`,
+            () => `https://icon.horse/icon/${new URL(url).hostname}`,
+            () => `https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=64`,
+            () => `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent(url)}&size=128`,
+            () => `https://favicons.githubusercontent.com/${new URL(url).hostname}`
+        ];
+        
         img.onerror = function() {
-            // 如果图片加载失败，显示占位符
-            this.style.display = 'none';
-            const placeholder = document.createElement('div');
-            placeholder.classList.add('placeholder-icon');
-            placeholder.innerHTML = '<i class="fas fa-link"></i>';
-            logoDiv.appendChild(placeholder);
+            fallbackIndex++;
+            if (fallbackIndex < fallbackSources.length) {
+                try {
+                    this.src = fallbackSources[fallbackIndex]();
+                } catch (e) {
+                    fallbackIndex = fallbackSources.length; // 跳到最后
+                }
+            }
+            
+            // 所有方案都失败，显示默认图标
+            if (fallbackIndex >= fallbackSources.length) {
+                this.style.display = 'none';
+                const placeholder = document.createElement('div');
+                placeholder.classList.add('placeholder-icon');
+                // 根据链接类型显示不同图标
+                if (url.includes('t.me')) {
+                    const telegramIcon = document.createElement('i');
+                    telegramIcon.className = 'fab fa-telegram';
+                    placeholder.appendChild(telegramIcon);
+                } else {
+                    const linkIcon = document.createElement('i');
+                    linkIcon.className = 'fas fa-link';
+                    placeholder.appendChild(linkIcon);
+                }
+                logoDiv.appendChild(placeholder);
+            }
         };
         logoDiv.appendChild(img);
     } else {
         const placeholder = document.createElement('div');
         placeholder.classList.add('placeholder-icon');
-        placeholder.innerHTML = '<i class="fas fa-link"></i>';
+        const linkIcon = document.createElement('i');
+        linkIcon.className = 'fas fa-link';
+        placeholder.appendChild(linkIcon);
         logoDiv.appendChild(placeholder);
     }
     
@@ -184,10 +216,13 @@ function createCard(item) {
     
     const description = document.createElement('p');
     const descriptionText = item.description || '';
-    // 清理HTML标签，只保留纯文本用于显示
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = descriptionText;
-    const plainText = tempDiv.textContent || tempDiv.innerText || '';
+    // 安全清理：移除所有HTML标签和脚本，防止XSS攻击
+    const plainText = descriptionText
+        .replace(/<script[^>]*>.*?<\/script>/gi, '')  // 移除script标签
+        .replace(/<style[^>]*>.*?<\/style>/gi, '')    // 移除style标签
+        .replace(/<[^>]+>/g, '')                       // 移除所有HTML标签
+        .replace(/javascript:/gi, '')                  // 移除javascript:协议
+        .trim();
     description.textContent = plainText;
     infoDiv.appendChild(title);
     infoDiv.appendChild(description);
@@ -207,7 +242,9 @@ function createCard(item) {
     linkIconAnchor.href = linkInfo.url;
     linkIconAnchor.target = '_blank';
     linkIconAnchor.rel = 'noopener noreferrer';
-    linkIconAnchor.innerHTML = '<i class="fas fa-external-link-alt"></i>';
+    const externalIcon = document.createElement('i');
+    externalIcon.className = 'fas fa-external-link-alt';
+    linkIconAnchor.appendChild(externalIcon);
     linkIcon.appendChild(linkIconAnchor);
     
     // 组装卡片
@@ -485,12 +522,22 @@ function loadAndRenderData() {
         })
         .catch(error => {
             console.error('Error loading data:', error);
-            document.getElementById('content').innerHTML = `
-                <div style="padding: 40px; text-align: center; color: #999;">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 20px;"></i>
-                    <p>加载数据失败，请检查 uploaddata.md 文件是否存在。</p>
-                </div>
-            `;
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '';
+            
+            const errorContainer = document.createElement('div');
+            errorContainer.style.cssText = 'padding: 40px; text-align: center; color: #999;';
+            
+            const errorIcon = document.createElement('i');
+            errorIcon.className = 'fas fa-exclamation-triangle';
+            errorIcon.style.cssText = 'font-size: 3rem; margin-bottom: 20px;';
+            
+            const errorMsg = document.createElement('p');
+            errorMsg.textContent = '加载数据失败，请检查 uploaddata.md 文件是否存在。';
+            
+            errorContainer.appendChild(errorIcon);
+            errorContainer.appendChild(errorMsg);
+            contentDiv.appendChild(errorContainer);
         });
 }
 
@@ -529,7 +576,13 @@ function renderContent(sections) {
         if (tableData.length === 0) {
             const emptyMessage = document.createElement('div');
             emptyMessage.style.cssText = 'padding: 40px; text-align: center; color: #999;';
-            emptyMessage.innerHTML = '<i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 10px;"></i><p>暂无数据</p>';
+            const inboxIcon = document.createElement('i');
+            inboxIcon.className = 'fas fa-inbox';
+            inboxIcon.style.cssText = 'font-size: 2rem; margin-bottom: 10px;';
+            const emptyText = document.createElement('p');
+            emptyText.textContent = '暂无数据';
+            emptyMessage.appendChild(inboxIcon);
+            emptyMessage.appendChild(emptyText);
             gridContainer.appendChild(emptyMessage);
         }
 
@@ -730,7 +783,8 @@ function setupSidebar() {
     // 检查本地存储的侧边栏状态（仅桌面端）
     if (window.innerWidth > 768) {
         const savedState = localStorage.getItem('sidebarExpanded');
-        if (savedState === 'true') {
+        // 默认展开，除非用户手动设置为收起
+        if (savedState === null || savedState === 'true') {
             sidebar.classList.add('expanded');
         }
     }

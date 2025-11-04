@@ -24,11 +24,15 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     line-height: 1.6;
-    background: url('BG.png') center center / cover no-repeat fixed;
+    background: #e8f4f8;
+    background-image: linear-gradient(135deg, #e8f4f8 0%, #e6e9f0 25%, #f3e7f0 50%, #e1f0f5 75%, #f0e8f4 100%);
+    background-size: 400% 400%;
+    background-attachment: fixed;
     color: var(--text-primary);
     overflow-x: hidden;
     font-size: 14px;
     position: relative;
+    min-height: 100vh;
 }
 
 body::before {
@@ -38,7 +42,10 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.3);
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    backdrop-filter: blur(0px);
     pointer-events: none;
     z-index: 0;
 }
