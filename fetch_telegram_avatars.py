@@ -64,6 +64,51 @@ def get_username_from_url(url):
         return match.group(1)
     return None
 
+def get_favicon_url(url, username=None):
+    """通过 favicon 服务获取头像URL（备选方案）
+    
+    返回: favicon URL 或 None
+    """
+    try:
+        # 对于 Telegram 链接，使用 Telegram 官方 logo
+        if 't.me' in url:
+            # 优先使用 Telegram 官方 logo
+            telegram_logo = "https://telegram.org/img/t_logo.png"
+            return telegram_logo
+        
+        # 对于普通网站，提取域名并使用 Google Favicon 服务
+        parsed = urlparse(url)
+        domain = parsed.netloc or parsed.path.split('/')[0]
+        
+        if not domain:
+            return None
+        
+        # 移除 www. 前缀
+        domain = domain.replace('www.', '')
+        
+        # 使用 Google S2 Favicons 服务（高分辨率）
+        favicon_url = f"https://www.google.com/s2/favicons?domain={domain}&sz=128"
+        return favicon_url
+    except Exception as e:
+        print(f"  ⚠️  获取 favicon 失败: {e}")
+        return None
+
+def download_favicon(favicon_url, username):
+    """下载 favicon 并保存到本地"""
+    try:
+        response = requests.get(favicon_url, timeout=10)
+        if response.status_code == 200:
+            os.makedirs(AVATAR_DIR, exist_ok=True)
+            local_path = os.path.join(AVATAR_DIR, f"{username}.jpg")
+            
+            with open(local_path, 'wb') as f:
+                f.write(response.content)
+            
+            return local_path
+    except Exception as e:
+        print(f"  ⚠️  下载 favicon 失败: {e}")
+        return None
+
 def smart_delay(description=""):
     """智能延迟：固定延迟 + 随机延迟"""
     if USE_RANDOM_DELAY:
@@ -114,19 +159,51 @@ def get_chat_info(username, retry_count=0):
                 return None, False
         
         if data.get('ok'):
-            return data.get('result'), False
+            chat_info = data.get('result')
+            # 检查chat类型，记录详细信息
+            chat_type = chat_info.get('type', 'unknown')
+            print(f"  ✅ 成功获取 @{username} 信息（类型: {chat_type}）")
+            return chat_info, False
         else:
+            error_code = data.get('error_code', 'unknown')
             error_description = data.get('description', '未知错误')
-            # 检查是否为频道不存在的错误
-            not_found_keywords = ['chat not found', 'not found', 'deleted', 'deactivated', 'blocked']
-            is_not_found = any(keyword in error_description.lower() for keyword in not_found_keywords)
             
-            if is_not_found:
-                print(f"  ❌ 频道/群组不存在或已删除: @{username}")
+            # 详细记录错误信息
+            print(f"  ⚠️  API返回错误: 错误码={error_code}, 描述={error_description}")
+            
+            # 更严格的错误判断：只有明确的不存在错误才标记为删除
+            # Bot 可能返回 "bad request" 或其他错误，但不一定是不存在
+            not_found_keywords = [
+                'chat not found',  # 频道/群组不存在
+                'user not found',   # 用户不存在
+                'chat_id is empty', # 聊天ID为空
+            ]
+            
+            # 对于 Bot，可能需要特殊处理
+            # 如果返回 "bad request" 或 "method not found"，可能只是权限问题
+            is_definitely_not_found = any(keyword in error_description.lower() for keyword in not_found_keywords)
+            
+            # 对于某些错误，可能是权限问题或Bot未启动，不应该删除
+            ambiguous_errors = [
+                'bad request',
+                'method not found',
+                'forbidden',
+                'unauthorized',
+                'bot was blocked',
+                'bot was deleted',
+            ]
+            is_ambiguous = any(keyword in error_description.lower() for keyword in ambiguous_errors)
+            
+            if is_definitely_not_found:
+                print(f"  ❌ 确认不存在: @{username} - {error_description}")
                 return None, True  # 明确标记为不存在
+            elif is_ambiguous:
+                print(f"  ⚠️  可能是权限或Bot状态问题: @{username} - {error_description}")
+                print(f"  💡 建议：手动检查Bot是否存在，暂不删除")
+                return None, False  # 不标记为删除，可能是其他原因
             else:
-                print(f"  ⚠️  无法获取 @{username} 的信息: {error_description}")
-                return None, False
+                print(f"  ⚠️  无法获取 @{username} 的信息: {error_description} (错误码: {error_code})")
+                return None, False  # 未知错误，不删除
     except requests.exceptions.Timeout:
         print(f"  ⚠️  请求超时 @{username}")
         if retry_count < MAX_RETRIES:
@@ -350,12 +427,13 @@ def process_data_json():
             deleted_item = item.copy()
             deleted_item['username'] = username
             deleted_item['reason'] = 'not_found'
+            deleted_item['error_info'] = 'chat not found'  # 记录错误信息
             deleted_items.append(deleted_item)
             
             if AUTO_DELETE_NOT_FOUND:
                 # 标记为待删除
                 items_to_delete.append(item)
-                print(f"  🗑️  已标记为删除（频道不存在）")
+                print(f"  🗑️  已标记为删除（确认不存在）")
             else:
                 # 仅标记，不删除
                 item['description'] = f"[已失效] {item.get('description', '')}"
@@ -366,7 +444,27 @@ def process_data_json():
             continue
         
         if not chat_info:
+            # 如果chat_info为None但不是is_not_found，说明是其他错误（如权限问题）
+            # 尝试使用 favicon 服务作为备选方案
             error_count += 1
+            print(f"  ⚠️  获取失败，尝试使用 favicon 服务作为备选...")
+            
+            # 尝试获取 favicon
+            favicon_url = get_favicon_url(item.get('url', ''), username)
+            if favicon_url:
+                # 下载 favicon
+                time.sleep(REQUEST_DELAY)  # 下载前也等待一下
+                local_path = download_favicon(favicon_url, username)
+                if local_path:
+                    item['logo'] = local_path
+                    updated_count += 1
+                    print(f"  ✅ 使用 favicon 服务获取头像成功: {local_path}")
+                else:
+                    print(f"  ⚠️  favicon 下载失败")
+            else:
+                print(f"  ⚠️  无法获取 favicon URL")
+            
+            print(f"  💡 保留条目（可能是权限或Bot状态问题）")
             processed_usernames.add(username)
             save_progress({'processed': list(processed_usernames)})
             continue
