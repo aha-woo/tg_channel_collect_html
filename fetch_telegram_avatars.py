@@ -10,6 +10,7 @@ import re
 import requests
 import os
 import time
+import random
 from urllib.parse import urlparse
 from dotenv import load_dotenv
 
@@ -27,11 +28,20 @@ AVATAR_DIR = "telegram_avatars"
 
 # ============ 速率限制配置 ============
 # Telegram Bot API 限制：每秒最多30个请求
-# 为安全起见，设置为每秒最多20个请求（预留缓冲）
-REQUEST_DELAY = 0.5  # 每次请求间隔50毫秒（相当于每秒20个请求）
+# 但实际使用中，建议更保守，避免触发限制
+# 每个频道需要2个API请求（getChat + getFile），所以需要更长的延迟
+REQUEST_DELAY = 4.0  # 每次请求间隔4秒（每秒0.25个请求，非常保守）
 MAX_RETRIES = 3  # 最大重试次数
-RETRY_DELAY = 2  # 重试延迟（秒）
-RATE_LIMIT_DELAY = 60  # 遇到429错误时的等待时间（秒）
+RETRY_DELAY = 5  # 重试延迟（秒）
+RATE_LIMIT_DELAY = 120  # 遇到429错误时的默认等待时间（秒）
+
+# 随机延迟配置
+USE_RANDOM_DELAY = True  # True=启用随机延迟，False=固定延迟
+RANDOM_DELAY_RANGE = 1.0  # 随机延迟范围（秒），实际延迟 = REQUEST_DELAY + random(0, RANDOM_DELAY_RANGE)
+
+# 速率限制后的随机睡眠配置
+RATE_LIMIT_SLEEP_MIN = 300  # 遇到429错误后的最小睡眠时间（秒）= 5分钟
+RATE_LIMIT_SLEEP_MAX = 360  # 遇到429错误后的最大睡眠时间（秒）= 6分钟
 
 # 进度保存文件
 PROGRESS_FILE = "fetch_progress.json"
@@ -54,6 +64,18 @@ def get_username_from_url(url):
         return match.group(1)
     return None
 
+def smart_delay(description=""):
+    """智能延迟：固定延迟 + 随机延迟"""
+    if USE_RANDOM_DELAY:
+        # 随机延迟：REQUEST_DELAY + random(0, RANDOM_DELAY_RANGE)
+        delay = REQUEST_DELAY + random.uniform(0, RANDOM_DELAY_RANGE)
+    else:
+        delay = REQUEST_DELAY
+    
+    if description:
+        print(f"  ⏳ 等待 {delay:.2f} 秒...")
+    time.sleep(delay)
+
 def get_chat_info(username, retry_count=0):
     """获取频道/群组/Bot信息（带重试机制）
     
@@ -69,9 +91,20 @@ def get_chat_info(username, retry_count=0):
         
         # 检查是否被速率限制（429错误）
         if response.status_code == 429:
-            retry_after = data.get('parameters', {}).get('retry_after', RATE_LIMIT_DELAY)
-            print(f"⚠️  触发速率限制，等待 {retry_after} 秒...")
-            time.sleep(retry_after)
+            # 优先使用Telegram返回的retry_after，否则使用随机睡眠
+            telegram_retry_after = data.get('parameters', {}).get('retry_after')
+            
+            if telegram_retry_after:
+                # 使用Telegram返回的时间，但加上随机延迟
+                sleep_time = telegram_retry_after + random.uniform(0, 60)  # 额外随机0-60秒
+                print(f"⚠️  触发速率限制，Telegram要求等待 {telegram_retry_after} 秒，实际等待 {sleep_time:.1f} 秒...")
+            else:
+                # 使用随机睡眠（5-6分钟随机）
+                sleep_time = random.uniform(RATE_LIMIT_SLEEP_MIN, RATE_LIMIT_SLEEP_MAX)
+                sleep_minutes = sleep_time / 60
+                print(f"⚠️  触发速率限制，随机睡眠 {sleep_time:.1f} 秒（约 {sleep_minutes:.1f} 分钟）...")
+            
+            time.sleep(sleep_time)
             
             # 重试
             if retry_count < MAX_RETRIES:
@@ -118,9 +151,20 @@ def download_avatar(file_id, username, retry_count=0):
         
         # 检查速率限制
         if response.status_code == 429:
-            retry_after = data.get('parameters', {}).get('retry_after', RATE_LIMIT_DELAY)
-            print(f"  ⚠️  触发速率限制，等待 {retry_after} 秒...")
-            time.sleep(retry_after)
+            # 优先使用Telegram返回的retry_after，否则使用随机睡眠
+            telegram_retry_after = data.get('parameters', {}).get('retry_after')
+            
+            if telegram_retry_after:
+                # 使用Telegram返回的时间，但加上随机延迟
+                sleep_time = telegram_retry_after + random.uniform(0, 60)  # 额外随机0-60秒
+                print(f"  ⚠️  触发速率限制，Telegram要求等待 {telegram_retry_after} 秒，实际等待 {sleep_time:.1f} 秒...")
+            else:
+                # 使用随机睡眠（5-6分钟随机）
+                sleep_time = random.uniform(RATE_LIMIT_SLEEP_MIN, RATE_LIMIT_SLEEP_MAX)
+                sleep_minutes = sleep_time / 60
+                print(f"  ⚠️  触发速率限制，随机睡眠 {sleep_time:.1f} 秒（约 {sleep_minutes:.1f} 分钟）...")
+            
+            time.sleep(sleep_time)
             if retry_count < MAX_RETRIES:
                 return download_avatar(file_id, username, retry_count + 1)
             return None
@@ -246,9 +290,18 @@ def process_data_json():
         print(f"📊 已处理: {processed_count} 个，剩余: {len(remaining_links)} 个")
         print("💡 将跳过已处理的链接（断点续传）")
     
+    # 计算预计时间（每个频道需要2个请求）
+    avg_delay = REQUEST_DELAY + (RANDOM_DELAY_RANGE / 2 if USE_RANDOM_DELAY else 0)
+    estimated_time = len(remaining_links) * 2 * avg_delay / 60  # 每个频道2个请求
+    
     print("=" * 60)
-    print(f"⏱️  预计时间: {len(remaining_links) * REQUEST_DELAY / 60:.1f} 分钟")
-    print(f"🐌 请求间隔: {REQUEST_DELAY * 1000:.0f} 毫秒（每秒约 {1/REQUEST_DELAY:.0f} 个请求）")
+    print(f"⏱️  预计时间: {estimated_time:.1f} 分钟")
+    if USE_RANDOM_DELAY:
+        print(f"🐌 请求间隔: {REQUEST_DELAY:.1f}-{REQUEST_DELAY + RANDOM_DELAY_RANGE:.1f} 秒（随机延迟）")
+        print(f"📊 平均延迟: {avg_delay:.1f} 秒/请求")
+    else:
+        print(f"🐌 请求间隔: {REQUEST_DELAY:.1f} 秒（固定延迟）")
+    print(f"💡 每个频道需要2个API请求（getChat + getFile）")
     print("=" * 60)
     
     start_time = time.time()
@@ -281,9 +334,11 @@ def process_data_json():
             save_progress({'processed': list(processed_usernames)})
             continue
         
-        # 速率限制：每次请求前等待
+        # 速率限制：每次请求前等待（包含随机延迟）
         if idx > 1:  # 第一个请求不需要等待
-            time.sleep(REQUEST_DELAY)
+            smart_delay(f"请求 @{username}")
+        else:
+            print(f"  ⏳ 开始处理（第一个请求无需等待）")
         
         # 获取chat信息
         chat_info, is_not_found = get_chat_info(username)
@@ -336,8 +391,8 @@ def process_data_json():
         # 3. 检查并下载头像
         photo = chat_info.get('photo')
         if photo:
-            # 下载头像（等待，因为下载也要调用API）
-            time.sleep(REQUEST_DELAY)
+            # 下载头像前也需要延迟（因为getFile也是API请求）
+            smart_delay(f"下载 @{username} 头像")
             big_file_id = photo.get('big_file_id')
             if big_file_id:
                 local_path = download_avatar(big_file_id, username)
