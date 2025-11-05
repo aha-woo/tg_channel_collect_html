@@ -1155,6 +1155,32 @@ header nav a.active {
     width: 100%;
 }
 
+/* ========== 访问计数器 ========== */
+.footer-visitor-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 8px 16px;
+    background: rgba(0, 136, 204, 0.05);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.footer-visitor-counter i {
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+.visitor-count {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+}
+
 @media (max-width: 768px) {
     .ad-space-a-container {
         margin: 24px 0;
@@ -1195,6 +1221,20 @@ header nav a.active {
     
     .footer-content {
         padding: 0 16px;
+    }
+    
+    .footer-visitor-counter {
+        font-size: 11px;
+        padding: 6px 12px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-visitor-counter i {
+        font-size: 12px;
+    }
+    
+    .visitor-count {
+        font-size: 12px;
     }
     
     .footer-text {

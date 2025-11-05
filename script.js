@@ -929,6 +929,67 @@ function setupModals() {
     });
 }
 
+// ========== 访问计数器 ==========
+function initVisitorCounter() {
+    const counterElement = document.getElementById('visitorCount');
+    if (!counterElement) return;
+    
+    // 基准日期（网站上线日期）
+    const baseDate = new Date('2023-01-01');
+    const baseCount = 12345; // 初始访问数
+    
+    // 获取今天的日期（只考虑年月日，忽略时分秒）
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    // 计算从基准日期到今天的天数
+    const daysDiff = Math.floor((today - baseDate) / (1000 * 60 * 60 * 24));
+    
+    // 使用日期作为随机种子，确保同一天显示相同数字
+    const dateString = today.toISOString().split('T')[0].replace(/-/g, '');
+    const seed = parseInt(dateString);
+    
+    // 基于种子生成随机数（每天固定）
+    function seededRandom(seed) {
+        const x = Math.sin(seed) * 10000;
+        return x - Math.floor(x);
+    }
+    
+    // 每天随机增加 80-200 的访问量
+    const dailyIncrease = Math.floor(80 + seededRandom(seed) * 120);
+    
+    // 计算总访问数
+    const totalCount = baseCount + (daysDiff * 150) + (dailyIncrease * daysDiff);
+    
+    // 格式化数字（添加千位分隔符）
+    function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    
+    // 动画显示数字
+    const targetCount = totalCount;
+    let currentCount = Math.floor(targetCount * 0.9); // 从90%开始动画
+    const increment = Math.max(1, Math.floor((targetCount - currentCount) / 50));
+    
+    const updateCounter = () => {
+        if (currentCount < targetCount) {
+            currentCount += increment;
+            if (currentCount > targetCount) {
+                currentCount = targetCount;
+            }
+            counterElement.textContent = formatNumber(currentCount);
+            requestAnimationFrame(updateCounter);
+        } else {
+            counterElement.textContent = formatNumber(targetCount);
+        }
+    };
+    
+    // 延迟一下再开始动画，让页面先加载
+    setTimeout(() => {
+        updateCounter();
+    }, 500);
+}
+
 // ========== 初始化 ==========
 document.addEventListener('DOMContentLoaded', function() {
     // 加载数据
@@ -942,6 +1003,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 设置弹窗
     setupModals();
+    
+    // 初始化访问计数器
+    initVisitorCounter();
     
     // 平滑滚动到锚点
     window.addEventListener('hashchange', function() {
