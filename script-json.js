@@ -187,9 +187,20 @@ function renderContent() {
     const contentDiv = document.getElementById('content');
     contentDiv.innerHTML = '';
     
+    // 检查是否已通过成人认证
+    const isAdultVerified = localStorage.getItem('adultVerified') === 'true';
+    
     jsonData.categories.forEach((category, catIndex) => {
         category.children.forEach((child, childIndex) => {
             if (!child.items || child.items.length === 0) return;
+            
+            // 检查是否是"暂定"分类
+            const isPendingCategory = category.parentName === '暂定' || child.name === '暂定';
+            
+            // 如果是暂定分类且未通过认证，隐藏内容
+            if (isPendingCategory && !isAdultVerified) {
+                return; // 跳过渲染，不显示内容
+            }
             
             // 在"常用机器人"分类前插入广告位A
             if (child.name === '常用机器人') {
@@ -260,9 +271,40 @@ function generateNavigationMenu() {
     const menu = document.getElementById('menu');
     menu.innerHTML = '';
     
+    // 检查是否已通过成人认证
+    const isAdultVerified = localStorage.getItem('adultVerified') === 'true';
+    
     let sectionIndex = 0;
     
     jsonData.categories.forEach((category, catIndex) => {
+        const isPendingCategory = category.parentName === '暂定';
+        
+        // 如果是暂定分类且未通过认证，隐藏菜单项
+        if (isPendingCategory && !isAdultVerified) {
+            // 创建隐藏的"暂定"分类菜单项（需要点击显示成人认证）
+            const parentLi = document.createElement('li');
+            parentLi.classList.add('menu-item', 'menu-item-parent', 'pending-category');
+            
+            const parentLink = document.createElement('a');
+            parentLink.href = '#';
+            parentLink.innerHTML = `
+                <i class="${category.parentIcon || 'fas fa-lock'}"></i>
+                <span class="menu-item-text">${category.parentName}</span>
+                <i class="fas fa-lock menu-item-lock"></i>
+            `;
+            
+            parentLi.appendChild(parentLink);
+            
+            // 点击显示成人认证弹窗
+            parentLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                showAgeVerificationModal();
+            });
+            
+            menu.appendChild(parentLi);
+            return;
+        }
+        
         const parentLi = document.createElement('li');
         parentLi.classList.add('menu-item', 'menu-item-parent');
         
@@ -322,6 +364,63 @@ function generateNavigationMenu() {
             });
             
             menu.appendChild(parentLi);
+        }
+    });
+}
+
+// ========== 成人认证功能 ==========
+function showAgeVerificationModal() {
+    const modal = document.getElementById('ageVerificationModal');
+    if (modal) {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function hideAgeVerificationModal() {
+    const modal = document.getElementById('ageVerificationModal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function setupAgeVerification() {
+    const confirmBtn = document.getElementById('ageConfirmBtn');
+    const cancelBtn = document.getElementById('ageCancelBtn');
+    const modal = document.getElementById('ageVerificationModal');
+    
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', function() {
+            // 保存认证状态
+            localStorage.setItem('adultVerified', 'true');
+            // 隐藏弹窗
+            hideAgeVerificationModal();
+            // 重新渲染内容和菜单
+            renderContent();
+            generateNavigationMenu();
+        });
+    }
+    
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', function() {
+            hideAgeVerificationModal();
+        });
+    }
+    
+    // 点击弹窗外部关闭
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideAgeVerificationModal();
+            }
+        });
+    }
+    
+    // ESC键关闭
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
+            hideAgeVerificationModal();
         }
     });
 }
@@ -595,6 +694,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 设置弹窗
     setupModals();
+    
+    // 设置成人认证
+    setupAgeVerification();
     
     // 初始化访问计数器
     initVisitorCounter();

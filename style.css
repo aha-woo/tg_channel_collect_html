@@ -1244,4 +1244,176 @@ header nav a.active {
     .footer-copyright {
         font-size: 9px;
     }
+    
+    .footer-disclaimer {
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+    
+    .footer-disclaimer i {
+        font-size: 12px;
+    }
+}
+
+/* ========== 免责声明 ========== */
+.footer-disclaimer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 8px 16px;
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 8px;
+    font-size: 13px;
+    color: #856404;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-disclaimer i {
+    color: #ffc107;
+    font-size: 14px;
+}
+
+.footer-disclaimer span {
+    font-weight: 500;
+}
+
+/* ========== 成人认证弹窗 ========== */
+.age-verification-content {
+    text-align: center;
+    padding: 40px 32px;
+}
+
+.age-verification-icon {
+    font-size: 64px;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    animation: pulse 2s infinite;
+}
+
+.age-verification-content h2 {
+    margin: 0 0 16px 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: block;
+}
+
+.age-verification-text {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.age-verification-warning {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e74c3c;
+    margin-bottom: 32px;
+    padding: 12px 20px;
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.age-verification-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.age-btn {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.age-btn-confirm {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+}
+
+.age-btn-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 136, 204, 0.4);
+}
+
+.age-btn-confirm:active {
+    transform: translateY(0);
+}
+
+.age-btn-cancel {
+    background: var(--bg-main);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.age-btn-cancel:hover {
+    background: var(--border-color);
+    color: var(--text-primary);
+}
+
+.age-verification-note {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* ========== 暂定分类菜单项（锁定状态） ========== */
+.pending-category {
+    opacity: 0.7;
+    position: relative;
+}
+
+.pending-category a {
+    cursor: pointer;
+}
+
+.pending-category:hover {
+    opacity: 1;
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.menu-item-lock {
+    color: #ffc107;
+    font-size: 14px;
+    margin-left: auto;
+    animation: lockPulse 2s infinite;
+}
+
+@keyframes lockPulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
 }

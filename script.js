@@ -557,9 +557,20 @@ function loadAndRenderData() {
 function renderContent(sections) {
             const contentDiv = document.getElementById('content');
     contentDiv.innerHTML = '';
+    
+    // 检查是否已通过成人认证
+    const isAdultVerified = localStorage.getItem('adultVerified') === 'true';
 
     sections.forEach((section, index) => {
         const sectionId = `section-${index}`;
+        
+        // 检查是否是"暂定"分类
+        const isPendingSection = section.title.includes('暂定');
+        
+        // 如果是暂定分类且未通过认证，隐藏内容
+        if (isPendingSection && !isAdultVerified) {
+            return; // 跳过渲染，不显示内容
+        }
         
         // 在"常用机器人"分类前插入广告位A
         if (section.title === '常用机器人') {
@@ -690,6 +701,9 @@ const menuHierarchy = {
         '不良',
         '京豆',
         'Scammer'
+    ],
+    '暂定': [
+        '暂定'
     ]
 };
 
@@ -698,12 +712,42 @@ function generateNavigationMenu(sections) {
     const menu = document.getElementById('menu');
     menu.innerHTML = '';
     
+    // 检查是否已通过成人认证
+    const isAdultVerified = localStorage.getItem('adultVerified') === 'true';
+    
     // 处理层级菜单
     const processedSections = new Set();
     const parentSections = new Map(); // 存储父级section和其子级
     
     // 首先处理父级菜单
     Object.keys(menuHierarchy).forEach(parentName => {
+        const isPendingCategory = parentName === '暂定';
+        
+        // 如果是暂定分类且未通过认证，显示锁定菜单项
+        if (isPendingCategory && !isAdultVerified) {
+            const parentLi = document.createElement('li');
+            parentLi.classList.add('menu-item', 'menu-item-parent', 'pending-category');
+            
+            const parentLink = document.createElement('a');
+            parentLink.href = '#';
+            parentLink.innerHTML = `
+                <i class="fas fa-lock"></i>
+                <span class="menu-item-text">${parentName}</span>
+                <i class="fas fa-lock menu-item-lock"></i>
+            `;
+            
+            parentLi.appendChild(parentLink);
+            
+            // 点击显示成人认证弹窗
+            parentLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                showAgeVerificationModal();
+            });
+            
+            menu.appendChild(parentLi);
+            return;
+        }
+        
         // 查找父级section，如果找不到则创建虚拟父级
         let parentSection = sections.find(s => s.title.includes(parentName));
         let parentIndex = -1;
@@ -764,6 +808,12 @@ function generateNavigationMenu(sections) {
     
     // 生成菜单
     sections.forEach((section, index) => {
+        // 检查是否是"暂定"分类
+        const isPendingSection = section.title.includes('暂定');
+        if (isPendingSection && !isAdultVerified) {
+            return; // 跳过暂定分类，不添加到菜单
+        }
+        
         if (processedSections.has(index)) {
             if (parentSections.has(index)) {
                 // 这是父级菜单
@@ -990,6 +1040,62 @@ function initVisitorCounter() {
     }, 500);
 }
 
+// ========== 成人认证功能 ==========
+function showAgeVerificationModal() {
+    const modal = document.getElementById('ageVerificationModal');
+    if (modal) {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function hideAgeVerificationModal() {
+    const modal = document.getElementById('ageVerificationModal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function setupAgeVerification() {
+    const confirmBtn = document.getElementById('ageConfirmBtn');
+    const cancelBtn = document.getElementById('ageCancelBtn');
+    const modal = document.getElementById('ageVerificationModal');
+    
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', function() {
+            // 保存认证状态
+            localStorage.setItem('adultVerified', 'true');
+            // 隐藏弹窗
+            hideAgeVerificationModal();
+            // 重新渲染内容和菜单
+            loadAndRenderData();
+        });
+    }
+    
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', function() {
+            hideAgeVerificationModal();
+        });
+    }
+    
+    // 点击弹窗外部关闭
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideAgeVerificationModal();
+            }
+        });
+    }
+    
+    // ESC键关闭
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
+            hideAgeVerificationModal();
+        }
+    });
+}
+
 // ========== 初始化 ==========
 document.addEventListener('DOMContentLoaded', function() {
     // 加载数据
@@ -1003,6 +1109,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 设置弹窗
     setupModals();
+    
+    // 设置成人认证
+    setupAgeVerification();
     
     // 初始化访问计数器
     initVisitorCounter();

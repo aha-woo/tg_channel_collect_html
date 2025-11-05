@@ -23,7 +23,7 @@
     <!-- 安全头：防止MIME类型嗅探 -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     
-    <link rel="stylesheet" href="style.css?v=20250106">
+    <link rel="stylesheet" href="style.css?v=20251105_v3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -175,6 +175,10 @@
                 <span>总访问量：</span>
                 <span id="visitorCount" class="visitor-count">0</span>
             </div>
+            <div class="footer-disclaimer">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>本网站仅提供导航，不对链接内容负责</span>
+            </div>
             <p class="footer-text">
                 本站内容源自互联网,如有内容侵犯了你的权益,请联系删除相关内容,合作联系:
                 <a href="mailto:dlxmyhc@gmail.com" class="footer-link">dlxmyhc@gmail.com</a>
@@ -183,7 +187,30 @@
         </div>
     </footer>
     
+    <!-- 成人认证弹窗 -->
+    <div id="ageVerificationModal" class="modal">
+        <div class="modal-content age-verification-content">
+            <div class="age-verification-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h2>年龄验证</h2>
+            <p class="age-verification-text">您即将访问的内容可能包含成人内容</p>
+            <p class="age-verification-warning">请确认您已年满18周岁</p>
+            <div class="age-verification-buttons">
+                <button class="age-btn age-btn-confirm" id="ageConfirmBtn">
+                    <i class="fas fa-check"></i>
+                    我已年满18周岁，确认进入
+                </button>
+                <button class="age-btn age-btn-cancel" id="ageCancelBtn">
+                    <i class="fas fa-times"></i>
+                    取消
+                </button>
+            </div>
+            <p class="age-verification-note">本网站仅提供导航，不对链接内容负责</p>
+        </div>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="script.js?v=20250106"></script>
+    <script src="script.js?v=20251105_v3"></script>
 </body>
 </html>
