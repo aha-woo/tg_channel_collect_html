@@ -416,6 +416,7 @@ header nav a.active {
 #content {
     padding: 20px 24px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .section-container {
@@ -991,12 +992,16 @@ header nav a.active {
 
 /* ========== 广告位A（分类之间） ========== */
 .ad-space-a-container {
-    margin: 32px 24px;
+    margin: 32px 0;
     padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
 }
 
 .ad-space-a {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     border: 2px solid var(--border-color);
@@ -1005,6 +1010,7 @@ header nav a.active {
     overflow: hidden;
     transition: all 0.3s ease;
     position: relative;
+    display: block;
 }
 
 .ad-space-a::before {
@@ -1103,6 +1109,7 @@ header nav a.active {
     border-top: 1px solid var(--border-color);
     padding: 20px 0;
     margin-top: 40px;
+    width: 100%;
     text-align: center;
 }
 
@@ -1114,14 +1121,18 @@ header nav a.active {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-text {
     color: var(--text-secondary);
     font-size: 11px;
-    margin-bottom: 6px;
+    margin: 0 auto 6px auto;
     line-height: 1.5;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .footer-link {
@@ -1139,13 +1150,14 @@ header nav a.active {
 .footer-copyright {
     color: var(--text-tertiary);
     font-size: 10px;
-    margin: 0;
+    margin: 0 auto;
     text-align: center;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
     .ad-space-a-container {
-        margin: 24px 16px;
+        margin: 24px 0;
     }
     
     .ad-space-a-content {
