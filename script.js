@@ -567,9 +567,58 @@ function renderContent(sections) {
         // 检查是否是"暂定"分类
         const isPendingSection = section.title.includes('暂定');
         
-        // 如果是暂定分类且未通过认证，隐藏内容
+        // 创建section容器
+                const sectionContainer = document.createElement('div');
+                sectionContainer.classList.add('section-container');
+        sectionContainer.id = sectionId;
+        
+        // 创建标题行容器
+        const titleRow = document.createElement('div');
+        titleRow.classList.add('section-title-row');
+        
+        // 创建标题
+        const title = document.createElement('h2');
+        title.textContent = section.title;
+        titleRow.appendChild(title);
+        
+        // 如果是暂定分类且未通过认证，显示认证提示和按钮
         if (isPendingSection && !isAdultVerified) {
-            return; // 跳过渲染，不显示内容
+            const ageWarning = document.createElement('div');
+            ageWarning.classList.add('age-warning-badge');
+            ageWarning.innerHTML = `
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>需要成人认证</span>
+            `;
+            
+            const verifyBtn = document.createElement('button');
+            verifyBtn.classList.add('age-verify-btn');
+            verifyBtn.innerHTML = `
+                <i class="fas fa-shield-alt"></i>
+                <span>点击认证</span>
+            `;
+            verifyBtn.addEventListener('click', function() {
+                showAgeVerificationModal();
+            });
+            
+            titleRow.appendChild(ageWarning);
+            titleRow.appendChild(verifyBtn);
+        } else {
+            // 已认证或非暂定分类：显示免责声明
+            const disclaimer = document.createElement('div');
+            disclaimer.classList.add('section-disclaimer');
+            disclaimer.innerHTML = `
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>本网站仅提供导航，不对链接内容负责</span>
+            `;
+            titleRow.appendChild(disclaimer);
+        }
+        
+        sectionContainer.appendChild(titleRow);
+        
+        // 如果是暂定分类且未通过认证，不显示内容，只显示标题
+        if (isPendingSection && !isAdultVerified) {
+            contentDiv.appendChild(sectionContainer);
+            return;
         }
         
         // 在"常用机器人"分类前插入广告位A
@@ -577,16 +626,6 @@ function renderContent(sections) {
             const adSpaceA = createAdSpaceA();
             contentDiv.appendChild(adSpaceA);
         }
-
-        // 创建section容器
-                const sectionContainer = document.createElement('div');
-                sectionContainer.classList.add('section-container');
-        sectionContainer.id = sectionId;
-        
-        // 创建标题
-        const title = document.createElement('h2');
-        title.textContent = section.title;
-        sectionContainer.appendChild(title);
         
         // 创建网格容器
                 const gridContainer = document.createElement('div');
@@ -723,20 +762,24 @@ function generateNavigationMenu(sections) {
     Object.keys(menuHierarchy).forEach(parentName => {
         const isPendingCategory = parentName === '暂定';
         
-        // 如果是暂定分类且未通过认证，显示锁定菜单项
+        // 暂定分类始终显示，但根据认证状态显示不同内容
+        const parentLi = document.createElement('li');
+        parentLi.classList.add('menu-item', 'menu-item-parent');
+        
+        if (isPendingCategory) {
+            parentLi.classList.add('pending-category');
+        }
+        
+        const parentLink = document.createElement('a');
+        parentLink.href = '#';
+        
         if (isPendingCategory && !isAdultVerified) {
-            const parentLi = document.createElement('li');
-            parentLi.classList.add('menu-item', 'menu-item-parent', 'pending-category');
-            
-            const parentLink = document.createElement('a');
-            parentLink.href = '#';
+            // 暂定分类未认证：显示锁定图标，点击弹出认证
             parentLink.innerHTML = `
                 <i class="fas fa-lock"></i>
                 <span class="menu-item-text">${parentName}</span>
                 <i class="fas fa-lock menu-item-lock"></i>
             `;
-            
-            parentLi.appendChild(parentLink);
             
             // 点击显示成人认证弹窗
             parentLink.addEventListener('click', function(e) {
@@ -744,9 +787,17 @@ function generateNavigationMenu(sections) {
                 showAgeVerificationModal();
             });
             
+            parentLi.appendChild(parentLink);
             menu.appendChild(parentLi);
             return;
         }
+        
+        // 正常分类或已认证的暂定分类：正常显示
+        parentLink.innerHTML = `
+            <i class="${getIconForSection(parentName)}"></i>
+            <span class="menu-item-text">${parentName}</span>
+            <i class="fas fa-chevron-down menu-item-arrow"></i>
+        `;
         
         // 查找父级section，如果找不到则创建虚拟父级
         let parentSection = sections.find(s => s.title.includes(parentName));
@@ -810,8 +861,9 @@ function generateNavigationMenu(sections) {
     sections.forEach((section, index) => {
         // 检查是否是"暂定"分类
         const isPendingSection = section.title.includes('暂定');
-        if (isPendingSection && !isAdultVerified) {
-            return; // 跳过暂定分类，不添加到菜单
+        // 暂定分类在菜单中已处理，这里跳过（避免重复）
+        if (isPendingSection) {
+            return;
         }
         
         if (processedSections.has(index)) {
@@ -1068,7 +1120,7 @@ function setupAgeVerification() {
             localStorage.setItem('adultVerified', 'true');
             // 隐藏弹窗
             hideAgeVerificationModal();
-            // 重新渲染内容和菜单
+            // 重新渲染内容和菜单（会显示暂定分类的子菜单和内容）
             loadAndRenderData();
         });
     }

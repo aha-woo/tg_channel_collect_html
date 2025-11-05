@@ -195,18 +195,7 @@ function renderContent() {
             if (!child.items || child.items.length === 0) return;
             
             // 检查是否是"暂定"分类
-            const isPendingCategory = category.parentName === '暂定' || child.name === '暂定';
-            
-            // 如果是暂定分类且未通过认证，隐藏内容
-            if (isPendingCategory && !isAdultVerified) {
-                return; // 跳过渲染，不显示内容
-            }
-            
-            // 在"常用机器人"分类前插入广告位A
-            if (child.name === '常用机器人') {
-                const adSpaceA = createAdSpaceA();
-                contentDiv.appendChild(adSpaceA);
-            }
+            const isPendingCategory = category.parentName === '暂定';
             
             const sectionId = `section-${catIndex}-${childIndex}`;
             
@@ -215,10 +204,60 @@ function renderContent() {
             sectionContainer.classList.add('section-container');
             sectionContainer.id = sectionId;
             
+            // 创建标题行容器
+            const titleRow = document.createElement('div');
+            titleRow.classList.add('section-title-row');
+            
             // 创建标题
             const title = document.createElement('h2');
             title.textContent = child.name;
-            sectionContainer.appendChild(title);
+            titleRow.appendChild(title);
+            
+            // 如果是暂定分类且未通过认证，显示认证提示和按钮
+            if (isPendingCategory && !isAdultVerified) {
+                const ageWarning = document.createElement('div');
+                ageWarning.classList.add('age-warning-badge');
+                ageWarning.innerHTML = `
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>需要成人认证</span>
+                `;
+                
+                const verifyBtn = document.createElement('button');
+                verifyBtn.classList.add('age-verify-btn');
+                verifyBtn.innerHTML = `
+                    <i class="fas fa-shield-alt"></i>
+                    <span>点击认证</span>
+                `;
+                verifyBtn.addEventListener('click', function() {
+                    showAgeVerificationModal();
+                });
+                
+                titleRow.appendChild(ageWarning);
+                titleRow.appendChild(verifyBtn);
+            } else {
+                // 已认证或非暂定分类：显示免责声明
+                const disclaimer = document.createElement('div');
+                disclaimer.classList.add('section-disclaimer');
+                disclaimer.innerHTML = `
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>本网站仅提供导航，不对链接内容负责</span>
+                `;
+                titleRow.appendChild(disclaimer);
+            }
+            
+            sectionContainer.appendChild(titleRow);
+            
+            // 如果是暂定分类且未通过认证，不显示内容，只显示标题
+            if (isPendingCategory && !isAdultVerified) {
+                contentDiv.appendChild(sectionContainer);
+                return;
+            }
+            
+            // 在"常用机器人"分类前插入广告位A
+            if (child.name === '常用机器人') {
+                const adSpaceA = createAdSpaceA();
+                contentDiv.appendChild(adSpaceA);
+            }
             
             // 创建网格容器
             const gridContainer = document.createElement('div');
@@ -279,92 +318,90 @@ function generateNavigationMenu() {
     jsonData.categories.forEach((category, catIndex) => {
         const isPendingCategory = category.parentName === '暂定';
         
-        // 如果是暂定分类且未通过认证，隐藏菜单项
+        const parentLi = document.createElement('li');
+        parentLi.classList.add('menu-item', 'menu-item-parent');
+        
+        if (isPendingCategory) {
+            parentLi.classList.add('pending-category');
+        }
+        
+        const parentLink = document.createElement('a');
+        parentLink.href = '#';
+        
         if (isPendingCategory && !isAdultVerified) {
-            // 创建隐藏的"暂定"分类菜单项（需要点击显示成人认证）
-            const parentLi = document.createElement('li');
-            parentLi.classList.add('menu-item', 'menu-item-parent', 'pending-category');
-            
-            const parentLink = document.createElement('a');
-            parentLink.href = '#';
+            // 暂定分类未认证：显示锁定图标，点击弹出认证
             parentLink.innerHTML = `
                 <i class="${category.parentIcon || 'fas fa-lock'}"></i>
                 <span class="menu-item-text">${category.parentName}</span>
                 <i class="fas fa-lock menu-item-lock"></i>
             `;
             
-            parentLi.appendChild(parentLink);
-            
             // 点击显示成人认证弹窗
             parentLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 showAgeVerificationModal();
             });
-            
-            menu.appendChild(parentLi);
-            return;
-        }
-        
-        const parentLi = document.createElement('li');
-        parentLi.classList.add('menu-item', 'menu-item-parent');
-        
-        const parentLink = document.createElement('a');
-        parentLink.href = '#';
-        parentLink.innerHTML = `
-            <i class="${category.parentIcon}"></i>
-            <span class="menu-item-text">${category.parentName}</span>
-            <i class="fas fa-chevron-down menu-item-arrow"></i>
-        `;
-        
-        parentLi.appendChild(parentLink);
-        
-        // 创建子菜单
-        const subMenu = document.createElement('ul');
-        subMenu.classList.add('sub-menu');
-        
-        category.children.forEach((child, childIndex) => {
-            if (!child.items || child.items.length === 0) return;
-            
-            const childLi = document.createElement('li');
-            childLi.classList.add('menu-item');
-            
-            const childLink = document.createElement('a');
-            childLink.href = `#section-${catIndex}-${childIndex}`;
-            childLink.innerHTML = `
-                <i class="${child.icon}"></i>
-                <span class="menu-item-text">${child.name}</span>
+        } else {
+            // 正常分类或已认证的暂定分类：正常显示
+            parentLink.innerHTML = `
+                <i class="${category.parentIcon}"></i>
+                <span class="menu-item-text">${category.parentName}</span>
+                <i class="fas fa-chevron-down menu-item-arrow"></i>
             `;
             
-            childLink.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // 创建子菜单（只有认证后才显示）
+            if (isPendingCategory && isAdultVerified || !isPendingCategory) {
+                const subMenu = document.createElement('ul');
+                subMenu.classList.add('sub-menu');
+                
+                category.children.forEach((child, childIndex) => {
+                    if (!child.items || child.items.length === 0) return;
                     
-                    // 移动端关闭侧边栏
-                    if (window.innerWidth <= 768) {
-                        document.getElementById('sidebar').classList.remove('expanded');
-                    }
+                    const childLi = document.createElement('li');
+                    childLi.classList.add('menu-item');
+                    
+                    const childLink = document.createElement('a');
+                    childLink.href = `#section-${catIndex}-${childIndex}`;
+                    childLink.innerHTML = `
+                        <i class="${child.icon}"></i>
+                        <span class="menu-item-text">${child.name}</span>
+                    `;
+                    
+                    childLink.addEventListener('click', function(e) {
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            
+                            // 移动端关闭侧边栏
+                            if (window.innerWidth <= 768) {
+                                document.getElementById('sidebar').classList.remove('expanded');
+                            }
+                        }
+                    });
+                    
+                    childLi.appendChild(childLink);
+                    subMenu.appendChild(childLi);
+                    sectionIndex++;
+                });
+                
+                if (subMenu.children.length > 0) {
+                    parentLi.appendChild(subMenu);
                 }
-            });
+            }
             
-            childLi.appendChild(childLink);
-            subMenu.appendChild(childLi);
-            sectionIndex++;
-        });
-        
-        if (subMenu.children.length > 0) {
-            parentLi.appendChild(subMenu);
-            
-            // 父级点击展开/收起
+            // 父级点击展开/收起（只有有子菜单时才展开）
             parentLink.addEventListener('click', function(e) {
                 e.preventDefault();
-                parentLi.classList.toggle('expanded');
+                if (parentLi.querySelector('.sub-menu')) {
+                    parentLi.classList.toggle('expanded');
+                }
             });
-            
-            menu.appendChild(parentLi);
         }
+        
+        parentLi.appendChild(parentLink);
+        menu.appendChild(parentLi);
     });
 }
 
@@ -396,7 +433,7 @@ function setupAgeVerification() {
             localStorage.setItem('adultVerified', 'true');
             // 隐藏弹窗
             hideAgeVerificationModal();
-            // 重新渲染内容和菜单
+            // 重新渲染内容和菜单（会显示暂定分类的子菜单和内容）
             renderContent();
             generateNavigationMenu();
         });
