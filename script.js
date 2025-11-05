@@ -560,6 +560,12 @@ function renderContent(sections) {
 
     sections.forEach((section, index) => {
         const sectionId = `section-${index}`;
+        
+        // 在"常用机器人"分类前插入广告位A
+        if (section.title === '常用机器人') {
+            const adSpaceA = createAdSpaceA();
+            contentDiv.appendChild(adSpaceA);
+        }
 
         // 创建section容器
                 const sectionContainer = document.createElement('div');
@@ -601,6 +607,36 @@ function renderContent(sections) {
                 sectionContainer.appendChild(gridContainer);
                 contentDiv.appendChild(sectionContainer);
             });
+}
+
+// ========== 创建广告位A ==========
+function createAdSpaceA() {
+    const adContainer = document.createElement('div');
+    adContainer.classList.add('ad-space-a-container');
+    
+    const adBox = document.createElement('div');
+    adBox.classList.add('ad-space-a');
+    
+    adBox.innerHTML = `
+        <div class="ad-space-a-content">
+            <div class="ad-space-a-icon">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <div class="ad-space-a-text">
+                <h3>诚招广告合作！</h3>
+                <p>优质广告位火热招募中，欢迎联系洽谈</p>
+            </div>
+            <div class="ad-space-a-contact">
+                <a href="mailto:dlxmyhc@gmail.com" class="ad-space-a-link">
+                    <i class="fas fa-envelope"></i>
+                    联系合作：dlxmyhc@gmail.com
+                </a>
+            </div>
+        </div>
+    `;
+    
+    adContainer.appendChild(adBox);
+    return adContainer;
 }
 
 // ========== 菜单层级配置 ==========
@@ -893,25 +929,6 @@ function setupModals() {
     });
 }
 
-// ========== 设置广告招募横幅 ==========
-function setupAdBanner() {
-    const banner = document.getElementById('adRecruitmentBanner');
-    const closeBtn = document.getElementById('closeBanner');
-    
-    if (closeBtn && banner) {
-        closeBtn.addEventListener('click', function() {
-            banner.style.display = 'none';
-            // 保存到localStorage，这样用户关闭后不会再次显示
-            localStorage.setItem('adBannerClosed', 'true');
-        });
-    }
-    
-    // 检查是否已经关闭过
-    if (banner && localStorage.getItem('adBannerClosed') === 'true') {
-        banner.style.display = 'none';
-    }
-}
-
 // ========== 初始化 ==========
 document.addEventListener('DOMContentLoaded', function() {
     // 加载数据
@@ -925,9 +942,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 设置弹窗
     setupModals();
-    
-    // 设置广告招募横幅
-    setupAdBanner();
     
     // 平滑滚动到锚点
     window.addEventListener('hashchange', function() {
