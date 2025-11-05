@@ -564,8 +564,8 @@ function renderContent(sections) {
     sections.forEach((section, index) => {
         const sectionId = `section-${index}`;
         
-        // 检查是否是"暂定"分类
-        const isPendingSection = section.title.includes('暂定');
+        // 检查是否是"TEST A"分类
+        const isPendingSection = section.title.includes('TEST A');
         
         // 创建section容器
                 const sectionContainer = document.createElement('div');
@@ -581,7 +581,7 @@ function renderContent(sections) {
         title.textContent = section.title;
         titleRow.appendChild(title);
         
-        // 如果是暂定分类且未通过认证，显示认证提示和按钮
+        // 如果是TEST A分类且未通过认证，显示认证提示和按钮
         if (isPendingSection && !isAdultVerified) {
             const ageWarning = document.createElement('div');
             ageWarning.classList.add('age-warning-badge');
@@ -603,7 +603,7 @@ function renderContent(sections) {
             titleRow.appendChild(ageWarning);
             titleRow.appendChild(verifyBtn);
         } else {
-            // 已认证或非暂定分类：显示免责声明
+            // 已认证或非TEST A分类：显示免责声明
             const disclaimer = document.createElement('div');
             disclaimer.classList.add('section-disclaimer');
             disclaimer.innerHTML = `
@@ -615,7 +615,7 @@ function renderContent(sections) {
         
         sectionContainer.appendChild(titleRow);
         
-        // 如果是暂定分类且未通过认证，不显示内容，只显示标题
+        // 如果是TEST A分类且未通过认证，不显示内容，只显示标题
         if (isPendingSection && !isAdultVerified) {
             contentDiv.appendChild(sectionContainer);
             return;
@@ -741,8 +741,8 @@ const menuHierarchy = {
         '京豆',
         'Scammer'
     ],
-    '暂定': [
-        '暂定'
+    'TEST A': [
+        'TEST A'
     ]
 };
 
@@ -760,9 +760,9 @@ function generateNavigationMenu(sections) {
     
     // 首先处理父级菜单
     Object.keys(menuHierarchy).forEach(parentName => {
-        const isPendingCategory = parentName === '暂定';
+        const isPendingCategory = parentName === 'TEST A';
         
-        // 暂定分类始终显示，但根据认证状态显示不同内容
+        // TEST A分类始终显示，但根据认证状态显示不同内容
         const parentLi = document.createElement('li');
         parentLi.classList.add('menu-item', 'menu-item-parent');
         
@@ -774,7 +774,7 @@ function generateNavigationMenu(sections) {
         parentLink.href = '#';
         
         if (isPendingCategory && !isAdultVerified) {
-            // 暂定分类未认证：显示锁定图标，点击弹出认证
+            // TEST A分类未认证：显示锁定图标，点击弹出认证
             parentLink.innerHTML = `
                 <i class="fas fa-lock"></i>
                 <span class="menu-item-text">${parentName}</span>
@@ -792,7 +792,7 @@ function generateNavigationMenu(sections) {
             return;
         }
         
-        // 正常分类或已认证的暂定分类：正常显示
+        // 正常分类或已认证的TEST A分类：正常显示
         parentLink.innerHTML = `
             <i class="${getIconForSection(parentName)}"></i>
             <span class="menu-item-text">${parentName}</span>
@@ -859,9 +859,9 @@ function generateNavigationMenu(sections) {
     
     // 生成菜单
     sections.forEach((section, index) => {
-        // 检查是否是"暂定"分类
-        const isPendingSection = section.title.includes('暂定');
-        // 暂定分类在菜单中已处理，这里跳过（避免重复）
+        // 检查是否是"TEST A"分类
+        const isPendingSection = section.title.includes('TEST A');
+        // TEST A分类在菜单中已处理，这里跳过（避免重复）
         if (isPendingSection) {
             return;
         }
@@ -1120,7 +1120,7 @@ function setupAgeVerification() {
             localStorage.setItem('adultVerified', 'true');
             // 隐藏弹窗
             hideAgeVerificationModal();
-            // 重新渲染内容和菜单（会显示暂定分类的子菜单和内容）
+            // 重新渲染内容和菜单（会显示TEST A分类的子菜单和内容）
             loadAndRenderData();
         });
     }

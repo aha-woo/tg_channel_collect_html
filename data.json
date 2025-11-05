@@ -6,6 +6,49 @@
   },
   "categories": [
     {
+      "id": "test_a",
+      "parentName": "TEST A",
+      "parentIcon": "fas fa-flask",
+      "children": [
+        {
+          "name": "测试分类一",
+          "icon": "fas fa-star",
+          "items": [
+            {
+              "title": "测试频道 Alpha",
+              "url": "https://t.me/test_alpha",
+              "description": "这是一个测试频道，用于演示成人认证功能",
+              "logo": ""
+            },
+            {
+              "title": "测试群组 Beta",
+              "url": "https://t.me/test_beta",
+              "description": "这是一个测试群组，需要通过认证后才能查看",
+              "logo": ""
+            }
+          ]
+        },
+        {
+          "name": "测试分类二",
+          "icon": "fas fa-rocket",
+          "items": [
+            {
+              "title": "测试机器人 Gamma",
+              "url": "https://t.me/test_gamma_bot",
+              "description": "测试用机器人，演示认证后的内容展示",
+              "logo": ""
+            },
+            {
+              "title": "测试资源 Delta",
+              "url": "https://t.me/test_delta",
+              "description": "测试资源链接，认证功能演示",
+              "logo": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "telegram工具",
       "parentName": "Telegram工具",
       "parentIcon": "fab fa-telegram",
