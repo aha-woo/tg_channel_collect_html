@@ -31,7 +31,7 @@ AVATAR_DIR = "telegram_avatars"
 # 但实际使用中，建议更保守，避免触发限制
 # 每个频道需要2个API请求（getChat + getFile），所以需要更长的延迟
 # 配置策略：每秒最多0.1-0.15个请求（即每次请求间隔6.5-10秒），最大化避免限制
-REQUEST_DELAY = 10  # 基础延迟（秒），约每秒0.15个请求
+REQUEST_DELAY = 60  # 基础延迟（秒），约每秒0.15个请求
 MAX_RETRIES = 3  # 最大重试次数
 RETRY_DELAY = 10  # 重试延迟（秒）
 RATE_LIMIT_DELAY = 1800  # 遇到429错误时的默认等待时间（秒）= 1小时
