@@ -79,7 +79,22 @@ curl -I http://你的域名或IP | grep -i "content-type"
 
 ---
 
-### ✅ 5. 清除浏览器缓存（如果看不到更新）
+### ✅ 5. 更新版本号（重要！如果修改了CSS/JS）
+
+**如果修改了 `style.css` 或 `script.js` 或 `script-json.js`，必须更新版本号！**
+
+在 `index.html` 和 `index-json.html` 中：
+```html
+<!-- 将版本号改为新日期 -->
+<link rel="stylesheet" href="style.css?v=20250105">  <!-- 改为新版本 -->
+<script src="script.js?v=20250105"></script>  <!-- 改为新版本 -->
+```
+
+详细说明见：`VERSION_UPDATE.md`
+
+---
+
+### ✅ 6. 清除浏览器缓存（如果看不到更新）
 
 如果修改后看不到效果，可能是浏览器缓存：
 
@@ -90,13 +105,14 @@ curl -I http://你的域名或IP | grep -i "content-type"
 **方法2：清除缓存**
 - Chrome: 设置 → 隐私和安全 → 清除浏览数据
 
-**方法3：Nginx缓存设置**
-如果Nginx配置了缓存，可能需要清除：
-```bash
-# 检查Nginx缓存目录
-sudo find /var/cache/nginx -type f -delete
-sudo systemctl reload nginx
-```
+**方法3：使用无痕模式测试**
+- `Ctrl + Shift + N` (Chrome) 打开无痕模式
+- 访问网站查看是否显示新版
+
+**方法4：开发者工具禁用缓存**
+- 按 `F12` 打开开发者工具
+- Network 标签 → 勾选 "Disable cache"
+- 刷新页面
 
 ---
 
@@ -237,11 +253,12 @@ sudo nginx -t && sudo systemctl reload nginx && echo "✅ Nginx重载成功" || 
 ## ✅ 部署检查清单
 
 - [ ] 文件已上传到VPS
+- [ ] **版本号已更新**（如果修改了CSS/JS）
 - [ ] Nginx配置测试通过 (`sudo nginx -t`)
 - [ ] Nginx已重新加载 (`sudo systemctl reload nginx`)
 - [ ] 网站可以正常访问
-- [ ] 新功能正常显示（广告横幅、广告位、页脚）
-- [ ] 浏览器缓存已清除（如需）
+- [ ] 新功能正常显示（广告位A、页脚）
+- [ ] 浏览器缓存已清除（`Ctrl + F5` 或无痕模式测试）
 - [ ] PM2进程正常运行（如使用）（`pm2 status`）
 
 ---
