@@ -893,6 +893,25 @@ function setupModals() {
     });
 }
 
+// ========== 设置广告招募横幅 ==========
+function setupAdBanner() {
+    const banner = document.getElementById('adRecruitmentBanner');
+    const closeBtn = document.getElementById('closeBanner');
+    
+    if (closeBtn && banner) {
+        closeBtn.addEventListener('click', function() {
+            banner.style.display = 'none';
+            // 保存到localStorage，这样用户关闭后不会再次显示
+            localStorage.setItem('adBannerClosed', 'true');
+        });
+    }
+    
+    // 检查是否已经关闭过
+    if (banner && localStorage.getItem('adBannerClosed') === 'true') {
+        banner.style.display = 'none';
+    }
+}
+
 // ========== 初始化 ==========
 document.addEventListener('DOMContentLoaded', function() {
     // 加载数据
@@ -906,6 +925,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 设置弹窗
     setupModals();
+    
+    // 设置广告招募横幅
+    setupAdBanner();
     
     // 平滑滚动到锚点
     window.addEventListener('hashchange', function() {
