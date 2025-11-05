@@ -39,7 +39,12 @@ RATE_LIMIT_DELAY = 1800  # 遇到429错误时的默认等待时间（秒）= 1�
 # 随机延迟配置（避免被识别为机器人行为）
 USE_RANDOM_DELAY = True  # True=启用随机延迟，False=固定延迟
 RANDOM_DELAY_RANGE = 6  # 随机延迟范围（秒），实际延迟 = REQUEST_DELAY + random(0, RANDOM_DELAY_RANGE)
-# 最终延迟范围：6.5-10秒，平均约8秒，每秒约0.125个请求
+# 最终延迟范围：60-66秒，平均约63秒，每秒约0.016个请求（非常保守）
+
+# getChat 和 getFile 之间的延迟配置
+USE_BETWEEN_API_DELAY = True  # True=启用API间延迟，False=不延迟
+BETWEEN_API_DELAY_MIN = 3  # getChat和getFile之间的最小延迟（秒）
+BETWEEN_API_DELAY_MAX = 8  # getChat和getFile之间的最大延迟（秒）
 
 # 速率限制后的随机睡眠配置（遇到429错误时）
 RATE_LIMIT_SLEEP_MIN = 1800  # 遇到429错误后的最小睡眠时间（秒）= 1小时
@@ -122,6 +127,14 @@ def smart_delay(description=""):
     if description:
         print(f"  ⏳ 等待 {delay:.2f} 秒...")
     time.sleep(delay)
+
+def between_api_delay(description=""):
+    """getChat 和 getFile 之间的延迟（避免API调用过于频繁）"""
+    if USE_BETWEEN_API_DELAY:
+        delay = random.uniform(BETWEEN_API_DELAY_MIN, BETWEEN_API_DELAY_MAX)
+        if description:
+            print(f"  ⏸️  API间延迟 {delay:.2f} 秒（getChat → getFile）...")
+        time.sleep(delay)
 
 def get_chat_info(username, retry_count=0):
     """获取频道/群组/Bot信息（带重试机制）
@@ -369,9 +382,12 @@ def process_data_json():
         print(f"📊 已处理: {processed_count} 个，剩余: {len(remaining_links)} 个")
         print("💡 将跳过已处理的链接（断点续传）")
     
-    # 计算预计时间（每个频道需要2个请求）
+    # 计算预计时间（每个频道需要2个请求 + API间延迟）
     avg_delay = REQUEST_DELAY + (RANDOM_DELAY_RANGE / 2 if USE_RANDOM_DELAY else 0)
-    estimated_time = len(remaining_links) * 2 * avg_delay / 60  # 每个频道2个请求
+    avg_between_delay = ((BETWEEN_API_DELAY_MIN + BETWEEN_API_DELAY_MAX) / 2) if USE_BETWEEN_API_DELAY else 0
+    # 每个频道：2个请求延迟 + 1个API间延迟
+    avg_time_per_channel = (avg_delay * 2) + avg_between_delay
+    estimated_time = len(remaining_links) * avg_time_per_channel / 60
     
     print("=" * 60)
     print(f"⏱️  预计时间: {estimated_time:.1f} 分钟")
@@ -380,7 +396,10 @@ def process_data_json():
         print(f"📊 平均延迟: {avg_delay:.1f} 秒/请求")
     else:
         print(f"🐌 请求间隔: {REQUEST_DELAY:.1f} 秒（固定延迟）")
+    if USE_BETWEEN_API_DELAY:
+        print(f"⏸️  API间延迟: {BETWEEN_API_DELAY_MIN}-{BETWEEN_API_DELAY_MAX} 秒（getChat → getFile）")
     print(f"💡 每个频道需要2个API请求（getChat + getFile）")
+    print(f"💡 每个频道平均耗时: {avg_time_per_channel:.1f} 秒")
     print("=" * 60)
     
     start_time = time.time()
@@ -491,6 +510,9 @@ def process_data_json():
         # 3. 检查并下载头像
         photo = chat_info.get('photo')
         if photo:
+            # getChat 和 getFile 之间的延迟（避免API调用过于频繁）
+            between_api_delay(f"getChat → getFile")
+            
             # 下载头像前也需要延迟（因为getFile也是API请求）
             smart_delay(f"下载 @{username} 头像")
             big_file_id = photo.get('big_file_id')
