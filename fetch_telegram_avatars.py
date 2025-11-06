@@ -39,13 +39,13 @@ RATE_LIMIT_DELAY = 1800  # 遇到429错误时的默认等待时间（秒）= 1�
 
 # 随机延迟配置（避免被识别为机器人行为）
 USE_RANDOM_DELAY = True  # True=启用随机延迟，False=固定延迟
-RANDOM_DELAY_RANGE = 6  # 随机延迟范围（秒），实际延迟 = REQUEST_DELAY + random(0, RANDOM_DELAY_RANGE)
+RANDOM_DELAY_RANGE = 20  # 随机延迟范围（秒），实际延迟 = REQUEST_DELAY + random(0, RANDOM_DELAY_RANGE)
 # 最终延迟范围：60-66秒，平均约63秒，每秒约0.016个请求（非常保守）
 
 # getChat 和 getFile 之间的延迟配置
 USE_BETWEEN_API_DELAY = True  # True=启用API间延迟，False=不延迟
 BETWEEN_API_DELAY_MIN = 3  # getChat和getFile之间的最小延迟（秒）
-BETWEEN_API_DELAY_MAX = 8  # getChat和getFile之间的最大延迟（秒）
+BETWEEN_API_DELAY_MAX = 12  # getChat和getFile之间的最大延迟（秒）
 
 # 速率限制后的随机睡眠配置（遇到429错误时）
 RATE_LIMIT_SLEEP_MIN = 1800  # 遇到429错误后的最小睡眠时间（秒）= 1小时
