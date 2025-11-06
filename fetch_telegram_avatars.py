@@ -12,6 +12,7 @@ import os
 import time
 import random
 from urllib.parse import urlparse
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
 # ============ 加载环境变量 ============
@@ -49,6 +50,11 @@ BETWEEN_API_DELAY_MAX = 8  # getChat和getFile之间的最大延迟（秒）
 # 速率限制后的随机睡眠配置（遇到429错误时）
 RATE_LIMIT_SLEEP_MIN = 1800  # 遇到429错误后的最小睡眠时间（秒）= 1小时
 RATE_LIMIT_SLEEP_MAX = 5400  # 遇到429错误后的最大睡眠时间（秒）= 1.5小时
+
+# 批量处理后的休眠配置（防止FLOOD限制）
+BATCH_SIZE = 50  # 每处理多少个链接后休眠一次
+BATCH_SLEEP_MIN = 1800  # 批量休眠最小时间（秒）= 30分钟
+BATCH_SLEEP_MAX = 3600  # 批量休眠最大时间（秒）= 1小时
 
 # 进度保存文件
 PROGRESS_FILE = "fetch_progress.json"
@@ -135,6 +141,39 @@ def between_api_delay(description=""):
         if description:
             print(f"  ⏸️  API间延迟 {delay:.2f} 秒（getChat → getFile）...")
         time.sleep(delay)
+
+def batch_sleep_if_needed(batch_processed_count, processed_usernames, data):
+    """检查是否需要批量休眠（每处理BATCH_SIZE个后休眠一次）
+    
+    返回: True表示已休眠，False表示不需要休眠
+    """
+    if batch_processed_count > 0 and batch_processed_count % BATCH_SIZE == 0:
+        sleep_time = random.uniform(BATCH_SLEEP_MIN, BATCH_SLEEP_MAX)
+        sleep_minutes = sleep_time / 60
+        sleep_hours = sleep_time / 3600
+        
+        print("\n" + "=" * 60)
+        print(f"⏸️  已处理 {batch_processed_count} 个链接，进入休眠模式")
+        print(f"💤 休眠时间: {sleep_time:.1f} 秒（约 {sleep_minutes:.1f} 分钟 / {sleep_hours:.2f} 小时）")
+        resume_time = datetime.now() + timedelta(seconds=sleep_time)
+        print(f"⏰ 预计恢复时间: {resume_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        print("=" * 60)
+        
+        # 休眠前保存进度
+        save_progress({'processed': list(processed_usernames)})
+        with open('data.json', 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        print(f"💾 进度已保存")
+        
+        # 开始休眠
+        time.sleep(sleep_time)
+        
+        print("\n" + "=" * 60)
+        print(f"✅ 休眠结束，继续处理...")
+        print("=" * 60 + "\n")
+        
+        return True
+    return False
 
 def get_chat_info(username, retry_count=0):
     """获取频道/群组/Bot信息（带重试机制）
@@ -409,6 +448,7 @@ def process_data_json():
     deleted_count = 0
     deleted_items = []  # 记录已删除的条目
     items_to_delete = []  # 记录需要从data中删除的条目
+    batch_processed_count = 0  # 批量处理计数器（不包括跳过的）
     
     # 处理剩余的链接
     for idx, link_info in enumerate(remaining_links, 1):
@@ -430,7 +470,7 @@ def process_data_json():
             skip_count += 1
             processed_usernames.add(username)
             save_progress({'processed': list(processed_usernames)})
-            continue
+            continue  # 跳过的链接不计入批量计数
         
         # 速率限制：每次请求前等待（包含随机延迟）
         if idx > 1:  # 第一个请求不需要等待
@@ -462,6 +502,11 @@ def process_data_json():
             
             processed_usernames.add(username)
             save_progress({'processed': list(processed_usernames)})
+            batch_processed_count += 1  # 删除的链接也计入批量计数
+            
+            # 检查是否需要批量休眠
+            batch_sleep_if_needed(batch_processed_count, processed_usernames, data)
+            
             continue
         
         if not chat_info:
@@ -488,6 +533,11 @@ def process_data_json():
             print(f"  💡 保留条目（可能是权限或Bot状态问题）")
             processed_usernames.add(username)
             save_progress({'processed': list(processed_usernames)})
+            batch_processed_count += 1  # 失败的链接也计入批量计数
+            
+            # 检查是否需要批量休眠
+            batch_sleep_if_needed(batch_processed_count, processed_usernames, data)
+            
             continue
         
         # 更新频道/群组信息
@@ -534,6 +584,12 @@ def process_data_json():
         # 如果有任何信息更新，计数
         if info_updated:
             updated_count += 1
+        
+        # 增加批量处理计数（处理完一个链接后）
+        batch_processed_count += 1
+        
+        # 每处理BATCH_SIZE个后休眠一次（防止FLOOD限制）
+        batch_sleep_if_needed(batch_processed_count, processed_usernames, data)
         
         # 每处理10个保存一次进度和data.json
         if idx % 10 == 0:
