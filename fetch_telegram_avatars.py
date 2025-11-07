@@ -32,29 +32,29 @@ AVATAR_DIR = "telegram_avatars"
 # 但实际使用中，建议更保守，避免触发限制
 # 每个频道需要2个API请求（getChat + getFile），所以需要更长的延迟
 # 配置策略：每秒最多0.1-0.15个请求（即每次请求间隔6.5-10秒），最大化避免限制
-REQUEST_DELAY = 60  # 基础延迟（秒），约每秒0.15个请求
+REQUEST_DELAY = 40  # 基础延迟（秒），约每秒0.15个请求
 MAX_RETRIES = 3  # 最大重试次数
 RETRY_DELAY = 10  # 重试延迟（秒）
 RATE_LIMIT_DELAY = 1800  # 遇到429错误时的默认等待时间（秒）= 1小时
 
 # 随机延迟配置（避免被识别为机器人行为）
 USE_RANDOM_DELAY = True  # True=启用随机延迟，False=固定延迟
-RANDOM_DELAY_RANGE = 20  # 随机延迟范围（秒），实际延迟 = REQUEST_DELAY + random(0, RANDOM_DELAY_RANGE)
+RANDOM_DELAY_RANGE = 40  # 随机延迟范围（秒），实际延迟 = REQUEST_DELAY + random(0, RANDOM_DELAY_RANGE)
 # 最终延迟范围：60-66秒，平均约63秒，每秒约0.016个请求（非常保守）
 
 # getChat 和 getFile 之间的延迟配置
 USE_BETWEEN_API_DELAY = True  # True=启用API间延迟，False=不延迟
 BETWEEN_API_DELAY_MIN = 3  # getChat和getFile之间的最小延迟（秒）
-BETWEEN_API_DELAY_MAX = 12  # getChat和getFile之间的最大延迟（秒）
+BETWEEN_API_DELAY_MAX = 30  # getChat和getFile之间的最大延迟（秒）
 
 # 速率限制后的随机睡眠配置（遇到429错误时）
 RATE_LIMIT_SLEEP_MIN = 1800  # 遇到429错误后的最小睡眠时间（秒）= 1小时
 RATE_LIMIT_SLEEP_MAX = 5400  # 遇到429错误后的最大睡眠时间（秒）= 1.5小时
 
 # 批量处理后的休眠配置（防止FLOOD限制）
-BATCH_SIZE = 50  # 每处理多少个链接后休眠一次
-BATCH_SLEEP_MIN = 1800  # 批量休眠最小时间（秒）= 30分钟
-BATCH_SLEEP_MAX = 3600  # 批量休眠最大时间（秒）= 1小时
+BATCH_SIZE = 30  # 每处理多少个链接后休眠一次
+BATCH_SLEEP_MIN = 600  # 批量休眠最小时间（秒）= 30分钟
+BATCH_SLEEP_MAX = 1200  # 批量休眠最大时间（秒）= 1小时
 
 # 进度保存文件
 PROGRESS_FILE = "fetch_progress.json"
