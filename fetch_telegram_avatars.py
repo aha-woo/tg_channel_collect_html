@@ -26,6 +26,8 @@ BOT_TOKEN = os.getenv('BOT_TOKEN', 'YOUR_BOT_TOKEN_HERE')
 
 # 头像保存目录
 AVATAR_DIR = "telegram_avatars"
+# 说明保存目录
+DESCRIPTION_DIR = "telegram_descriptions"
 
 # ============ 速率限制配置 ============
 # Telegram Bot API 限制：每秒最多30个请求
@@ -65,16 +67,43 @@ AUTO_DELETE_NOT_FOUND = True  # True=自动删除，False=仅标记不删除
 DELETED_ITEMS_FILE = "deleted_items.json"  # 保存已删除条目的备份
 
 def get_username_from_url(url):
-    """从URL中提取Telegram用户名"""
+    """从URL中提取Telegram用户名（用于文件命名）
+    
+    示例：
+        https://t.me/chiguawuxian -> chiguawuxian
+        https://t.me/jiso -> jiso
+        https://t.me/jisoubar -> jisoubar
+    
+    返回的用户名将用于：
+        - 头像文件名: telegram_avatars/{username}.jpg
+        - 说明文件名: telegram_descriptions/{username}.txt
+    
+    这样可以通过URL唯一确定对应的头像和说明文件。
+    
+    Args:
+        url: Telegram URL，例如 https://t.me/chiguawuxian
+        
+    Returns:
+        用户名（字符串），例如 'chiguawuxian'，失败返回 None
+    """
+    if not url or not isinstance(url, str):
+        return None
+    
     # https://t.me/jiso
     # https://t.me/joinchat/xxxxx
     
     if 'joinchat' in url or '+' in url:
         return None  # 私有群组链接无法获取
     
+    # 提取用户名（保持原始大小写，用于文件命名）
     match = re.search(r't\.me/([a-zA-Z0-9_]+)', url)
     if match:
-        return match.group(1)
+        username = match.group(1)
+        # 返回原始用户名，用于文件命名
+        # 例如: https://t.me/chiguawuxian -> chiguawuxian
+        # 文件: telegram_avatars/chiguawuxian.jpg
+        # 文件: telegram_descriptions/chiguawuxian.txt
+        return username
     return None
 
 def get_favicon_url(url, username=None):
@@ -271,6 +300,49 @@ def get_chat_info(username, retry_count=0):
             return get_chat_info(username, retry_count + 1)
         return None, False
 
+def save_description(description, username, url):
+    """保存说明到本地文件
+    
+    文件名基于用户名，与URL一一对应：
+        URL: https://t.me/chiguawuxian
+        用户名: chiguawuxian
+        文件: telegram_descriptions/chiguawuxian.txt
+    
+    Args:
+        description: 说明文本
+        username: 用户名（从URL提取，用于文件名）
+        url: 原始URL（保存到文件内容中，用于追溯）
+    
+    Returns:
+        保存的文件路径，失败返回None
+    """
+    if not description or not description.strip():
+        return None
+    
+    if not username:
+        return None
+    
+    try:
+        os.makedirs(DESCRIPTION_DIR, exist_ok=True)
+        # 文件名直接使用用户名，确保与URL一一对应
+        # 例如: chiguawuxian -> chiguawuxian.txt
+        description_file = os.path.join(DESCRIPTION_DIR, f"{username}.txt")
+        
+        # 保存说明内容，包含URL信息
+        content = f"URL: {url}\n"
+        content += f"Username: @{username}\n"
+        content += f"Saved at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+        content += f"{'='*60}\n\n"
+        content += description.strip()
+        
+        with open(description_file, 'w', encoding='utf-8') as f:
+            f.write(content)
+        
+        return description_file
+    except Exception as e:
+        print(f"  ⚠️  保存说明失败 @{username}: {e}")
+        return None
+
 def download_avatar(file_id, username, retry_count=0):
     """下载头像（带重试机制）"""
     # 获取文件路径
@@ -308,6 +380,9 @@ def download_avatar(file_id, username, retry_count=0):
         
         # 下载文件
         os.makedirs(AVATAR_DIR, exist_ok=True)
+        # 文件名直接使用用户名，确保与URL一一对应
+        # 例如: chiguawuxian -> chiguawuxian.jpg
+        # URL: https://t.me/chiguawuxian -> 文件: telegram_avatars/chiguawuxian.jpg
         local_path = os.path.join(AVATAR_DIR, f"{username}.jpg")
         
         img_response = requests.get(download_url, timeout=30)
@@ -545,10 +620,18 @@ def process_data_json():
         
         # 1. 更新描述信息（如果有）
         description = chat_info.get('description', '').strip()
+        description_saved = False  # 标记说明是否已保存
+        
         if description and (not item.get('description') or item.get('description') == '暂无描述'):
             item['description'] = description
             info_updated = True
             print(f"  ✅ 描述已更新")
+            
+            # 保存说明到本地文件
+            description_file = save_description(description, username, item.get('url', ''))
+            if description_file:
+                print(f"  💾 说明已保存: {description_file}")
+                description_saved = True
         
         # 2. 更新标题（如果当前标题为空或有更好的标题）
         title = chat_info.get('title', '').strip()
@@ -580,6 +663,12 @@ def process_data_json():
                     print(f"  ❌ 头像下载失败")
         else:
             print(f"  ℹ️  该频道/群组没有设置头像")
+        
+        # 即使没有更新描述，如果有说明也保存说明（确保所有说明都被保存）
+        if description and not description_saved:
+            description_file = save_description(description, username, item.get('url', ''))
+            if description_file:
+                print(f"  💾 说明已保存: {description_file}")
         
         # 如果有任何信息更新，计数
         if info_updated:
@@ -638,16 +727,18 @@ def process_data_json():
     print(f"  📁 共更新: {updated_count} 个头像")
     print(f"  ⏱️  总耗时: {total_time/60:.1f} 分钟")
     print(f"  📁 头像保存在: {AVATAR_DIR}/ 目录")
+    print(f"  📝 说明保存在: {DESCRIPTION_DIR}/ 目录")
     
     if deleted_items:
         print(f"  📦 已删除条目备份: {DELETED_ITEMS_FILE}")
     
     print("\n💡 下一步：")
     print("   1. 将 telegram_avatars 文件夹上传到你的服务器")
-    print("   2. 或使用图床服务获取在线URL")
+    print("   2. 将 telegram_descriptions 文件夹上传到你的服务器（可选）")
+    print("   3. 或使用图床服务获取在线URL")
     if deleted_count > 0:
-        print(f"   3. 已自动删除 {deleted_count} 个不存在的频道/群组")
-        print(f"   4. 如需恢复，请查看: {DELETED_ITEMS_FILE}")
+        print(f"   4. 已自动删除 {deleted_count} 个不存在的频道/群组")
+        print(f"   5. 如需恢复，请查看: {DELETED_ITEMS_FILE}")
     print("=" * 60)
 
 if __name__ == '__main__':
