@@ -263,13 +263,42 @@ function renderContent() {
             const gridContainer = document.createElement('div');
             gridContainer.classList.add('grid-container');
             
-            // 创建卡片
-            child.items.forEach(item => {
-                const card = createCard(item);
+            // 默认只显示15个标签（3排，每排5个）
+            const INITIAL_DISPLAY_COUNT = 15;
+            const totalItems = child.items.length;
+            const itemsToShow = totalItems > INITIAL_DISPLAY_COUNT ? INITIAL_DISPLAY_COUNT : totalItems;
+            
+            // 创建卡片（默认只显示前15个）
+            for (let i = 0; i < itemsToShow; i++) {
+                const card = createCard(child.items[i]);
                 gridContainer.appendChild(card);
-            });
+            }
             
             sectionContainer.appendChild(gridContainer);
+            
+            // 如果标签数量超过15个，添加"展开更多"按钮
+            if (totalItems > INITIAL_DISPLAY_COUNT) {
+                const expandButton = document.createElement('button');
+                expandButton.classList.add('expand-more-btn');
+                expandButton.innerHTML = `
+                    <i class="fas fa-chevron-down"></i>
+                    <span>展开更多 (${totalItems - INITIAL_DISPLAY_COUNT} 个)</span>
+                `;
+                
+                expandButton.addEventListener('click', function() {
+                    // 隐藏按钮
+                    expandButton.style.display = 'none';
+                    
+                    // 显示剩余的标签
+                    for (let i = INITIAL_DISPLAY_COUNT; i < totalItems; i++) {
+                        const card = createCard(child.items[i]);
+                        gridContainer.appendChild(card);
+                    }
+                });
+                
+                sectionContainer.appendChild(expandButton);
+            }
+            
             contentDiv.appendChild(sectionContainer);
         });
     });
