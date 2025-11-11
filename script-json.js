@@ -182,10 +182,124 @@ function createCard(item) {
     return card;
 }
 
+// ========== 创建广告轮播区域 ==========
+function createAdCarousel() {
+    const carouselContainer = document.createElement('div');
+    carouselContainer.classList.add('ad-carousel-container');
+    
+    // 左箭头
+    const leftArrow = document.createElement('button');
+    leftArrow.classList.add('carousel-arrow', 'carousel-arrow-left');
+    leftArrow.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    leftArrow.setAttribute('aria-label', '向左滚动');
+    
+    // 滚动容器
+    const scrollContainer = document.createElement('div');
+    scrollContainer.classList.add('ad-carousel-scroll');
+    
+    // 广告卡片数据（可以根据需要修改）
+    const adCards = [
+        {
+            title: 'Telegram Analytics',
+            description: 'Subscribe to stay informed about TGStat news.',
+            buttonText: 'Read channel',
+            icon: 'fas fa-chart-bar',
+            iconBg: '#1e88e5',
+            link: '#'
+        },
+        {
+            title: 'TGAlertsBot',
+            description: 'Monitoring of keywords in channels and chats',
+            buttonText: 'Subscribe',
+            icon: 'fas fa-bell',
+            iconBg: '#42a5f5',
+            link: '#'
+        },
+        {
+            title: 'TGStat Bot',
+            description: 'Bot to get channel statistics without leaving Telegram',
+            buttonText: 'Start bot',
+            icon: 'fas fa-robot',
+            iconBg: '#1e88e5',
+            link: '#'
+        }
+    ];
+    
+    // 创建广告卡片
+    adCards.forEach((ad, index) => {
+        const card = document.createElement('div');
+        card.classList.add('ad-carousel-card');
+        
+        card.innerHTML = `
+            <div class="ad-card-content">
+                <div class="ad-card-text">
+                    <h3 class="ad-card-title">${ad.title}</h3>
+                    <p class="ad-card-description">${ad.description}</p>
+                    <button class="ad-card-button" onclick="window.open('${ad.link}', '_blank')">
+                        ${ad.buttonText}
+                    </button>
+                </div>
+                <div class="ad-card-icon" style="background-color: ${ad.iconBg};">
+                    <i class="${ad.icon}"></i>
+                </div>
+            </div>
+            <div class="ad-card-label">
+                <i class="fas fa-info-circle"></i>
+                <span>ad</span>
+            </div>
+        `;
+        
+        scrollContainer.appendChild(card);
+    });
+    
+    // 右箭头
+    const rightArrow = document.createElement('button');
+    rightArrow.classList.add('carousel-arrow', 'carousel-arrow-right');
+    rightArrow.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    rightArrow.setAttribute('aria-label', '向右滚动');
+    
+    // 滚动功能
+    const scrollAmount = 400; // 每次滚动的距离
+    
+    leftArrow.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    
+    rightArrow.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    
+    // 更新箭头显示状态
+    const updateArrows = () => {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+        leftArrow.style.opacity = scrollLeft > 0 ? '1' : '0.3';
+        rightArrow.style.opacity = scrollLeft < scrollWidth - clientWidth - 10 ? '1' : '0.3';
+    };
+    
+    scrollContainer.addEventListener('scroll', updateArrows);
+    updateArrows();
+    
+    carouselContainer.appendChild(leftArrow);
+    carouselContainer.appendChild(scrollContainer);
+    carouselContainer.appendChild(rightArrow);
+    
+    return carouselContainer;
+}
+
 // ========== 渲染内容 ==========
 function renderContent() {
     const contentDiv = document.getElementById('content');
     contentDiv.innerHTML = '';
+    
+    // 在内容最前面添加广告轮播
+    const adCarousel = createAdCarousel();
+    contentDiv.appendChild(adCarousel);
     
     // 检查是否已通过成人认证
     const isAdultVerified = localStorage.getItem('adultVerified') === 'true';
