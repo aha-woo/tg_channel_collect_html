@@ -275,14 +275,26 @@ function createAdCarousel() {
         });
     });
     
-    // 更新箭头显示状态
+    // 更新箭头显示状态和居中逻辑
     const updateArrows = () => {
         const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
         leftArrow.style.opacity = scrollLeft > 0 ? '1' : '0.3';
         rightArrow.style.opacity = scrollLeft < scrollWidth - clientWidth - 10 ? '1' : '0.3';
+        
+        // 如果内容宽度小于等于容器宽度，居中显示；否则允许滚动
+        if (scrollWidth <= clientWidth) {
+            scrollContainer.classList.remove('scrollable');
+        } else {
+            scrollContainer.classList.add('scrollable');
+        }
     };
     
+    // 监听滚动和窗口大小变化
     scrollContainer.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+    
+    // 初始检查（延迟一下确保DOM已渲染）
+    setTimeout(updateArrows, 100);
     updateArrows();
     
     carouselContainer.appendChild(leftArrow);
