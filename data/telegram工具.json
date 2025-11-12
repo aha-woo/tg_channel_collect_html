@@ -1,0 +1,25 @@
+{
+  "id": "Telegram工具",
+  "parentName": "Telegram工具",
+  "parentIcon": "fas fa-folder",
+  "children": [
+    {
+      "name": "官方认证 Bot",
+      "icon": "fas fa-tag",
+      "items": [
+        {
+          "title": "FY(旧的被ban了)",
+          "url": "https://t.me/FY666i",
+          "description": "FY唯一官方电报",
+          "logo": "telegram_avatars/FY666i_FY(旧的被ban了)_avatar.jpg"
+        },
+        {
+          "title": "【奶牛】主打和平-官方🇨🇳",
+          "url": "https://t.me/nainiuyyds",
+          "description": "奶牛永久唯一下载官方链接",
+          "logo": "telegram_avatars/nainiuyyds_【奶牛】主打和平-官方🇨🇳_avatar.jpg"
+        }
+      ]
+    }
+  ]
+}

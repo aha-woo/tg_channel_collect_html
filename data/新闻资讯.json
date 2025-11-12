@@ -1,0 +1,1519 @@
+{
+  "id": "新闻资讯",
+  "parentName": "新闻资讯",
+  "parentIcon": "fas fa-newspaper",
+  "children": [
+    {
+      "name": "新闻资讯",
+      "icon": "fas fa-newspaper",
+      "items": [
+        {
+          "title": "RSS 屋",
+          "url": "https://t.me/joinchat/HiIOAxV7g9JwNuLuThUsyQ",
+          "description": "RSS 屋 - Telegram频道",
+          "logo": "telegram_avatars/jichangtj.jpg"
+        },
+        {
+          "title": "华尔街日报 RSS",
+          "url": "https://t.me/wsj_rss",
+          "description": "华尔街日报 RSS - 精彩内容不容错过",
+          "logo": "telegram_avatars/Wsj_Rss.jpg"
+        },
+        {
+          "title": "All About RSS",
+          "url": "https://t.me/aboutrss",
+          "description": "关于 #RSS 技术的 #应用 #周边 #介绍 #方法 #教程 #指南 #讨论 #观点 #技巧\nRSS = Really Simple Syndication / Rich Site Summary\n推特：https://twitter.com/aboutrss\n频道 RSS Feed：https://feeds.feedburner.com/ALLAboutRSS\n频道 bot：@channelmcbot\n群组：@allaboutrss (福利：推特账号的 Retweet 会自动发至群组)",
+          "logo": "telegram_avatars/aboutrss.jpg"
+        },
+        {
+          "title": "悦读「优质少量 RSS 聚合」",
+          "url": "https://t.me/dailyrss",
+          "description": "文章、图片、视频、音乐、播客RSS订阅聚合频道    部分支持「🎉Tg即时预览/内嵌播放」\n订阅内容主要类型为IT、科技类文章、减压向图片音频等\n💬子频道：\n物种日历 @Guokrcalendar\n吃货研究所 @Guokr_Food_Lab\n🔗友链频道：\n资源分享 | @atashare",
+          "logo": "telegram_avatars/dailyrss.jpg"
+        },
+        {
+          "title": "中国悲剧档案官方频道",
+          "url": "https://t.me/newszg_official",
+          "description": "新的备用群，大家关注一下以免又一次失联！https://t.me/newszg_official_back",
+          "logo": "telegram_avatars/newszg_official_中国悲剧档案官方频道_avatar.jpg"
+        },
+        {
+          "title": "For Work 系列 - 读频道",
+          "url": "https://t.me/NewsFW",
+          "description": "News for Work, Not for Work.\n附属群组/稿件集散： @NewsHub0fw\n@NewsFW 是 ForWork 系列旗下频道：\nhttps://t.me/JISFW/22401",
+          "logo": "telegram_avatars/NewsFW.jpg"
+        },
+        {
+          "title": "OurBits RSS 频道",
+          "url": "https://t.me/OurBits_RSS",
+          "description": "OurBits 官种发布提醒\nOurBits 机器人 @OurbitsHelpBot\nOurBits 官种RSS频道 @OurBits_RSS\nOurBits 工单(申诉)系统：https://ticket.ourbits.club\nOurBits 捐赠注册：https://ourbits.club/donate.php\n封禁查询列表：https://ourbits.club/usersban.php",
+          "logo": "telegram_avatars/OurBits_RSS.jpg"
+        },
+        {
+          "title": "TestFlight News",
+          "url": "https://t.me/testflights",
+          "description": "TestFlight News - 新闻资讯频道",
+          "logo": "telegram_avatars/testflights.jpg"
+        },
+        {
+          "title": "Jailbreak News",
+          "url": "https://t.me/jailbreaknotifications",
+          "description": "Jailbreak News - 新闻资讯频道",
+          "logo": "telegram_avatars/jailbreaknotifications.jpg"
+        },
+        {
+          "title": "tesla 特斯拉 / 科技 NEWS",
+          "url": "https://t.me/Tesla_share",
+          "description": "tesla特斯拉 /电动车体验，最新动态，使用技巧，最新活动等等;\n以及 电动车行业，新能源， 科技 等等新闻/话题.\n频道 @Tesla_share",
+          "logo": "telegram_avatars/Tesla_share.jpg"
+        },
+        {
+          "title": "PT 资讯频道",
+          "url": "https://t.me/privatetrackernews",
+          "description": "PT 资讯频道 - Telegram频道",
+          "logo": "telegram_avatars/privatetrackernews.jpg"
+        },
+        {
+          "title": "Telegram China News",
+          "url": "https://t.me/tgchinanews",
+          "description": "一日一推一句话",
+          "logo": "telegram_avatars/tgchinanews.jpg"
+        },
+        {
+          "title": "NS 新闻转报",
+          "url": "https://t.me/SwitchNewCN",
+          "description": "官方信息请看\n【港】http://www.nintendo.com.hk/\n【网络维护状况】https://www.nintendo.com.hk/switch/support/netinfo/",
+          "logo": "telegram_avatars/SwitchNewCN.jpg"
+        },
+        {
+          "title": "全球主流新闻媒体中文速览",
+          "url": "https://t.me/allzhnews",
+          "description": "路透中文Investing.com纽约时报美国之音FT中文BBC法广德国之声澳大利亚广播公司俄罗斯卫星通讯社联合早报朝鲜日报中央日报共同网朝日新闻日经中文网半岛电视台苹果日报中央社FT一周排行BBC最热排行 界面新闻澎湃新闻\n微博，記錄中國\nhttps://t.me/weibonews\n太多消息啦  中文訂閱源\nhttps://t.me/rsszh",
+          "logo": "telegram_avatars/allzhnews.jpg"
+        },
+        {
+          "title": "报道者",
+          "url": "https://t.me/tw_reporter_org",
+          "description": "台灣第一個由公益基金會成立的網路媒體，秉持深度、開放、非營利的精神，致力於公共領域調查報導，與社會共同打造多元進步的媒體環境。\n■真相難辨的時代，需要堅守新聞價值的媒體，邀您捐款贊助： https://bit.ly/2Wp2Zqa\n■如有任何問題，歡迎來信與我們聊聊：contact@twreporter.org",
+          "logo": "telegram_avatars/tw_reporter_org.jpg"
+        },
+        {
+          "title": "电报新闻",
+          "url": "https://t.me/chinesenewss",
+          "description": "本频道旨在中文类新闻聚合阅读，由于订阅的新闻来源较多，建议关闭频道的消息通知，闲时看一看频道获取一下资讯即可。",
+          "logo": "telegram_avatars/chinesenewss.jpg"
+        },
+        {
+          "title": "新闻联播",
+          "url": "https://t.me/CCTVNewsBroadcast",
+          "description": "新闻联播语音、文字消息RSS更新",
+          "logo": "telegram_avatars/CCTVNewsBroadcast.jpg"
+        },
+        {
+          "title": "PDA 的 Discovery 版块",
+          "url": "https://t.me/discoverys",
+          "description": "PDA 的 Discovery 版块 - 精彩内容不容错过",
+          "logo": "telegram_avatars/Discoverys.jpg"
+        },
+        {
+          "title": "Sync 资源更新",
+          "url": "https://t.me/shenkey",
+          "description": "Sync 资源更新 - Telegram频道",
+          "logo": "telegram_avatars/Shenkey.jpg"
+        },
+        {
+          "title": "Free 網絡信息自由門",
+          "url": "https://t.me/todayfreedom",
+          "description": "Free 網絡信息自由門 - 欢迎关注",
+          "logo": "telegram_avatars/todayfreedom.jpg"
+        },
+        {
+          "title": "Amazon 降价信息",
+          "url": "https://t.me/amazondrop",
+          "description": "Amazon 降价信息 - Telegram频道",
+          "logo": "telegram_avatars/firstAmazon.jpg"
+        },
+        {
+          "title": "Arch Linux Updates",
+          "url": "https://t.me/archlinuxcn_updates",
+          "description": "Arch Linux Updates - 欢迎关注",
+          "logo": "telegram_avatars/Archlinuxcn_Updates.jpg"
+        },
+        {
+          "title": "Tranny Collection - Onlyfans - 男娘日报",
+          "url": "https://t.me/cd_daily",
+          "description": "Tranny Collection - Onlyfans -... - Telegram频道",
+          "logo": "telegram_avatars/cd_daily_Tranny Collection - Onlyfans - 男娘日报_avatar.jpg"
+        },
+        {
+          "title": "iOS",
+          "url": "https://t.me/ae86_trollstore",
+          "description": "秋名山iOS玩机，资讯、越狱、巨魔等。",
+          "logo": "telegram_avatars/ae86_trollstore_AE86秋名山_iOS巨魔_avatar.jpg"
+        },
+        {
+          "title": "Telegram News",
+          "url": "https://t.me/telegram",
+          "description": "Telegram News - 新闻资讯频道",
+          "logo": "telegram_avatars/Telegram.jpg"
+        },
+        {
+          "title": "Instant View Contest News",
+          "url": "https://t.me/IVcontest",
+          "description": "Instant View Contest News - 新闻资讯频道",
+          "logo": "telegram_avatars/IVcontest.jpg"
+        },
+        {
+          "title": "捷报 News",
+          "url": "https://t.me/JieBaoNews",
+          "description": "捷报 News - 新闻资讯频道",
+          "logo": "telegram_avatars/BotNews.jpg"
+        },
+        {
+          "title": "华人大事件-吃瓜新闻",
+          "url": "https://t.me/baoguang821",
+          "description": "『海外东南亚-华人大事件』",
+          "logo": "telegram_avatars/baoguang821_华人大事件-吃瓜新闻_avatar.jpg"
+        },
+        {
+          "title": "缅甸缅北东南亚新闻曝光",
+          "url": "https://t.me/ceonuan",
+          "description": "#东南亚 #柬埔寨 #菲律宾 #缅甸 #泰国",
+          "logo": "telegram_avatars/ceonuan_缅甸缅北东南亚新闻曝光_avatar.jpg"
+        },
+        {
+          "title": "吃瓜新闻|东南亚大事件",
+          "url": "https://t.me/dnycgb",
+          "description": "#东南亚 #泰国 #缅甸 #金三角 #迪拜 #柬埔寨",
+          "logo": "telegram_avatars/dnycgb_东南亚大事件_avatar.jpg"
+        },
+        {
+          "title": "东南亚曝光联盟",
+          "url": "https://t.me/DNYBGQ",
+          "description": "东南亚曝光联盟专注于东南亚华人最新动态资讯，生活故事分享，海外华人求助，让你看尽海外华人大小事。",
+          "logo": "telegram_avatars/DNYBGQ_东南亚曝光联盟_avatar.jpg"
+        },
+        {
+          "title": "东南亚🔊头条新闻",
+          "url": "https://t.me/ffg55dd",
+          "description": "东南亚🔊头条新闻 - Telegram频道",
+          "logo": "telegram_avatars/ffg55dd_东南亚🔊头条新闻_avatar.jpg"
+        },
+        {
+          "title": "Photoshop News & Dawei Fans",
+          "url": "https://t.me/fireflynews",
+          "description": "广告合作事宜请通过频道内的私信进行联系",
+          "logo": "telegram_avatars/fireflynews_Photoshop News & Dawei Fans_avatar.jpg"
+        },
+        {
+          "title": "缅北果敢【今日头条】【果敢新闻】",
+          "url": "https://t.me/gk541",
+          "description": "缅北果敢【今日头条】【果敢新闻】 - Telegram频道",
+          "logo": "telegram_avatars/gk541_缅北果敢【今日头条】【果敢新闻】_avatar.jpg"
+        },
+        {
+          "title": "菲律宾事件| 菲律宾新闻",
+          "url": "https://t.me/gogo4l",
+          "description": "菲律宾事件| 菲律宾新闻 - Telegram频道",
+          "logo": "telegram_avatars/google.jpg"
+        },
+        {
+          "title": "【缅北大事件】缅北新闻【迪拜，菲律宾，柬埔寨】",
+          "url": "https://t.me/hdo56d",
+          "description": "【缅北大事件】缅北新闻【迪拜，菲律宾，柬埔寨】 - Telegram频道",
+          "logo": "telegram_avatars/hdo56d_【缅北大事件】缅北新闻【迪拜，菲律宾，柬埔寨】_avatar.jpg"
+        },
+        {
+          "title": "Ingress Chengdu&Chongqing",
+          "url": "https://t.me/IngressChengduChongqing",
+          "description": "本频道用于发布川渝地区旅游相关资讯，提供美食，任务，交通攻略等信息，以服务更多玩家。",
+          "logo": "telegram_avatars/IngressChengduChongqing_Ingress Chengdu&Chongqing_avatar.jpg"
+        },
+        {
+          "title": "柬埔寨新闻",
+          "url": "https://t.me/Jpz565",
+          "description": "#东南亚 #柬埔寨 #菲律宾  #迪拜 #缅甸 #泰国",
+          "logo": "telegram_avatars/Jpz565_柬埔寨新闻_avatar.jpg"
+        },
+        {
+          "title": "🔥金三角新闻曝光日记🔥[金三角]",
+          "url": "https://t.me/TGQ797",
+          "description": "欢迎订阅 【金三角新闻曝光日记】",
+          "logo": "telegram_avatars/TGQ797_🔥金三角新闻曝光日记🔥[金三角]_avatar.jpg"
+        },
+        {
+          "title": "项目🀄️赚钱资讯▶️羊毛快讯💰手机副业",
+          "url": "https://t.me/zhuanqianpianmen",
+          "description": "项目🀄️赚钱资讯▶️羊毛快讯手机副业",
+          "logo": "telegram_avatars/zhuanqianpianmen_项目🀄️赚钱资讯▶️羊毛快讯💰手机副业_avatar.jpg"
+        },
+        {
+          "title": "RSSHub",
+          "url": "https://t.me/rsshub",
+          "description": "RSSHub - Telegram频道",
+          "logo": "telegram_avatars/rsshub.jpg"
+        },
+        {
+          "title": "App 限免 & TestFlight & 资讯聚合",
+          "url": "https://t.me/Appcn",
+          "description": "App 限免 & TestFlight & 资讯聚合 - 新闻资讯频道",
+          "logo": "telegram_avatars/appcn.jpg"
+        },
+        {
+          "title": "Google Play 限免信息",
+          "url": "https://t.me/playsales",
+          "description": "Google Play 限免信息 - 欢迎关注",
+          "logo": "telegram_avatars/Playsales.jpg"
+        },
+        {
+          "title": "Unigram News",
+          "url": "https://t.me/unigram",
+          "description": "Unigram News - 新闻资讯频道",
+          "logo": "telegram_avatars/Unigram.jpg"
+        },
+        {
+          "title": "闲置软路由信息发布",
+          "url": "https://t.me/supermarket66",
+          "description": "闲置软路由信息发布 - 持续更新中",
+          "logo": "telegram_avatars/username.jpg"
+        },
+        {
+          "title": "Adguard News",
+          "url": "https://t.me/AdguardNews",
+          "description": "Adguard News - 新闻资讯频道",
+          "logo": "telegram_avatars/AdguardNews.jpg"
+        },
+        {
+          "title": "App Store、Google Play 礼品卡",
+          "url": "https://t.me/iTunesGiftNews",
+          "description": "App Store、Google Play 礼品卡 - 持续更新中",
+          "logo": "telegram_avatars/Itunesgiftnews.jpg"
+        },
+        {
+          "title": "RSSHub 布告栏",
+          "url": "https://t.me/awesomeRSSHub",
+          "description": "RSSHub 布告栏 - 持续更新中",
+          "logo": "telegram_avatars/awesomersshub.jpg"
+        },
+        {
+          "title": "Telegram 中文 NEWS",
+          "url": "https://t.me/YinxiangBiji_News",
+          "description": "Telegram 中文 NEWS - 欢迎关注",
+          "logo": "telegram_avatars/MemesTelegram.jpg"
+        },
+        {
+          "title": "新闻实验室",
+          "url": "https://t.me/newslab2020",
+          "description": "新闻实验室 - 新闻资讯频道",
+          "logo": "telegram_avatars/Newslab2020.jpg"
+        },
+        {
+          "title": "突发新闻",
+          "url": "https://t.me/breakingnews_t",
+          "description": "突发新闻 - 新闻资讯频道",
+          "logo": "telegram_avatars/breakingnews_t.jpg"
+        },
+        {
+          "title": "zaobao.sg 早报 + 晚报 + 新明新闻",
+          "url": "https://t.me/zaobaosg",
+          "description": "zaobao.sg 早报 + 晚报 + 新明新闻 - 新闻资讯频道",
+          "logo": "telegram_avatars/zaobaosg.jpg"
+        },
+        {
+          "title": "PixelExperience - News",
+          "url": "https://t.me/PixelExperience",
+          "description": "PixelExperience - News - 新闻资讯频道",
+          "logo": "telegram_avatars/Pixelexperience.jpg"
+        },
+        {
+          "title": "新蛤社 TG 膜蛤专栏",
+          "url": "https://t.me/XinHaNewsAgency",
+          "description": "新蛤社 TG 膜蛤专栏 - 优质内容分享",
+          "logo": "telegram_avatars/xinhanewsagency.jpg"
+        },
+        {
+          "title": "Solidot（奇客的资讯，重要的东西）",
+          "url": "https://t.me/solidot",
+          "description": "Solidot（奇客的资讯，重要的东西） - 新闻资讯频道",
+          "logo": "telegram_avatars/solidot.jpg"
+        },
+        {
+          "title": "XDA-News [Official]",
+          "url": "https://t.me/xdanews",
+          "description": "XDA-News [Official] - 官方Telegram频道",
+          "logo": "telegram_avatars/Xdanews.jpg"
+        },
+        {
+          "title": "MrKevin 博客 资讯 分享 测评",
+          "url": "https://t.me/hilinuxcn",
+          "description": "MrKevin 博客 资讯 分享 测评 - 新闻资讯频道",
+          "logo": "telegram_avatars/Hilinuxcn.jpg"
+        },
+        {
+          "title": "主机百科资讯分享",
+          "url": "https://t.me/zhujiwiki_info",
+          "description": "主机百科资讯分享 - 新闻资讯频道",
+          "logo": "telegram_avatars/Zhujiwiki_Info.jpg"
+        },
+        {
+          "title": "新纪元 新闻中心",
+          "url": "https://t.me/xinjiyuan9",
+          "description": "新纪元 新闻中心 - 新闻资讯频道",
+          "logo": "telegram_avatars/xinjiyuan9.jpg"
+        },
+        {
+          "title": "吾爱资源 薅羊毛・资讯中心",
+          "url": "https://t.me/Pojieapp",
+          "description": "吾爱资源 薅羊毛・资讯中心 - 新闻资讯频道",
+          "logo": "telegram_avatars/pojieapp.jpg"
+        },
+        {
+          "title": "乙烷日报",
+          "url": "https://t.me/OverDaily",
+          "description": "乙烷日报 - 持续更新中",
+          "logo": "telegram_avatars/Overdaily.jpg"
+        },
+        {
+          "title": "LetITFly News",
+          "url": "https://t.me/LetITFlyW",
+          "description": "LetITFly News - 新闻资讯频道",
+          "logo": "telegram_avatars/LetITFlyW.jpg"
+        },
+        {
+          "title": "竹新社",
+          "url": "https://t.me/tnews365",
+          "description": "竹新社 - 持续更新中",
+          "logo": "telegram_avatars/tnews365.jpg"
+        },
+        {
+          "title": "海外媒体的中文新闻",
+          "url": "https://t.me/chinanews001",
+          "description": "海外媒体的中文新闻 - 新闻资讯频道",
+          "logo": "telegram_avatars/tgchinanews.jpg"
+        },
+        {
+          "title": "中文維基新聞廣播頻道",
+          "url": "https://t.me/wikinews_zh_broadcast",
+          "description": "中文維基新聞廣播頻道 - 优质内容分享",
+          "logo": "telegram_avatars/wikinews_zh_broadcast.jpg"
+        },
+        {
+          "title": "Spotify News",
+          "url": "https://t.me/spotifynews",
+          "description": "Spotify News - 新闻资讯频道",
+          "logo": "telegram_avatars/Spotifynews.jpg"
+        },
+        {
+          "title": "IT 那点事",
+          "url": "https://t.me/InternetNewsCN",
+          "description": "IT 那点事 - 欢迎关注",
+          "logo": "telegram_avatars/iTunesGiftNews.jpg"
+        },
+        {
+          "title": "Apple Tech News",
+          "url": "https://t.me/appletechnews",
+          "description": "Apple Tech News - 新闻资讯频道",
+          "logo": "telegram_avatars/AppleNuts.jpg"
+        },
+        {
+          "title": "路透中文网",
+          "url": "https://t.me/lutouzhongwen_rss",
+          "description": "路透中文网 - 优质内容分享",
+          "logo": "telegram_avatars/lutouzhongwen_rss.jpg"
+        },
+        {
+          "title": "纽约时报",
+          "url": "https://t.me/niuyueshibao_rss",
+          "description": "纽约时报 - Telegram频道",
+          "logo": "telegram_avatars/Niuyueshibao_Rss.jpg"
+        },
+        {
+          "title": "美国之音",
+          "url": "https://t.me/meiguozhiyin_rss",
+          "description": "美国之音 - 欢迎关注",
+          "logo": "telegram_avatars/meiguozhiyin_rss.jpg"
+        },
+        {
+          "title": "知乎日报",
+          "url": "https://t.me/zhihuribao_rss",
+          "description": "知乎日报 - 精彩内容不容错过",
+          "logo": "telegram_avatars/zhihuribao_rss.jpg"
+        },
+        {
+          "title": "BBC 中文",
+          "url": "https://t.me/bbczhongwen_rss",
+          "description": "BBC 中文 - 精彩内容不容错过",
+          "logo": "telegram_avatars/bbczhongwen_rss.jpg"
+        },
+        {
+          "title": "FT 中文网",
+          "url": "https://t.me/ftzhongwen_rss",
+          "description": "FT 中文网 - 优质内容分享",
+          "logo": "telegram_avatars/Ftzhongwen_rss.jpg"
+        },
+        {
+          "title": "双语新闻",
+          "url": "https://t.me/shuangyunews_rss",
+          "description": "双语新闻 - 新闻资讯频道",
+          "logo": "telegram_avatars/Shuangyunews_Rss.jpg"
+        },
+        {
+          "title": "法国 国际广播电台",
+          "url": "https://t.me/rfi_rss",
+          "description": "法国 国际广播电台 - 精彩内容不容错过",
+          "logo": "telegram_avatars/Rfi_Rss.jpg"
+        },
+        {
+          "title": "德国 德国之声",
+          "url": "https://t.me/dw_rss",
+          "description": "德国 德国之声 - 持续更新中",
+          "logo": "telegram_avatars/dw_rss.jpg"
+        },
+        {
+          "title": "澳大利亚 广播公司",
+          "url": "https://t.me/abc_rss",
+          "description": "澳大利亚 广播公司 - 欢迎关注",
+          "logo": "telegram_avatars/abc_rss.jpg"
+        },
+        {
+          "title": "俄罗斯 卫星通讯社",
+          "url": "https://t.me/ru_rss",
+          "description": "俄罗斯 卫星通讯社 - 精彩内容不容错过",
+          "logo": "telegram_avatars/Ru_rss.jpg"
+        },
+        {
+          "title": "新加坡 联合早报",
+          "url": "https://t.me/sg_rss",
+          "description": "新加坡 联合早报 - 欢迎关注",
+          "logo": "telegram_avatars/Sg_Rss.jpg"
+        },
+        {
+          "title": "韩国 中央日报",
+          "url": "https://t.me/korea_rss",
+          "description": "韩国 中央日报 - 优质内容分享",
+          "logo": "telegram_avatars/Korea_rss.jpg"
+        },
+        {
+          "title": "日本 日经中文网",
+          "url": "https://t.me/jp_rss",
+          "description": "日本 日经中文网 - Telegram频道",
+          "logo": "telegram_avatars/Jp_rss.jpg"
+        },
+        {
+          "title": "台湾香港 当地日报",
+          "url": "https://t.me/ttww_rss",
+          "description": "台湾香港 当地日报 - 欢迎关注",
+          "logo": "telegram_avatars/ttww_rss.jpg"
+        },
+        {
+          "title": "每日早间新闻",
+          "url": "https://t.me/zaobaoNews",
+          "description": "每日早间新闻 - 新闻资讯频道",
+          "logo": "telegram_avatars/zaobaosg.jpg"
+        },
+        {
+          "title": "经济信息联播",
+          "url": "https://t.me/eco_cn",
+          "description": "经济信息联播 - Telegram频道",
+          "logo": "telegram_avatars/keyboard_cn.jpg"
+        },
+        {
+          "title": "Wolley News",
+          "url": "https://t.me/wolleynews",
+          "description": "Wolley News - 新闻资讯频道",
+          "logo": "telegram_avatars/wolleynews.jpg"
+        },
+        {
+          "title": "Justf News",
+          "url": "https://t.me/justfNew",
+          "description": "Justf News - 新闻资讯频道",
+          "logo": "telegram_avatars/justfnew.jpg"
+        },
+        {
+          "title": "中文社科讲座资讯",
+          "url": "https://t.me/chwebinars",
+          "description": "中文社科讲座资讯 - 新闻资讯频道",
+          "logo": "telegram_avatars/Chwebinars.jpg"
+        },
+        {
+          "title": "小报频道",
+          "url": "https://t.me/FQnews",
+          "description": "小报频道 - Telegram频道",
+          "logo": "telegram_avatars/fnnew.jpg"
+        },
+        {
+          "title": "创造者日报",
+          "url": "https://t.me/creatorsdaily",
+          "description": "创造者日报 - 欢迎关注",
+          "logo": "telegram_avatars/creatorsdaily.jpg"
+        },
+        {
+          "title": "Apps 推广 / 抽奖 / 活动",
+          "url": "https://t.me/AppsSweepstakesNews",
+          "description": "推送不限于Apps抽奖活动相关资讯，欢迎转发！\n如打扰请关闭通知\n抽奖请关注：\nhttps://t.me/Ant_AppsSweepstakes\n正月十五关门",
+          "logo": "telegram_avatars/AppsSweepstakesNews.jpg"
+        },
+        {
+          "title": "小林君家里的托尔",
+          "url": "https://t.me/TooruchanNews",
+          "description": "非资讯向的个人自媒体，发布内容和更新频率全看心情。\n整合: @TooruChannels\n本频道独立运营，不属于“For Works”系列频道。\n联系: tooruchan@protonmail.com\n原创内容遵循CC BY-SA-NC协议，请勿将本频道主体用于任何二次创作和演绎等行为。\n被删评论请好好想想发了什么。\n附属群： https://t.me/+u0uLD22CPo8zNTM1\n附属群（NSFW/键政类话题）：https://t.me/+ZdetJ-QuFWNkZGY1",
+          "logo": "telegram_avatars/TooruchanNews.jpg"
+        },
+        {
+          "title": "Godly Noob",
+          "url": "https://t.me/GodlyNews1",
+          "description": "📰 本频道不定期推送科技数码类新资讯，欢迎关注！\n©️ 发布的内容不代表本频道立场，和你意见不一样的话欢迎在评论区留言表达，但请注意言辞，面斥不雅。\n‼️ 关联群组定期清理不活跃成员和僵尸号，误封请联系管理员。\n🔗 博客: https://yummy.best\n💬 群组: @GodlyGroup\n📬 投稿: @GodlyNewsBot\n🪧 广告合作： @yummybest_bot.",
+          "logo": "telegram_avatars/GodlyNews1.jpg"
+        },
+        {
+          "title": "𝑲𝒐𝒊𝒌𝒂𝒕𝒖 恋活✨",
+          "url": "https://t.me/Koikatunews",
+          "description": "kk人物卡，付费卡，场景卡，i社作品",
+          "logo": "telegram_avatars/Koikatunews_𝑲𝒐𝒊𝒌𝒂𝒕𝒖 恋活✨_avatar.jpg"
+        },
+        {
+          "title": "一天世界",
+          "url": "https://t.me/ipn_yitianshijie",
+          "description": "一天世界 - 欢迎关注",
+          "logo": "telegram_avatars/Ipn_yitianshijie.jpg"
+        },
+        {
+          "title": "○△□（不鳥萬通讯）",
+          "url": "https://t.me/igiveafuck",
+          "description": "○△□（不鳥萬通讯） - 欢迎关注",
+          "logo": "telegram_avatars/ipn_miechakucha.jpg"
+        },
+        {
+          "title": "灭茶苦茶 听众群",
+          "url": "https://t.me/ipn_miechakucha",
+          "description": "灭茶苦茶 听众群 - Telegram群组",
+          "logo": "telegram_avatars/Ipn_Miechakucha.jpg"
+        },
+        {
+          "title": "博物志 听众群",
+          "url": "https://t.me/museelogue",
+          "description": "博物志 听众群 - Telegram群组",
+          "logo": "telegram_avatars/Museelogue.jpg"
+        },
+        {
+          "title": "太医来了 听众群",
+          "url": "https://t.me/taiyilaile",
+          "description": "太医来了 听众群 - Telegram群组",
+          "logo": "telegram_avatars/Taiyilaile.jpg"
+        },
+        {
+          "title": "时尚怪物 听众群",
+          "url": "https://t.me/ipn_fashionmonster",
+          "description": "时尚怪物 听众群 - Telegram群组",
+          "logo": "telegram_avatars/Ipn_Fashionmonster.jpg"
+        },
+        {
+          "title": "播客大家谈",
+          "url": "https://t.me/bokecn",
+          "description": "播客大家谈 - 欢迎关注",
+          "logo": "telegram_avatars/Bokecn.jpg"
+        },
+        {
+          "title": "科技花（TestFlight）",
+          "url": "https://t.me/TestFlightCN",
+          "description": "科技花（TestFlight） - Telegram频道",
+          "logo": "telegram_avatars/TestFlightCN.jpg"
+        },
+        {
+          "title": "海龙说",
+          "url": "https://t.me/haotalk",
+          "description": "海龙说 - 精彩内容不容错过",
+          "logo": "telegram_avatars/haotalk.jpg"
+        },
+        {
+          "title": "不客观 Not Objective",
+          "url": "https://t.me/notobjective",
+          "description": "不客观 Not Objective - Telegram频道",
+          "logo": "telegram_avatars/Notobjective.jpg"
+        },
+        {
+          "title": "卖桃者说（池建强）",
+          "url": "https://t.me/mactalk",
+          "description": "卖桃者说（池建强） - 持续更新中",
+          "logo": "telegram_avatars/mactalk.jpg"
+        },
+        {
+          "title": "《澳門日報》官方 Telegram 頻道",
+          "url": "https://t.me/macaodaily",
+          "description": "《澳門日報》官方 Telegram 頻道 - 官方Telegram频道",
+          "logo": "telegram_avatars/Macaodaily.jpg"
+        },
+        {
+          "title": "The President of Brazil",
+          "url": "https://t.me/jairbolsonarobrasil",
+          "description": "The President of Brazil - Telegram频道",
+          "logo": "telegram_avatars/jairbolsonarobrasil.jpg"
+        },
+        {
+          "title": "The President of Turkey",
+          "url": "https://t.me/RTErdogan",
+          "description": "The President of Turkey - 欢迎关注",
+          "logo": "telegram_avatars/Rterdogan.jpg"
+        },
+        {
+          "title": "The President of Mexico",
+          "url": "https://t.me/PresidenteAMLO",
+          "description": "The President of Mexico - Telegram频道",
+          "logo": "telegram_avatars/Presidenteamlo.jpg"
+        },
+        {
+          "title": "The President of France",
+          "url": "https://t.me/emmanuelmacron",
+          "description": "The President of France - 优质内容分享",
+          "logo": "telegram_avatars/Emmanuelmacron.jpg"
+        },
+        {
+          "title": "The President of Ukraine",
+          "url": "https://t.me/V_Zelenskiy_official",
+          "description": "The President of Ukraine - 欢迎关注",
+          "logo": "telegram_avatars/v_zelenskiy_official.jpg"
+        },
+        {
+          "title": "The President of Uzbekistan",
+          "url": "https://t.me/shmirziyoyev",
+          "description": "The President of Uzbekistan - Telegram频道",
+          "logo": "telegram_avatars/shmirziyoyev.jpg"
+        },
+        {
+          "title": "The President of Taiwan",
+          "url": "https://t.me/iingtw",
+          "description": "The President of Taiwan - Telegram频道",
+          "logo": "telegram_avatars/iingtw.jpg"
+        },
+        {
+          "title": "The Prime Minister of Ethiopia",
+          "url": "https://t.me/AbiyAhmedAliofficial",
+          "description": "The Prime Minister of Ethiopia - Telegram频道",
+          "logo": "telegram_avatars/abiyahmedaliofficial.jpg"
+        },
+        {
+          "title": "The Prime Minister of Israel",
+          "url": "https://t.me/bnetanyahu",
+          "description": "The Prime Minister of Israel - Telegram频道",
+          "logo": "telegram_avatars/bnetanyahu.jpg"
+        },
+        {
+          "title": "Donald Trump Jr",
+          "url": "https://t.me/TrumpJr",
+          "description": "Donald Trump Jr - 持续更新中",
+          "logo": "telegram_avatars/trumpjr.jpg"
+        },
+        {
+          "title": "看鉴中国 OutsightChina",
+          "url": "https://t.me/OutsightChina",
+          "description": "看鉴中国 OutsightChina - 优质内容分享",
+          "logo": "telegram_avatars/outsightchina.jpg"
+        },
+        {
+          "title": "60 秒读懂世界",
+          "url": "https://t.me/SharedResources",
+          "description": "60 秒读懂世界 - Telegram频道",
+          "logo": "telegram_avatars/sharedresources.jpg"
+        },
+        {
+          "title": "南方周末 / Southern Weekly",
+          "url": "https://t.me/infzm",
+          "description": "南方周末 / Southern Weekly - Telegram频道",
+          "logo": "telegram_avatars/infzm.jpg"
+        },
+        {
+          "title": " Apple Nuts",
+          "url": "https://t.me/AppleNuts",
+          "description": " Apple Nuts - 持续更新中",
+          "logo": "telegram_avatars/applenuts.jpg"
+        },
+        {
+          "title": " Apple Spyder 果蛛 🕷️",
+          "url": "https://t.me/AppleSpyder",
+          "description": " Apple Spyder 果蛛 🕷 - 欢迎关注",
+          "logo": "telegram_avatars/Applespyder.jpg"
+        },
+        {
+          "title": "AppPie",
+          "url": "https://t.me/AppPie",
+          "description": "AppPie - 持续更新中",
+          "logo": "telegram_avatars/AppPie.jpg"
+        },
+        {
+          "title": "OnePlus™",
+          "url": "https://t.me/OnePlus",
+          "description": "OnePlus™ - 持续更新中",
+          "logo": "telegram_avatars/Oneplus.jpg"
+        },
+        {
+          "title": "每日 AWESOME 观察",
+          "url": "https://t.me/awesomeopensource",
+          "description": "每日 AWESOME 观察 - 精彩内容不容错过",
+          "logo": "telegram_avatars/Awesomeopensource.jpg"
+        },
+        {
+          "title": "每日无数猫",
+          "url": "https://t.me/miaowu",
+          "description": "每日无数猫 - 精彩内容不容错过",
+          "logo": "telegram_avatars/Miaowu.jpg"
+        },
+        {
+          "title": "IPN 播客网络",
+          "url": "https://t.me/ipnpodcast",
+          "description": "IPN 播客网络 - Telegram频道",
+          "logo": "telegram_avatars/ipnpodcast.jpg"
+        },
+        {
+          "title": "《無次元》博客",
+          "url": "https://t.me/wuciyuan",
+          "description": "《無次元》博客 - 精彩内容不容错过",
+          "logo": "telegram_avatars/wuciyuan.jpg"
+        },
+        {
+          "title": "一天世界 博客",
+          "url": "https://t.me/yitianshijie",
+          "description": "一天世界 博客 - Telegram频道",
+          "logo": "telegram_avatars/Yitianshijie.jpg"
+        },
+        {
+          "title": "津津乐道播客",
+          "url": "https://t.me/jinjinledao",
+          "description": "津津乐道播客 - Telegram频道",
+          "logo": "telegram_avatars/Jinjinledao.jpg"
+        },
+        {
+          "title": "随机波动 StochasticVolatility",
+          "url": "https://t.me/StochasticVolatilityPodcast",
+          "description": "随机波动 StochasticVolatility - 优质内容分享",
+          "logo": "telegram_avatars/StochasticVolatilityPodcast.jpg"
+        },
+        {
+          "title": "精选中文播客",
+          "url": "https://t.me/chinapodcast",
+          "description": "精选中文播客 - 优质内容分享",
+          "logo": "telegram_avatars/chinapodcast.jpg"
+        },
+        {
+          "title": "回形针 PaperClip & 灵光灯泡",
+          "url": "https://t.me/papercliphub",
+          "description": "回形针 PaperClip & 灵光灯泡 - 持续更新中",
+          "logo": "telegram_avatars/papercliphub.jpg"
+        },
+        {
+          "title": "Steam 快讯",
+          "url": "https://t.me/steamsteam",
+          "description": "Steam 快讯 - 优质内容分享",
+          "logo": "telegram_avatars/steamsteam.jpg"
+        },
+        {
+          "title": "Programmer Jokes",
+          "url": "https://t.me/programmerjokes",
+          "description": "Programmer Jokes - 优质内容分享",
+          "logo": "telegram_avatars/programmerjokes.jpg"
+        },
+        {
+          "title": "Creative Motion",
+          "url": "https://t.me/creativemotion",
+          "description": "Creative Motion - 持续更新中",
+          "logo": "telegram_avatars/Creativemotion.jpg"
+        },
+        {
+          "title": "Google",
+          "url": "https://t.me/google",
+          "description": "Google - 精彩内容不容错过",
+          "logo": "telegram_avatars/Google.jpg"
+        },
+        {
+          "title": "少数派",
+          "url": "https://t.me/sspai",
+          "description": "少数派 - 优质内容分享",
+          "logo": "telegram_avatars/sspai.jpg"
+        },
+        {
+          "title": "Linux 中国",
+          "url": "https://t.me/linuxdotcn",
+          "description": "Linux 中国 - 精彩内容不容错过",
+          "logo": "telegram_avatars/linuxdotcn.jpg"
+        },
+        {
+          "title": "数字优惠",
+          "url": "https://t.me/DigitalSpecialDeals",
+          "description": "数字优惠 - Telegram频道",
+          "logo": "telegram_avatars/Digitalspecialdeals.jpg"
+        },
+        {
+          "title": "Equal Leaks",
+          "url": "https://t.me/EqualLeaks",
+          "description": "Equal Leaks - 持续更新中",
+          "logo": "telegram_avatars/Equalleaks.jpg"
+        },
+        {
+          "title": "WooMai’s Channel",
+          "url": "https://t.me/WooMaiChannel",
+          "description": "WooMai’s Channel - Telegram频道",
+          "logo": "telegram_avatars/WooMaiChannel.jpg"
+        },
+        {
+          "title": "Leonn 的博客",
+          "url": "https://t.me/liyuans",
+          "description": "Leonn 的博客 - 精彩内容不容错过",
+          "logo": "telegram_avatars/liyuans.jpg"
+        },
+        {
+          "title": "Affyun.com - 每日 offers 优选",
+          "url": "https://t.me/affyunpush",
+          "description": "Affyun.com - 每日 offers 优选 - 欢迎关注",
+          "logo": "telegram_avatars/linkpush.jpg"
+        },
+        {
+          "title": "VPS 仓 - 推荐 / 补货提醒",
+          "url": "https://t.me/vpscang",
+          "description": "VPS 仓 - 推荐 / 补货提醒 - 持续更新中",
+          "logo": "telegram_avatars/Vpscang.jpg"
+        },
+        {
+          "title": "VPS 信号旗播报",
+          "url": "https://t.me/vps_xhq",
+          "description": "VPS 信号旗播报 - 精彩内容不容错过",
+          "logo": "telegram_avatars/Vps_xhq.jpg"
+        },
+        {
+          "title": "互联网从业者充电站",
+          "url": "https://t.me/https1024",
+          "description": "互联网从业者充电站 - 精彩内容不容错过",
+          "logo": "telegram_avatars/https1024.jpg"
+        },
+        {
+          "title": "每日消费电子观察",
+          "url": "https://t.me/CE_Observe",
+          "description": "每日消费电子观察 - 欢迎关注",
+          "logo": "telegram_avatars/Ce_Observe.jpg"
+        },
+        {
+          "title": "中国数字时代消息推送",
+          "url": "https://t.me/cdtchinesefeed",
+          "description": "中国数字时代消息推送 - 持续更新中",
+          "logo": "telegram_avatars/Cdtchinesefeed.jpg"
+        },
+        {
+          "title": "Google Drive 资源",
+          "url": "https://t.me/gdsharing",
+          "description": "Google Drive 资源 - 精彩内容不容错过",
+          "logo": "telegram_avatars/gdsharing.jpg"
+        },
+        {
+          "title": "Licenses Channel",
+          "url": "https://t.me/Licensesss",
+          "description": "Licenses Channel - Telegram频道",
+          "logo": "telegram_avatars/licensesss.jpg"
+        },
+        {
+          "title": "网络资源共享库",
+          "url": "https://t.me/Sharedspace",
+          "description": "网络资源共享库 - 欢迎关注",
+          "logo": "telegram_avatars/Sharedspace.jpg"
+        },
+        {
+          "title": "电报时报",
+          "url": "https://t.me/times001",
+          "description": "电报时报 - 优质内容分享",
+          "logo": "telegram_avatars/Times001.jpg"
+        },
+        {
+          "title": "PUSH 科技快讯",
+          "url": "https://t.me/Pushings",
+          "description": "PUSH 科技快讯 - Telegram频道",
+          "logo": "telegram_avatars/pushings.jpg"
+        },
+        {
+          "title": "逆风社",
+          "url": "https://t.me/nifengpress",
+          "description": "逆风社 - 优质内容分享",
+          "logo": "telegram_avatars/Nifengpress.jpg"
+        },
+        {
+          "title": "🎏「 彼岸情报🔎！」🎏薅羊毛情报见闻社",
+          "url": "https://t.me/BaccanoSoul",
+          "description": "🎏「 彼岸情报🔎！」🎏薅羊毛情报见闻社 - Telegram频道",
+          "logo": "telegram_avatars/Baccanosoul.jpg"
+        },
+        {
+          "title": "此岸情报局",
+          "url": "https://t.me/JustReformation",
+          "description": "此岸情报局 - 优质内容分享",
+          "logo": "telegram_avatars/justreformation.jpg"
+        },
+        {
+          "title": "🅻ihaiba 资源羊毛分享🍭",
+          "url": "https://t.me/lihaiba",
+          "description": "🅻ihaiba 资源羊毛分享🍭 - Telegram频道",
+          "logo": "telegram_avatars/Lihaiba.jpg"
+        },
+        {
+          "title": "推特|OnlyFans女菩萨",
+          "url": "https://t.me/xnvpux",
+          "description": "推特|OnlyFans女菩萨 - 持续更新中",
+          "logo": "telegram_avatars/NotionFans.jpg"
+        },
+        {
+          "title": "扫地僧笔记",
+          "url": "https://t.me/lover_links",
+          "description": "扫地僧笔记 - 优质内容分享",
+          "logo": "telegram_avatars/Lover_Links.jpg"
+        },
+        {
+          "title": "Science",
+          "url": "https://t.me/science",
+          "description": "Science - Telegram频道",
+          "logo": "telegram_avatars/Science.jpg"
+        },
+        {
+          "title": "Gif Center",
+          "url": "https://t.me/gifcenter",
+          "description": "Gif Center - Telegram频道",
+          "logo": "telegram_avatars/tginfo.jpg"
+        },
+        {
+          "title": "Hk3ToN",
+          "url": "https://t.me/Hk3To",
+          "description": "Hk3ToN - 欢迎关注",
+          "logo": "telegram_avatars/Hk3to.jpg"
+        },
+        {
+          "title": "Boring Class",
+          "url": "https://t.me/BoringClass",
+          "description": "Boring Class - 精彩内容不容错过",
+          "logo": "telegram_avatars/briian.jpg"
+        },
+        {
+          "title": "Think Positive Words",
+          "url": "https://t.me/thinkpositivewords",
+          "description": "Think Positive Words - 持续更新中",
+          "logo": "telegram_avatars/Thinkpositivewords.jpg"
+        },
+        {
+          "title": "安全上网，注意事项",
+          "url": "https://t.me/anquanshangwang",
+          "description": "安全上网，注意事项 - Telegram频道",
+          "logo": "telegram_avatars/Anquanshangwang.jpg"
+        },
+        {
+          "title": "竹新资料库",
+          "url": "https://t.me/kt_database",
+          "description": "竹新资料库 - 优质内容分享",
+          "logo": "telegram_avatars/Kt_Database.jpg"
+        },
+        {
+          "title": "《維基人》官方推播頻道",
+          "url": "https://t.me/the_Wikipedian",
+          "description": "《維基人》官方推播頻道 - 官方Telegram频道",
+          "logo": "telegram_avatars/the_wikipedian.jpg"
+        },
+        {
+          "title": "糗事百科",
+          "url": "https://t.me/qiushibaike",
+          "description": "糗事百科 - 精彩内容不容错过",
+          "logo": "telegram_avatars/qiqubaike.jpg"
+        },
+        {
+          "title": "PUSH 科学快讯",
+          "url": "https://t.me/pushings",
+          "description": "PUSH 科学快讯 - 精彩内容不容错过",
+          "logo": "telegram_avatars/pushings.jpg"
+        },
+        {
+          "title": "少数人知道的消息",
+          "url": "https://t.me/csrinfo",
+          "description": "少数人知道的消息 - 持续更新中",
+          "logo": "telegram_avatars/csrinfo.jpg"
+        },
+        {
+          "title": "好物・羊毛收割机",
+          "url": "https://t.me/ZH_wool",
+          "description": "好物・羊毛收割机 - 欢迎关注",
+          "logo": "telegram_avatars/zh_wool.jpg"
+        },
+        {
+          "title": "网络安全中心",
+          "url": "https://t.me/tgdailigg",
+          "description": "网络安全中心 - 精彩内容不容错过",
+          "logo": "telegram_avatars/tgdailigg.jpg"
+        },
+        {
+          "title": "Cydia Updates",
+          "url": "https://t.me/cydiaupdate",
+          "description": "Cydia Updates - 优质内容分享",
+          "logo": "telegram_avatars/cydiaupdate.jpg"
+        },
+        {
+          "title": "即刻精选",
+          "url": "https://t.me/jike_collection",
+          "description": "即刻精选 - 持续更新中",
+          "logo": "telegram_avatars/Jike_Collection.jpg"
+        },
+        {
+          "title": "机场防御测压实验室",
+          "url": "https://t.me/ssrcy",
+          "description": "机场防御测压实验室 - 持续更新中",
+          "logo": "telegram_avatars/Ssrcy.jpg"
+        },
+        {
+          "title": "XDDOS 压力测试",
+          "url": "https://t.me/xddos2",
+          "description": "XDDOS 压力测试 - 持续更新中",
+          "logo": "telegram_avatars/Xddos2.jpg"
+        },
+        {
+          "title": "悟空干货集中营",
+          "url": "https://t.me/daily5kong",
+          "description": "悟空干货集中营 - 优质内容分享",
+          "logo": "telegram_avatars/daily5kong.jpg"
+        },
+        {
+          "title": "LIFETIME 视界",
+          "url": "https://t.me/lifetimecn",
+          "description": "LIFETIME 视界 - 持续更新中",
+          "logo": "telegram_avatars/ibetame.jpg"
+        },
+        {
+          "title": "Iyouport",
+          "url": "https://t.me/iyouport",
+          "description": "Iyouport - 欢迎关注",
+          "logo": "telegram_avatars/iyouport.jpg"
+        },
+        {
+          "title": "Newlearner の自留地",
+          "url": "https://t.me/NewlearnerChannel",
+          "description": "Newlearner の自留地 - 优质内容分享",
+          "logo": "telegram_avatars/NewlearnerChannel.jpg"
+        },
+        {
+          "title": "Awesome Collection",
+          "url": "https://t.me/awesome_collection",
+          "description": "Awesome Collection - 持续更新中",
+          "logo": "telegram_avatars/awesome_collection.jpg"
+        },
+        {
+          "title": "Android Weekly Update",
+          "url": "https://t.me/update4weekly",
+          "description": "Android Weekly Update - Telegram频道",
+          "logo": "telegram_avatars/Update4weekly.jpg"
+        },
+        {
+          "title": "码力全开工作室",
+          "url": "https://t.me/maliquankai",
+          "description": "码力全开工作室 - 持续更新中",
+          "logo": "telegram_avatars/maliquankai.jpg"
+        },
+        {
+          "title": "数字移民",
+          "url": "https://t.me/shuziyimin",
+          "description": "数字移民 - 持续更新中",
+          "logo": "telegram_avatars/qiushuiyibing.jpg"
+        },
+        {
+          "title": "Learn SwiftUI",
+          "url": "https://t.me/learnswiftui",
+          "description": "Learn SwiftUI - 精彩内容不容错过",
+          "logo": "telegram_avatars/Learnswiftui.jpg"
+        },
+        {
+          "title": "媒奇葩说",
+          "url": "https://t.me/mtalk",
+          "description": "媒奇葩说 - 欢迎关注",
+          "logo": "telegram_avatars/Mtalk.jpg"
+        },
+        {
+          "title": "看理想 vistopia",
+          "url": "https://t.me/ikanlixiang",
+          "description": "看理想 vistopia - 精彩内容不容错过",
+          "logo": "telegram_avatars/stopCA.jpg"
+        },
+        {
+          "title": "Streaming Link Station",
+          "url": "https://t.me/streaming_link_station",
+          "description": "Streaming Link Station - 欢迎关注",
+          "logo": "telegram_avatars/SteamNy.jpg"
+        },
+        {
+          "title": "NewMobileLife",
+          "url": "https://t.me/newmobilelife",
+          "description": "NewMobileLife - 优质内容分享",
+          "logo": "telegram_avatars/newbie_chat.jpg"
+        },
+        {
+          "title": "國家地理雜誌 中文版",
+          "url": "https://t.me/natgeomedia",
+          "description": "國家地理雜誌 中文版 - 精彩内容不容错过",
+          "logo": "telegram_avatars/natgeomedia.jpg"
+        },
+        {
+          "title": "你有一个打折需要了解",
+          "url": "https://t.me/SteamNy",
+          "description": "可知：",
+          "logo": "telegram_avatars/SteamNy_你有一个打折需要了解_avatar.jpg"
+        },
+        {
+          "title": "Emby 全能服务器体验（嘎鱼饭）",
+          "url": "https://t.me/gayufan",
+          "description": "Emby 全能服务器体验（嘎鱼饭） - 精彩内容不容错过",
+          "logo": "telegram_avatars/nasfan.jpg"
+        },
+        {
+          "title": "KAIX.IN",
+          "url": "https://t.me/kaix_in",
+          "description": "KAIX.IN - 持续更新中",
+          "logo": "telegram_avatars/kaix_in.jpg"
+        },
+        {
+          "title": "TSBBLOG",
+          "url": "https://t.me/tsbblog",
+          "description": "TSBBLOG - 精彩内容不容错过",
+          "logo": "telegram_avatars/tsbblog.jpg"
+        },
+        {
+          "title": "中文播客精选",
+          "url": "https://t.me/greatpodcasts",
+          "description": "中文播客精选 - 优质内容分享",
+          "logo": "telegram_avatars/greatpodcasts.jpg"
+        },
+        {
+          "title": "维生素 E",
+          "url": "https://t.me/vitamineEpodcast",
+          "description": "维生素 E - 优质内容分享",
+          "logo": "telegram_avatars/vitamineepodcast.jpg"
+        },
+        {
+          "title": "geekhub 苹果团",
+          "url": "https://t.me/geekhub_com",
+          "description": "geekhub 苹果团 - 精彩内容不容错过",
+          "logo": "telegram_avatars/TogetherHub.jpg"
+        },
+        {
+          "title": "Hardcore English Channel",
+          "url": "https://t.me/hardcorengch",
+          "description": "Hardcore English Channel - Telegram频道",
+          "logo": "telegram_avatars/hardcoreng.jpg"
+        },
+        {
+          "title": "阿里云盘",
+          "url": "https://t.me/YunPanPan",
+          "description": "阿里云盘 - Telegram频道",
+          "logo": "telegram_avatars/Yunpanpan.jpg"
+        },
+        {
+          "title": "二手🐴",
+          "url": "https://t.me/SecHorse",
+          "description": "二手🐴 - 持续更新中",
+          "logo": "telegram_avatars/Sechorse.jpg"
+        },
+        {
+          "title": "用爱发电俱乐部",
+          "url": "https://t.me/NotionFans",
+          "description": "用爱发电俱乐部 - Telegram频道",
+          "logo": "telegram_avatars/NotionFans.jpg"
+        },
+        {
+          "title": "腾讯会议气氛组、AI 换脸对口型声音克隆、百度新闻报道、蝴蝶号负面删除、网站收录",
+          "url": "https://t.me/AFSZ325",
+          "description": "腾讯会议气氛组、AI 换脸对口型声音克隆、百度新闻报道、蝴蝶号负面删除、网站收录   @ETH8573  @ETS8573",
+          "logo": "telegram_avatars/AFSZ325.jpg"
+        },
+        {
+          "title": "快手负面删除、谷歌新闻、项目运营、百度关键词霸屏、电视台采访",
+          "url": "https://t.me/ASZE241",
+          "description": "快手负面删除、谷歌新闻、项目运营、百度关键词霸屏、电视台采访    @ETH8573  @ETS8573",
+          "logo": "telegram_avatars/ASZE241.jpg"
+        },
+        {
+          "title": "搬瓦工补货通知",
+          "url": "https://t.me/banwagongnews",
+          "description": "实时推送搬瓦工补货/断货信息",
+          "logo": "telegram_avatars/banwagongnews.jpg"
+        },
+        {
+          "title": "百度新闻、东方财富号发文、项目启动大会、MG 动画制作",
+          "url": "https://t.me/bdspdf",
+          "description": "百度新闻、东方财富号发文、项目启动大会、MG 动画制作...@ETH306",
+          "logo": "telegram_avatars/bdspdf.jpg"
+        },
+        {
+          "title": "第三视角解说俄乌军事",
+          "url": "https://t.me/bhisisj872",
+          "description": "本群致力于从客观分析和战略视角解读俄乌战争的各个方面，提供详细的战况分析、军事战略探讨、地缘政治背景及国际局势解读。无论你是军事爱好者、研究人员，还是对俄乌战争感兴趣的普通人，都能在这里找到有深度的讨论和资讯。加入我们，一起从不同视角深入了解这一全球关注的冲突！",
+          "logo": "telegram_avatars/bhisisj872.jpg"
+        },
+        {
+          "title": "巴以冲突/以色列前线",
+          "url": "https://t.me/bvgsk86",
+          "description": "本群专注于解读和分析巴以冲突中的以色列前线动态，关注以色列与巴勒斯坦之间的军事对抗、战略部署及地缘政治演变。无论你是军事分析爱好者、新闻追踪者，还是对中东局势有深入兴趣的朋友，都可以在这里找到最新的战况、深度分析和讨论。加入我们，了解冲突背后的复杂局势！",
+          "logo": "telegram_avatars/bvgsk86.jpg"
+        },
+        {
+          "title": "PANews Web3丨加密货币丨区块链新闻频道",
+          "url": "https://t.me/ChannelPANews",
+          "description": "你的Web3信息官，提供加密货币一线快讯和深度报告。",
+          "logo": "telegram_avatars/ChannelPANews.jpg"
+        },
+        {
+          "title": "吃瓜频道 搞笑中文",
+          "url": "https://t.me/chigua156",
+          "description": "商务合作 @newsnets",
+          "logo": "telegram_avatars/chigua156.jpg"
+        },
+        {
+          "title": "香烟源头资源分享",
+          "url": "https://t.me/CigaretteSourceShare",
+          "description": "本群致力于汇聚香烟相关信息与行业动态，直连源头渠道，提供真实可靠的资源分享。这里不仅有最新资讯与货源消息，还为大家创造互通交流的机会，帮助群友掌握第一手信息，提升合作效率，实现共赢发展",
+          "logo": "telegram_avatars/CigaretteSourceShare.jpg"
+        },
+        {
+          "title": "东南亚大事件 | 爆料 | 新闻 | 旅游 | 攻略",
+          "url": "https://t.me/dnydsjiloveu",
+          "description": "欢迎来到本频道",
+          "logo": "telegram_avatars/dnydsjiloveu.jpg"
+        },
+        {
+          "title": "百度新闻、百度推广、百度霸屏、百度知道、百度百科、百度首页收录",
+          "url": "https://t.me/donghuazhizuo",
+          "description": "百度新闻、百度推广、百度霸屏、百度知道、百度百科、百度首页收录",
+          "logo": "telegram_avatars/donghuazhizuo.jpg"
+        },
+        {
+          "title": "迪拜大事件（活跃）",
+          "url": "https://t.me/du13333",
+          "description": "迪拜大事件|迪拜新闻|Dubai生活资讯攻略",
+          "logo": "telegram_avatars/du13333.jpg"
+        },
+        {
+          "title": "迪拜二手交易",
+          "url": "https://t.me/du17777",
+          "description": "迪拜大事件|迪拜新闻|Dubai生活资讯攻略",
+          "logo": "telegram_avatars/du17777.jpg"
+        },
+        {
+          "title": "大象曝光|新闻",
+          "url": "https://t.me/dxdb001",
+          "description": "东南亚实时新闻，花边新闻，跑路曝光 。 带你见识不一样的东南亚！每日更新东南亚的实时新闻。",
+          "logo": "telegram_avatars/dxdb001.jpg"
+        },
+        {
+          "title": "FilmSpot",
+          "url": "https://t.me/FilmSpotFM",
+          "description": "同步值得一看的 新上线影片 新完结剧集资讯 以及值得关注的影视相关新闻.",
+          "logo": "telegram_avatars/FilmSpotFM.jpg"
+        },
+        {
+          "title": "Flare Network中文新闻频道",
+          "url": "https://t.me/FlareNetwork_China",
+          "description": "Flare Network中文新闻频道 - Telegram频道",
+          "logo": "telegram_avatars/FlareNetwork_China.jpg"
+        },
+        {
+          "title": "FomoJet 💎🚀 TON 新闻聚合",
+          "url": "https://t.me/fomojet",
+          "description": "可能是电报上最全的 TON 中文新闻频道",
+          "logo": "telegram_avatars/fomojet.jpg"
+        },
+        {
+          "title": "新闻✴️福利♦️素材🅾️翻墙☯️交易",
+          "url": "https://t.me/fuli260",
+          "description": "新闻️福利️素材️翻墙️交易",
+          "logo": "telegram_avatars/fuli260.jpg"
+        },
+        {
+          "title": "福瑞洋葱盒",
+          "url": "https://t.me/FURRYYCH",
+          "description": "A news channel responsible for telling about Chinese furry",
+          "logo": "telegram_avatars/FURRYYCH.jpg"
+        },
+        {
+          "title": "黑产外烟走私渠道",
+          "url": "https://t.me/IntlCigResources",
+          "description": "这里是外烟香烟交流群，大家可以分享特殊渠道、海外货源和采购经验，让获取香烟资源更高效，轻松交流，互通信息，方便合作",
+          "logo": "telegram_avatars/IntlCigResources.jpg"
+        },
+        {
+          "title": "西安资源导航",
+          "url": "https://t.me/iqimm",
+          "description": "西安资源导航频道发布各类资源导航信息，助你轻松获得满意的资源！",
+          "logo": "telegram_avatars/iqimm.jpg"
+        },
+        {
+          "title": "东南亚&新闻达人",
+          "url": "https://t.me/lianhe_zaobao",
+          "description": "1.投稿爆料",
+          "logo": "telegram_avatars/lianhe_zaobao.jpg"
+        },
+        {
+          "title": "骑士信息案例展示频道 @ngccc",
+          "url": "https://t.me/lucky14",
+          "description": "骑士【查档】马上知道️️",
+          "logo": "telegram_avatars/lucky14.jpg"
+        },
+        {
+          "title": "ME News",
+          "url": "https://t.me/MetaEraNews",
+          "description": "ME 是 Web 3.0 行业领先的资讯平台和品牌与增长专家。在全球各地区利用全方位优势资源，为您的品牌管理和业务增长提供创意型解决方案和定制化服务。",
+          "logo": "telegram_avatars/MetaEraNews.jpg"
+        },
+        {
+          "title": "东南亚新闻|柬埔寨新闻",
+          "url": "https://t.me/MianBeiShiJian1",
+          "description": "投稿爆料: @i777777x",
+          "logo": "telegram_avatars/MianBeiShiJian1.jpg"
+        },
+        {
+          "title": "🇲🇲 缅甸黑幕档案",
+          "url": "https://t.me/miandian776",
+          "description": "汇总缅甸最新诈骗案例，手法全曝光、内幕细追踪，识破陷阱不再难！",
+          "logo": "telegram_avatars/miandian776.jpg"
+        },
+        {
+          "title": "马来西亚头条新闻日报",
+          "url": "https://t.me/MLXY03",
+          "description": "《马来西亚头条新闻日报》是敢报导真相，独立，中立及可信度高的中文新闻门户网站，专注于马来西亚时事。",
+          "logo": "telegram_avatars/MLXY03.jpg"
+        },
+        {
+          "title": "MMS News",
+          "url": "https://t.me/MMSnews",
+          "description": "让每一条 News 都成为加密市场的Alpha信息差",
+          "logo": "telegram_avatars/MMSnews.jpg"
+        },
+        {
+          "title": "泰国新闻|菲律宾新闻",
+          "url": "https://t.me/newsdongnanya",
+          "description": "投稿爆料： @i777777x",
+          "logo": "telegram_avatars/newsdongnanya.jpg"
+        },
+        {
+          "title": "全球资讯曝光大事件",
+          "url": "https://t.me/nnccqq",
+          "description": "全球资讯曝光大事件",
+          "logo": "telegram_avatars/nnccqq.jpg"
+        },
+        {
+          "title": "NP News Talk Show",
+          "url": "https://t.me/NPnewsTalk",
+          "description": "NP News K Comedy မှ ကူးယူဖေါ်ပြပါမည်",
+          "logo": "telegram_avatars/NPnewsTalk.jpg"
+        },
+        {
+          "title": "Okpay News",
+          "url": "https://t.me/okay",
+          "description": "Okpay News - Telegram频道",
+          "logo": "telegram_avatars/okay.jpg"
+        },
+        {
+          "title": "PlayStation 综合讨论",
+          "url": "https://t.me/PlayStationXXXX",
+          "description": "频道地址：@PlayStationNewssss",
+          "logo": "telegram_avatars/PlayStationXXXX.jpg"
+        },
+        {
+          "title": "供应 @GongYin 汇旺供应200U一条",
+          "url": "https://t.me/ppaa_hwdb_oppo_jsdb_sydb_aaaa",
+          "description": "供求信息200u一条，供求频道置顶$800/条/周($2500一个月)附属群同步轮播，覆盖800万用户。",
+          "logo": "telegram_avatars/ppaa_hwdb_oppo_jsdb_sydb_aaaa.jpg"
+        },
+        {
+          "title": "RSS 频道收集",
+          "url": "https://t.me/rss_channels",
+          "description": "【关于】",
+          "logo": "telegram_avatars/rss_channels.jpg"
+        },
+        {
+          "title": "Soulove查档💥个人信息💥查人找人💥案情💥定位💥开房记录💥银行流水",
+          "url": "https://t.me/souloveshop",
+          "description": "查档/查人/开房记录/银行流水/司法冻结/微信提取",
+          "logo": "telegram_avatars/souloveshop.jpg"
+        },
+        {
+          "title": "斯里兰卡｜旅游｜租房｜生活｜攻略｜换汇｜",
+          "url": "https://t.me/SriLankakkkk",
+          "description": "生活攻略，事实新闻，曝光爆料，社会热点推送。",
+          "logo": "telegram_avatars/SriLankakkkk.jpg"
+        },
+        {
+          "title": "东南亚大事件实时新闻",
+          "url": "https://t.me/sssvip2",
+          "description": "#东南亚 #柬埔寨 #老挝 #缅甸 #迪拜 #泰国 #越南 #菲律宾",
+          "logo": "telegram_avatars/sssvip2.jpg"
+        },
+        {
+          "title": "腾讯会议气氛组、快手负面删除、维基百科创建、网站收录、抖音百科、霸屏同花顺新闻报道、项目运营",
+          "url": "https://t.me/superu24",
+          "description": "腾讯会议气氛组、快手负面删除、维基百科创建、网站收录、抖音百科、霸屏同花顺新闻报道、项目运营",
+          "logo": "telegram_avatars/superu24.jpg"
+        },
+        {
+          "title": "谷歌新闻、推特运营、百度负面删除、立陶宛FCIS、商学院讲师+主持人、今日头条关键词收录、AI换脸对口型声音克隆",
+          "url": "https://t.me/superu25",
+          "description": "谷歌新闻、推特运营、百度负面删除、立陶宛FCIS、商学院讲师+主持人、今日头条关键词收录、AI换脸对口型声音克隆",
+          "logo": "telegram_avatars/superu25.jpg"
+        },
+        {
+          "title": "海外媒体、百度新闻报道、网站收录、谷歌霸屏、电报水军、负面删除、蝴蝶号负面删除",
+          "url": "https://t.me/superu27",
+          "description": "海外媒体、百度新闻报道、网站收录、谷歌霸屏、电报水军、负面删除、蝴蝶号负面删除.....@ETS8573  @ETH8573",
+          "logo": "telegram_avatars/superu27.jpg"
+        },
+        {
+          "title": "土豆供需 @tdgx",
+          "url": "https://t.me/tdgx",
+          "description": "本频道为土豆担保供需信息发布频道",
+          "logo": "telegram_avatars/tdgx.jpg"
+        },
+        {
+          "title": "泰国大事件",
+          "url": "https://t.me/Tguo6",
+          "description": "#泰国大事件 #泰国新闻 #泰国曝光 #泰国头条",
+          "logo": "telegram_avatars/Tguo6.jpg"
+        },
+        {
+          "title": "查U资讯频道-查评分、防冻结",
+          "url": "https://t.me/uudun8",
+          "description": "查U资讯频道-查评分、防冻结 - Telegram频道",
+          "logo": "telegram_avatars/uudun8.jpg"
+        },
+        {
+          "title": "骑士信息查询🏡🕹 @ngccc",
+          "url": "https://t.me/uuub3",
+          "description": "骑士【查档】马上知道️️",
+          "logo": "telegram_avatars/uuub3.jpg"
+        },
+        {
+          "title": "越南中国走私烟批发",
+          "url": "https://t.me/VietnamSmokeSupply",
+          "description": "这里是越南和中国等多国之间的香烟交流圈，聚焦走私烟批发信息，大家可以在这里分享渠道资源、互通货源消息，一起交流经验，获取最新动态，轻松找到适合自己的合作机会",
+          "logo": "telegram_avatars/VietnamSmokeSupply.jpg"
+        },
+        {
+          "title": "东南亚黑暗事件",
+          "url": "https://t.me/xgcmk",
+          "description": "#东南亚黑暗 #热点新闻 #吃瓜曝料",
+          "logo": "telegram_avatars/xgcmk.jpg"
+        },
+        {
+          "title": "环球国际热点新闻🌍",
+          "url": "https://t.me/xwnet",
+          "description": "商务合作/广告投放：  @zuoweil",
+          "logo": "telegram_avatars/xwnet.jpg"
+        },
+        {
+          "title": "东南亚/新闻头条",
+          "url": "https://t.me/xwtt12",
+          "description": "关键词搜索： #华人 #东南亚 #缅甸 #菲律宾 #泰国 #柬埔寨 #悬赏 #曝光 #骗子 #寻人启事",
+          "logo": "telegram_avatars/xwtt12.jpg"
+        },
+        {
+          "title": "知乎档案局【查档源头】",
+          "url": "https://t.me/ZHFBI",
+          "description": "【源头批发一手价格】",
+          "logo": "telegram_avatars/ZHFBI.jpg"
+        }
+      ]
+    }
+  ]
+}

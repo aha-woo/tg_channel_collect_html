@@ -1,0 +1,1795 @@
+{
+  "id": "书籍/音乐/影视",
+  "parentName": "书籍/音乐/影视",
+  "parentIcon": "fas fa-film",
+  "children": [
+    {
+      "name": "视频平台",
+      "icon": "fas fa-video",
+      "items": [
+        {
+          "title": "YouTube Bot",
+          "url": "https://t.me/youtube",
+          "description": "YouTube Bot - Telegram机器人",
+          "logo": "telegram_avatars/davidsyoutube.jpg"
+        },
+        {
+          "title": "YouTube Bot",
+          "url": "https://t.me/youtube",
+          "description": "YouTube Bot - Telegram机器人",
+          "logo": "telegram_avatars/davidsyoutube.jpg"
+        },
+        {
+          "title": "YouTube—ImShuker",
+          "url": "https://t.me/shukerz",
+          "description": "YouTube—ImShuker - 优质内容分享",
+          "logo": "telegram_avatars/Shukerz.jpg"
+        },
+        {
+          "title": "Netflix 讨论群",
+          "url": "https://t.me/netflixchina",
+          "description": "Netflix 讨论群 - Telegram群组",
+          "logo": "telegram_avatars/Netflixchina.jpg"
+        },
+        {
+          "title": "Netflix 讨论",
+          "url": "https://t.me/joinchat/C94vkUP2WbygEhA59U4mZA",
+          "description": "Netflix 讨论 - 欢迎关注",
+          "logo": "telegram_avatars/netflixchina.jpg"
+        },
+        {
+          "title": "[合租] Netflix Spotify office365 YouTube Hulu Surge 等音乐影视",
+          "url": "https://t.me/hezu1",
+          "description": "[合租] Netflix Spotify office365 YouTube Hulu Surge 等音乐影视 - 音乐分享频道",
+          "logo": "telegram_avatars/Hezu1.jpg"
+        },
+        {
+          "title": "netflix spotify hulu 账号交流",
+          "url": "https://t.me/zxc1017yyfx",
+          "description": "netflix spotify hulu 账号交流 - 持续更新中",
+          "logo": "telegram_avatars/Zxc1017yyfx.jpg"
+        },
+        {
+          "title": "Netflix/Spo/Hulu/HBO 低价体验车",
+          "url": "https://t.me/FreetrialStore",
+          "description": "Netflix/Spo/Hulu/HBO 低价体验车 - 持续更新中",
+          "logo": "telegram_avatars/freetrialstore.jpg"
+        },
+        {
+          "title": "ZUOLUOTV 专属交流群",
+          "url": "https://t.me/zuoluotv",
+          "description": "ZUOLUOTV 专属交流群 - Telegram群组",
+          "logo": "telegram_avatars/zuoluotv.jpg"
+        },
+        {
+          "title": "奈飞 Pro - Netflix 奈飞合租 / 拼车",
+          "url": "https://t.me/naifei_pro",
+          "description": "奈飞 Pro - Netflix 奈飞合租 / 拼车 - 欢迎关注",
+          "logo": "telegram_avatars/naifei_pro.jpg"
+        },
+        {
+          "title": "Netflix 高分好剧推介",
+          "url": "https://t.me/NetflixFans",
+          "description": "Netflix 高分好剧推介 - Telegram频道",
+          "logo": "telegram_avatars/NetflixFirst.jpg"
+        },
+        {
+          "title": "Netflix 影片介绍",
+          "url": "https://t.me/NetflixFirst",
+          "description": "Netflix 影片介绍 - 精彩内容不容错过",
+          "logo": "telegram_avatars/NetflixFirst.jpg"
+        },
+        {
+          "title": "David’s YouTube 频道推荐",
+          "url": "https://t.me/davidsyoutube",
+          "description": "Recommend various interesting YouTube channels.\n推荐有趣的YouTube频道。",
+          "logo": "telegram_avatars/davidsyoutube.jpg"
+        },
+        {
+          "title": "Outvivid",
+          "url": "https://t.me/outvivid",
+          "description": "主要话题大概是开源业界新闻。\n所有以 #today 标签的内容均为本台编辑的个人意见，可能可以代表本台观点。\n在 Fediverse 关注我们：  https://misskey.io/@cascading\n在 Bluesky 关注我们： https://bsky.app/profile/thecascading.bsky.social\n反馈/建议/吐槽：请使用 Direct Messages\n吹水群： https://t.me/+JzAsJ_njydk3NzQx",
+          "logo": "telegram_avatars/outvivid.jpg"
+        },
+        {
+          "title": "[合租通知] Netflix YouTube Spotify office365 Hbo Surge 美剧",
+          "url": "https://t.me/hezu2",
+          "description": "[合租通知] Netflix YouTube Spotify office365 Hbo Surge 美剧 - 欢迎关注",
+          "logo": "telegram_avatars/hezu2.jpg"
+        },
+        {
+          "title": "奈飞小铺",
+          "url": "https://t.me/netflix_bus",
+          "description": "奈飞小铺 - 持续更新中",
+          "logo": "telegram_avatars/Netflix_Bus.jpg"
+        },
+        {
+          "title": "YouTube-ImShuker 文件及公告",
+          "url": "https://t.me/shukerxiaoxi",
+          "description": "YouTube-ImShuker 文件及公告 - 精彩内容不容错过",
+          "logo": "telegram_avatars/shukerxiaoxi.jpg"
+        },
+        {
+          "title": "YouTube—ImShuker",
+          "url": "https://t.me/shukerz",
+          "description": "YouTube—ImShuker - 优质内容分享",
+          "logo": "telegram_avatars/Shukerz.jpg"
+        },
+        {
+          "title": "Netflix 讨论群",
+          "url": "https://t.me/netflixchina",
+          "description": "Netflix 讨论群 - Telegram群组",
+          "logo": "telegram_avatars/Netflixchina.jpg"
+        },
+        {
+          "title": "Netflix 讨论",
+          "url": "https://t.me/joinchat/C94vkUP2WbygEhA59U4mZA",
+          "description": "Netflix 讨论 - 欢迎关注",
+          "logo": "telegram_avatars/netflixchina.jpg"
+        },
+        {
+          "title": "[合租] Netflix Spotify office365 YouTube Hulu Surge 等音乐影视",
+          "url": "https://t.me/hezu1",
+          "description": "[合租] Netflix Spotify office365 YouTube Hulu Surge 等音乐影视 - 音乐分享频道",
+          "logo": "telegram_avatars/Hezu1.jpg"
+        },
+        {
+          "title": "netflix spotify hulu 账号交流",
+          "url": "https://t.me/zxc1017yyfx",
+          "description": "netflix spotify hulu 账号交流 - 精彩内容不容错过",
+          "logo": "telegram_avatars/Zxc1017yyfx.jpg"
+        },
+        {
+          "title": "Netflix/Spo/Hulu/HBO 低价体验车",
+          "url": "https://t.me/FreetrialStore",
+          "description": "Netflix/Spo/Hulu/HBO 低价体验车 - 优质内容分享",
+          "logo": "telegram_avatars/freetrialstore.jpg"
+        },
+        {
+          "title": "ZUOLUOTV 专属交流群",
+          "url": "https://t.me/zuoluotv",
+          "description": "ZUOLUOTV 专属交流群 - Telegram群组",
+          "logo": "telegram_avatars/zuoluotv.jpg"
+        },
+        {
+          "title": "奈飞 Pro - Netflix 奈飞合租 / 拼车",
+          "url": "https://t.me/naifei_pro",
+          "description": "奈飞 Pro - Netflix 奈飞合租 / 拼车 - Telegram频道",
+          "logo": "telegram_avatars/naifei_pro.jpg"
+        },
+        {
+          "title": "[合租通知] Netflix YouTube Spotify office365 Hbo Surge 美剧",
+          "url": "https://t.me/hezu2",
+          "description": "[合租通知] Netflix YouTube Spotify office365 Hbo Surge 美剧 - 精彩内容不容错过",
+          "logo": "telegram_avatars/hezu2.jpg"
+        },
+        {
+          "title": "奈飞小铺",
+          "url": "https://t.me/netflix_bus",
+          "description": "奈飞小铺 - Telegram频道",
+          "logo": "telegram_avatars/Netflix_Bus.jpg"
+        },
+        {
+          "title": "YouTube-ImShuker 文件及公告",
+          "url": "https://t.me/shukerxiaoxi",
+          "description": "YouTube-ImShuker 文件及公告 - 优质内容分享",
+          "logo": "telegram_avatars/shukerxiaoxi.jpg"
+        }
+      ]
+    },
+    {
+      "name": "音乐影视",
+      "icon": "fas fa-music",
+      "items": [
+        {
+          "title": "奈飞小铺",
+          "url": "https://ihezu.fans/uqhwcn",
+          "description": "网飞、Spotify、Apple Music、油管、微软365合租，专属9折优惠码：FANXIAN",
+          "logo": "telegram_avatars/TaiwanAnime.jpg"
+        },
+        {
+          "title": "快乐至上 少女 欧美 推特",
+          "url": "https://t.me/yiqisesena",
+          "description": "快乐至上 少女 欧美 推特 - Telegram频道",
+          "logo": "telegram_avatars/yiqisesena_快乐至上 少女 欧美 推特_avatar.jpg"
+        },
+        {
+          "title": "电影爱好者交流组",
+          "url": "https://t.me/Moviemarket_group",
+          "description": "电影爱好者交流组 - Telegram频道",
+          "logo": "telegram_avatars/Moviemarket_group.jpg"
+        },
+        {
+          "title": "koolshare OpenWRT X64",
+          "url": "https://t.me/joinchat/ERO9vEMMVu1dzQ-F8nP6kA",
+          "description": "koolshare OpenWRT X64 - Telegram频道",
+          "logo": "telegram_avatars/gotoshare.jpg"
+        },
+        {
+          "title": "奈菲影视 官方交流群",
+          "url": "https://t.me/joinchat/KmUaGRMWdO29JVd3wcCHCg",
+          "description": "奈菲影视 官方交流群 - 官方Telegram频道",
+          "logo": "telegram_avatars/jichangtj.jpg"
+        },
+        {
+          "title": "人人影视字幕文件",
+          "url": "https://t.me/yyets_subtitles",
+          "description": "人人影视字幕文件 - 影视视频频道",
+          "logo": "telegram_avatars/datastitches.jpg"
+        },
+        {
+          "title": "Tg 云音乐",
+          "url": "https://t.me/Tgsongs",
+          "description": "Tg 云音乐 - 音乐分享频道",
+          "logo": "telegram_avatars/Tgsongs.jpg"
+        },
+        {
+          "title": "今日热榜",
+          "url": "https://t.me/joinchat/IL6n4w9xiRMvHaU1YpVFog",
+          "description": "今日热榜 - 欢迎关注",
+          "logo": "telegram_avatars/jichangtj.jpg"
+        },
+        {
+          "title": "吃瓜群众12316猎奇新闻视频",
+          "url": "https://t.me/CG12316",
+          "description": "吃瓜，是一种生活态度。",
+          "logo": "telegram_avatars/CG12316_吃瓜群众12316猎奇新闻视频_avatar.jpg"
+        },
+        {
+          "title": "打开TG看电影",
+          "url": "https://t.me/cctv_movies",
+          "description": "欢迎收看电影频道",
+          "logo": "telegram_avatars/cctv_movies_打开TG看电影_avatar.jpg"
+        },
+        {
+          "title": "Mac & PC 平台上的视频播放器 (IINA、mpv、madVR、Infuse、Movist、VLC 等)",
+          "url": "https://t.me/VideoPlayerAndDisplay",
+          "description": "Mac & PC 平台上的视频播放器 (IINA、mpv、madVR、Infuse、Movist、VLC 等) - 影视视频频道",
+          "logo": "telegram_avatars/infusepro6.jpg"
+        },
+        {
+          "title": "奈菲影视",
+          "url": "https://t.me/nfnfgroup",
+          "description": "奈菲影视 - 影视视频频道",
+          "logo": "telegram_avatars/NoUGroup.jpg"
+        },
+        {
+          "title": "4K 影视资源",
+          "url": "https://t.me/Remux_2160P",
+          "description": "4K 影视资源 - 影视视频频道",
+          "logo": "telegram_avatars/QuanX_API.jpg"
+        },
+        {
+          "title": "4K 影视屋 - 蓝光无损电影",
+          "url": "https://t.me/dianying4K",
+          "description": "4K 影视屋 - 蓝光无损电影 - 影视视频频道",
+          "logo": "telegram_avatars/Dianying4k.jpg"
+        },
+        {
+          "title": "Emby 影视资源发布",
+          "url": "https://t.me/Plus_Movie_Best",
+          "description": "Emby 影视资源发布 - 影视视频频道",
+          "logo": "telegram_avatars/Plus_Movie_Best.jpg"
+        },
+        {
+          "title": "卷毛鼠 - 影视频道",
+          "url": "https://t.me/CurlyMouse",
+          "description": "卷毛鼠 - 影视频道 - Telegram频道",
+          "logo": "telegram_avatars/dailymusich.jpg"
+        },
+        {
+          "title": "好莱坞影视",
+          "url": "https://t.me/HLWYS",
+          "description": "好莱坞影视 - 影视视频频道",
+          "logo": "telegram_avatars/hlwys.jpg"
+        },
+        {
+          "title": "电影爱好者",
+          "url": "https://t.me/MovieAnywhere",
+          "description": "电影爱好者 - 欢迎关注",
+          "logo": "telegram_avatars/movieanywhere.jpg"
+        },
+        {
+          "title": "音乐库",
+          "url": "https://t.me/MusicSharePlatform",
+          "description": "音乐库 - 音乐分享频道",
+          "logo": "telegram_avatars/Musicshareplatform.jpg"
+        },
+        {
+          "title": "每日一歌",
+          "url": "https://t.me/dailymusich",
+          "description": "每日一歌 - 欢迎关注",
+          "logo": "telegram_avatars/dailymusich.jpg"
+        },
+        {
+          "title": "音乐世界",
+          "url": "https://t.me/lumingguandj",
+          "description": "音乐世界 - 音乐分享频道",
+          "logo": "telegram_avatars/Lumingguandj.jpg"
+        },
+        {
+          "title": "TikTok 抖音短视频",
+          "url": "https://t.me/TiktokA3",
+          "description": "TikTok 抖音短视频 - 影视视频频道",
+          "logo": "telegram_avatars/Tiktoka3.jpg"
+        },
+        {
+          "title": "维度视频の推特博主分享",
+          "url": "https://t.me/COSER_ifnworl",
+          "description": "维度视频の推特博主分享 - Telegram频道",
+          "logo": "telegram_avatars/COSER_ifnworl_维度视频の推特博主分享_avatar.jpg"
+        },
+        {
+          "title": "Rush控吸粗口男男视频分享",
+          "url": "https://t.me/cukou1069",
+          "description": "Rush控吸粗口男男视频分享 - Telegram频道",
+          "logo": "telegram_avatars/cukou1069_Rush控吸粗口男男视频分享_avatar.jpg"
+        },
+        {
+          "title": "免费GV男男同志电影体育生帅哥网黄Gay片",
+          "url": "https://t.me/Gay123TV",
+          "description": "免费GV男男同志电影体育生帅哥网黄Gay片 - Telegram频道",
+          "logo": "telegram_avatars/Gay123TV_免费GV男男同志电影体育生帅哥网黄Gay片_avatar.jpg"
+        },
+        {
+          "title": "麻豆传媒视频",
+          "url": "https://t.me/meizb",
+          "description": "麻豆传媒视频 - Telegram频道",
+          "logo": "telegram_avatars/meizb_麻豆传媒视频_avatar.jpg"
+        },
+        {
+          "title": "热门游戏|王者|英联|吃鸡|三国杀",
+          "url": "https://t.me/remenyouxi",
+          "description": "这里会分享游戏相关的一些有趣视频，走过路过的不妨加个关注呀~",
+          "logo": "telegram_avatars/EmbyPublic.jpg"
+        },
+        {
+          "title": "欧美精品资源",
+          "url": "https://t.me/RJGF5",
+          "description": "欧美精品资源 - Telegram频道",
+          "logo": "telegram_avatars/RJGF5_欧美精品资源_avatar.jpg"
+        },
+        {
+          "title": "缅甸美女视频【缅甸华人美女视频】",
+          "url": "https://t.me/SU_KF01",
+          "description": "缅甸美女视频【缅甸华人美女视频】 - Telegram频道",
+          "logo": "telegram_avatars/SU_KF01_缅甸美女视频【缅甸华人美女视频】_avatar.jpg"
+        },
+        {
+          "title": "内涵段子🔥搞笑视频【天空娱乐冠名】",
+          "url": "https://t.me/Txnhdz",
+          "description": "内涵段子",
+          "logo": "telegram_avatars/Txnhdz_内涵段子🔥搞笑视频【天空娱乐冠名】_avatar.jpg"
+        },
+        {
+          "title": "短视频🍀抖音推特网红",
+          "url": "https://t.me/whlws",
+          "description": "短视频🍀抖音推特网红 - Telegram频道",
+          "logo": "telegram_avatars/whlws_短视频🍀抖音推特网红_avatar.jpg"
+        },
+        {
+          "title": "欧美生活影视音乐圈 Europe America",
+          "url": "https://t.me/AJSCIEAA",
+          "description": "欧美生活影视音乐圈 Europe America - 音乐分享频道",
+          "logo": "telegram_avatars/ajscieaa.jpg"
+        },
+        {
+          "title": "搞笑视频",
+          "url": "https://t.me/Txnhdz",
+          "description": "内涵段子",
+          "logo": "telegram_avatars/Txnhdz_内涵段子🔥搞笑视频【天空娱乐冠名】_avatar.jpg"
+        },
+        {
+          "title": "Classical Music",
+          "url": "https://t.me/exploreclassical",
+          "description": "一起来听古典音乐吧～～",
+          "logo": "telegram_avatars/exploreclassical.jpg"
+        },
+        {
+          "title": "Classical Music",
+          "url": "https://t.me/music",
+          "description": "Classical Music - 音乐分享频道",
+          "logo": "telegram_avatars/exploreclassical.jpg"
+        },
+        {
+          "title": "奈飞小铺",
+          "url": "https://ihezu.fans/uqhwcn",
+          "description": "网飞、Spotify、Apple Music、油管、微软365合租，专属9折优惠码：FANXIAN",
+          "logo": "telegram_avatars/TelegramES.jpg"
+        },
+        {
+          "title": "快乐至上 少女 欧美 推特",
+          "url": "https://t.me/yiqisesena",
+          "description": "快乐至上 少女 欧美 推特 - Telegram频道",
+          "logo": "telegram_avatars/yiqisesena_快乐至上 少女 欧美 推特_avatar.jpg"
+        },
+        {
+          "title": "电影爱好者交流组",
+          "url": "https://t.me/Moviemarket_group",
+          "description": "电影爱好者交流组 - 持续更新中",
+          "logo": "telegram_avatars/Moviemarket_group.jpg"
+        },
+        {
+          "title": "koolshare OpenWRT X64",
+          "url": "https://t.me/joinchat/ERO9vEMMVu1dzQ-F8nP6kA",
+          "description": "koolshare OpenWRT X64 - 持续更新中",
+          "logo": "telegram_avatars/gotoshare.jpg"
+        },
+        {
+          "title": "奈菲影视 官方交流群",
+          "url": "https://t.me/joinchat/KmUaGRMWdO29JVd3wcCHCg",
+          "description": "奈菲影视 官方交流群 - 官方Telegram频道",
+          "logo": "telegram_avatars/jichangtj.jpg"
+        },
+        {
+          "title": "人人影视字幕文件",
+          "url": "https://t.me/yyets_subtitles",
+          "description": "人人影视字幕文件 - 影视视频频道",
+          "logo": "telegram_avatars/datastitches.jpg"
+        },
+        {
+          "title": "Tg 云音乐",
+          "url": "https://t.me/Tgsongs",
+          "description": "Tg 云音乐 - 音乐分享频道",
+          "logo": "telegram_avatars/Tgsongs.jpg"
+        },
+        {
+          "title": "今日热榜",
+          "url": "https://t.me/joinchat/IL6n4w9xiRMvHaU1YpVFog",
+          "description": "今日热榜 - 持续更新中",
+          "logo": "telegram_avatars/jichangtj.jpg"
+        },
+        {
+          "title": "吃瓜群众12316猎奇新闻视频",
+          "url": "https://t.me/CG12316",
+          "description": "吃瓜，是一种生活态度。",
+          "logo": "telegram_avatars/CG12316_吃瓜群众12316猎奇新闻视频_avatar.jpg"
+        },
+        {
+          "title": "打开TG看电影",
+          "url": "https://t.me/cctv_movies",
+          "description": "欢迎收看电影频道",
+          "logo": "telegram_avatars/cctv_movies_打开TG看电影_avatar.jpg"
+        },
+        {
+          "title": "Mac & PC 平台上的视频播放器 (IINA、mpv、madVR、Infuse、Movist、VLC 等)",
+          "url": "https://t.me/VideoPlayerAndDisplay",
+          "description": "Mac & PC 平台上的视频播放器 (IINA、mpv、madVR、Infuse、Movist、VLC 等) - 影视视频频道",
+          "logo": "telegram_avatars/infusepro6.jpg"
+        },
+        {
+          "title": "奈菲影视",
+          "url": "https://t.me/nfnfgroup",
+          "description": "奈菲影视 - 影视视频频道",
+          "logo": "telegram_avatars/NoUGroup.jpg"
+        },
+        {
+          "title": "4K 影视资源",
+          "url": "https://t.me/Remux_2160P",
+          "description": "4K 影视资源 - 影视视频频道",
+          "logo": "telegram_avatars/QuanX_API.jpg"
+        },
+        {
+          "title": "4K 影视屋 - 蓝光无损电影",
+          "url": "https://t.me/dianying4K",
+          "description": "4K 影视屋 - 蓝光无损电影 - 影视视频频道",
+          "logo": "telegram_avatars/Dianying4k.jpg"
+        },
+        {
+          "title": "Emby 影视资源发布",
+          "url": "https://t.me/Plus_Movie_Best",
+          "description": "Emby 影视资源发布 - 影视视频频道",
+          "logo": "telegram_avatars/Plus_Movie_Best.jpg"
+        },
+        {
+          "title": "卷毛鼠 - 影视频道",
+          "url": "https://t.me/CurlyMouse",
+          "description": "卷毛鼠 - 影视频道 - Telegram频道",
+          "logo": "telegram_avatars/dailymusich.jpg"
+        },
+        {
+          "title": "好莱坞影视",
+          "url": "https://t.me/HLWYS",
+          "description": "好莱坞影视 - 影视视频频道",
+          "logo": "telegram_avatars/hlwys.jpg"
+        },
+        {
+          "title": "电影爱好者",
+          "url": "https://t.me/MovieAnywhere",
+          "description": "电影爱好者 - 持续更新中",
+          "logo": "telegram_avatars/movieanywhere.jpg"
+        },
+        {
+          "title": "音乐库",
+          "url": "https://t.me/MusicSharePlatform",
+          "description": "音乐库 - 音乐分享频道",
+          "logo": "telegram_avatars/Musicshareplatform.jpg"
+        },
+        {
+          "title": "每日一歌",
+          "url": "https://t.me/dailymusich",
+          "description": "每日一歌 - 优质内容分享",
+          "logo": "telegram_avatars/dailymusich.jpg"
+        },
+        {
+          "title": "音乐世界",
+          "url": "https://t.me/lumingguandj",
+          "description": "音乐世界 - 音乐分享频道",
+          "logo": "telegram_avatars/Lumingguandj.jpg"
+        },
+        {
+          "title": "TikTok 抖音短视频",
+          "url": "https://t.me/TiktokA3",
+          "description": "TikTok 抖音短视频 - 影视视频频道",
+          "logo": "telegram_avatars/Tiktoka3.jpg"
+        },
+        {
+          "title": "维度视频の推特博主分享",
+          "url": "https://t.me/COSER_ifnworl",
+          "description": "维度视频の推特博主分享 - Telegram频道",
+          "logo": "telegram_avatars/COSER_ifnworl_维度视频の推特博主分享_avatar.jpg"
+        },
+        {
+          "title": "Rush控吸粗口男男视频分享",
+          "url": "https://t.me/cukou1069",
+          "description": "Rush控吸粗口男男视频分享 - Telegram频道",
+          "logo": "telegram_avatars/cukou1069_Rush控吸粗口男男视频分享_avatar.jpg"
+        },
+        {
+          "title": "免费GV男男同志电影体育生帅哥网黄Gay片",
+          "url": "https://t.me/Gay123TV",
+          "description": "免费GV男男同志电影体育生帅哥网黄Gay片 - Telegram频道",
+          "logo": "telegram_avatars/Gay123TV_免费GV男男同志电影体育生帅哥网黄Gay片_avatar.jpg"
+        },
+        {
+          "title": "麻豆传媒视频",
+          "url": "https://t.me/meizb",
+          "description": "麻豆传媒视频 - Telegram频道",
+          "logo": "telegram_avatars/meizb_麻豆传媒视频_avatar.jpg"
+        },
+        {
+          "title": "热门游戏|王者|英联|吃鸡|三国杀",
+          "url": "https://t.me/remenyouxi",
+          "description": "这里会分享游戏相关的一些有趣视频，走过路过的不妨加个关注呀~",
+          "logo": "telegram_avatars/EmbyPublic.jpg"
+        },
+        {
+          "title": "欧美精品资源",
+          "url": "https://t.me/RJGF5",
+          "description": "欧美精品资源 - Telegram频道",
+          "logo": "telegram_avatars/RJGF5_欧美精品资源_avatar.jpg"
+        },
+        {
+          "title": "缅甸美女视频【缅甸华人美女视频】",
+          "url": "https://t.me/SU_KF01",
+          "description": "缅甸美女视频【缅甸华人美女视频】 - Telegram频道",
+          "logo": "telegram_avatars/SU_KF01_缅甸美女视频【缅甸华人美女视频】_avatar.jpg"
+        },
+        {
+          "title": "内涵段子🔥搞笑视频【天空娱乐冠名】",
+          "url": "https://t.me/Txnhdz",
+          "description": "内涵段子",
+          "logo": "telegram_avatars/Txnhdz_内涵段子🔥搞笑视频【天空娱乐冠名】_avatar.jpg"
+        },
+        {
+          "title": "短视频🍀抖音推特网红",
+          "url": "https://t.me/whlws",
+          "description": "短视频🍀抖音推特网红 - Telegram频道",
+          "logo": "telegram_avatars/whlws_短视频🍀抖音推特网红_avatar.jpg"
+        },
+        {
+          "title": "经典电影|电影频道|三级电影",
+          "url": "https://t.me/ahmufa18",
+          "description": "什么样的电影才算经典？其实并没有一个具体的衡量标准。但有些电影能够经受住时间的考验，有些却很快被人们遗忘。内容包括经典电影推荐、电影资源下载及精彩影评，欢迎您来这里寻找经典好看的电影.意见反馈请联系： @gfhylf",
+          "logo": "telegram_avatars/ahmufa18.jpg"
+        },
+        {
+          "title": "AI 换脸、公司展示视频拍摄、老外 CEO 视频、新闻媒体发布、抖音视频下架、百度新闻下架、项目品宣资料、LOGO 设计",
+          "url": "https://t.me/aihuanlianz0",
+          "description": "AI 换脸、公司展示视频拍摄、老外 CEO 视频、新闻媒体发布、抖音视频下架、百度新闻下架、项目品宣资料、LOGO 设计...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/aihuanlianz0.jpg"
+        },
+        {
+          "title": "阿里、夸克、百度网盘4K影视资源",
+          "url": "https://t.me/Aliyun_4K_Movies",
+          "description": "欢迎你来到4K影视频道，频道管理都是影视爱好者，主要分享以4K画质为主的电影、电视剧、纪录片、动画等影视资源。当然也有其他画质资源：如1080P、720P的稀缺资源。",
+          "logo": "telegram_avatars/Aliyun_4K_Movies.jpg"
+        },
+        {
+          "title": "空中课堂、视频剪辑合成 PS、雅虎负面删除、推特运营、蝴蝶号负面删除",
+          "url": "https://t.me/ASZ6722",
+          "description": "空中课堂、视频剪辑合成 PS、雅虎负面删除、推特运营、蝴蝶号负面删除    @ETH8573  @ETS8573",
+          "logo": "telegram_avatars/ASZ6722.jpg"
+        },
+        {
+          "title": "宣传视频 视频剪辑 视频制作 视频 ps AI 换脸 团队年会视频 公司展示视频拍摄 老外 CEO 视频",
+          "url": "https://t.me/baidutuiguang00",
+          "description": "宣传视频 视频剪辑 视频制作 视频 ps AI 换脸 团队年会视频 公司展示视频拍摄 老外 CEO 视频...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/baidutuiguang00.jpg"
+        },
+        {
+          "title": "百度新闻下架、纳斯达克大屏、电报粉丝、推特粉丝、美国 NFA 牌照、外汇牌照申请、明星祝福视频、项目签约仪式",
+          "url": "https://t.me/baiduxinwne",
+          "description": "百度新闻下架、纳斯达克大屏、电报粉丝、推特粉丝、美国 NFA 牌照、外汇牌照申请、明星祝福视频、项目签约仪式",
+          "logo": "telegram_avatars/baiduxinwne.jpg"
+        },
+        {
+          "title": "美国 MSB 牌照 美国 NFA 牌照 外汇牌照申请 数字货币牌照",
+          "url": "https://t.me/baiduxin",
+          "description": "视频制作、视频剪辑、官网搭建、展示型官网、百度推广、百度霸屏、百度知道、百度百科",
+          "logo": "telegram_avatars/baiduxin.jpg"
+        },
+        {
+          "title": "百度推广 官网搭建 视频剪辑 宣传视频 负面舆情处理 海报制作 抖音百科 项目包装",
+          "url": "https://t.me/baipishu998",
+          "description": "百度推广 官网搭建 视频剪辑 宣传视频 负面舆情处理 海报制作 抖音百科 项目包装 ......@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/baipishu998.jpg"
+        },
+        {
+          "title": "吃瓜中心-曝光骗局-搞笑视频-新闻频道",
+          "url": "https://t.me/baoguang",
+          "description": "#搞笑视频 #美女视频",
+          "logo": "telegram_avatars/baoguang.jpg"
+        },
+        {
+          "title": "明星祝福视频 宣传视频 百度新闻 项目签约仪式 视频 ps 负面新闻下架 官网搭建 海外公司注册",
+          "url": "https://t.me/bdssys",
+          "description": "百度百科 百度首页收录 宣传视频 视频制作 海外公司注册 负面新闻下架 公司展示视频拍摄 东方财富号发文...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/bdssys.jpg"
+        },
+        {
+          "title": "百度推广 项目包装 宣传视频 官网制作 东方财富号发文 负面舆情处理 美国 MSB 牌照 视频剪辑",
+          "url": "https://t.me/bdxwzs",
+          "description": "百度新闻 新闻媒体发布 外汇牌照申请 基金会牌照 博彩视频制作 海外玩家视频 项目包装 LOGO 设计",
+          "logo": "telegram_avatars/bdxwzs.jpg"
+        },
+        {
+          "title": "哔哩哔哩热门资讯",
+          "url": "https://t.me/Bilibili678",
+          "description": "哔哩哔哩是中国年轻世代高度聚集的综合性视频社区，被用户亲切地称为“B站”。",
+          "logo": "telegram_avatars/Bilibili678.jpg"
+        },
+        {
+          "title": "曝光第一线~明星|网红|推特|黑料|视频外流",
+          "url": "https://t.me/Boygirltogether",
+          "description": "大家好这里是曝光第一线",
+          "logo": "telegram_avatars/Boygirltogether.jpg"
+        },
+        {
+          "title": "全网擦边｜电影｜资源分享",
+          "url": "https://t.me/CBduanju",
+          "description": "欢迎加入电影天堂 ！这里是影迷的聚集地！我们每天分享最新电影资讯、经典影片推荐、高清资源下载链接。无论你是喜欢好莱坞大片、文艺片，还是国产佳作，这里都有你想要的电影世界！",
+          "logo": "telegram_avatars/CBduanju.jpg"
+        },
+        {
+          "title": "电影频道【SOTV】",
+          "url": "https://t.me/cctv1",
+          "description": "● @CCTV1 电影频道 主要发布  @SOTV 影视搜索动态及影视更新信息。",
+          "logo": "telegram_avatars/cctv1.jpg"
+        },
+        {
+          "title": "点点短剧场",
+          "url": "https://t.me/dddjczj",
+          "description": "精彩影视，让你拥有不一样的体验，欢迎大家一起追剧",
+          "logo": "telegram_avatars/dddjczj.jpg"
+        },
+        {
+          "title": "电报🕎商业♊️博客🔯博彩💎视频和电影",
+          "url": "https://t.me/dianbao18",
+          "description": "电报商业️博客博彩视频和电影",
+          "logo": "telegram_avatars/dianbao18.jpg"
+        },
+        {
+          "title": "最新电影",
+          "url": "https://t.me/dianyingdaquan",
+          "description": "最新电影 - Telegram频道",
+          "logo": "telegram_avatars/dianyingdaquan.jpg"
+        },
+        {
+          "title": "电影解说|毒舌电影|一起看电影",
+          "url": "https://t.me/dianyingjieshuoyuan",
+          "description": "广告，商务合作请联系客服 @TGMAX123",
+          "logo": "telegram_avatars/dianyingjieshuoyuan.jpg"
+        },
+        {
+          "title": "电影片段|精彩解说|高潮|爽剧",
+          "url": "https://t.me/dianyingjies",
+          "description": "导演的工作是将“词穷”的部分拍摄为影像，我们的使命是让更多影迷发现和享受好电影。",
+          "logo": "telegram_avatars/dianyingjies.jpg"
+        },
+        {
+          "title": "电影库",
+          "url": "https://t.me/dianyingku",
+          "description": "电影库 电影收藏",
+          "logo": "telegram_avatars/dianyingku.jpg"
+        },
+        {
+          "title": "电影经典原声_桥段",
+          "url": "https://t.me/Dianyingqianduan",
+          "description": "带你看最经典的电影",
+          "logo": "telegram_avatars/Dianyingqianduan.jpg"
+        },
+        {
+          "title": "东南亚曝光|猪仔|打人视频|缅北新闻",
+          "url": "https://t.me/dongnanyabaoguang6",
+          "description": "东南亚曝光|缅北曝光|柬埔寨曝光|缅北新闻",
+          "logo": "telegram_avatars/dongnanyabaoguang6.jpg"
+        },
+        {
+          "title": "展示型官网、视频 ps、AI 换脸、负面新闻下架、抖音视频下架、负面舆情处理",
+          "url": "https://t.me/DSACXZAS",
+          "description": "展示型官网、视频 ps、AI 换脸、负面新闻下架、抖音视频下架、负面舆情处理",
+          "logo": "telegram_avatars/DSACXZAS.jpg"
+        },
+        {
+          "title": "抖音视频下架、新闻媒体发布、项目签约仪式、项目品宣资料",
+          "url": "https://t.me/DYSPX",
+          "description": "抖音视频下架、新闻媒体发布、项目签约仪式、项目品宣资料",
+          "logo": "telegram_avatars/DYSPX.jpg"
+        },
+        {
+          "title": "电报/中文/导航/News",
+          "url": "https://t.me/eceha",
+          "description": "#软件 #iOS #安卓 #Mac #Win #TV #TF #限免 #工具 #游戏 #破解 #插件 #快捷指令 #隐私 #抓包 #油猴 #脚本 #浏览器 #Adobe #翻译 #TG #Bot #频道 #短视频 #影视 #电视剧 #电影 #动漫 #动画 #纪录片 #字幕 #油管 #字幕组",
+          "logo": "telegram_avatars/eceha.jpg"
+        },
+        {
+          "title": "Fans1688 海外社媒一站式服务 | 推特粉丝 | 电报成员 | Instagram刷粉 | Facebook涨粉 | YouTube粉丝",
+          "url": "https://t.me/fans1688",
+          "description": "Fans1688：全网最便宜的在线刷粉平台",
+          "logo": "telegram_avatars/fans1688.jpg"
+        },
+        {
+          "title": "国产《福利社》精选视频",
+          "url": "https://t.me/Fulisepin",
+          "description": "福利社 GO‼️｜全网最硬核的资源仓",
+          "logo": "telegram_avatars/Fulisepin.jpg"
+        },
+        {
+          "title": "新盛娱乐传媒-搞笑视频.奇葩内涵",
+          "url": "https://t.me/funnyHAHA111",
+          "description": "#搞笑 #地表 #奇葩 #内涵 #视频",
+          "logo": "telegram_avatars/funnyHAHA111.jpg"
+        },
+        {
+          "title": "团队年会视频、公司展示视频拍摄、老外 CEO 视频、海外玩家视频、博彩视频制作、纳斯达克大屏、数字货币牌照、电报粉丝",
+          "url": "https://t.me/gegu01",
+          "description": "团队年会视频、公司展示视频拍摄、老外 CEO 视频、海外玩家视频、博彩视频制作、纳斯达克大屏、数字货币牌照、电报粉丝...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/gegu01.jpg"
+        },
+        {
+          "title": "谷歌新闻 团队年会视频 公司展示视频拍摄 老外 CEO 视频 海外玩家视频 博彩视频制作 纳斯达克大屏 电报粉丝",
+          "url": "https://t.me/geguxingwen",
+          "description": "谷歌新闻 团队年会视频 公司展示视频拍摄 老外 CEO 视频 海外玩家视频 博彩视频制作 纳斯达克大屏 电报粉丝...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/geguxingwen.jpg"
+        },
+        {
+          "title": "抖音视频下架、博彩视频制作、数字货币牌照、百度百科、快手视频下架、美国 MSB 牌照、同花顺发文、项目启动大会",
+          "url": "https://t.me/gobgkaisp",
+          "description": "抖音视频下架、博彩视频制作、数字货币牌照、百度百科、快手视频下架、美国 MSB 牌照、同花顺发文、项目启动大会...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/gobgkaisp.jpg"
+        },
+        {
+          "title": "G头条破解版|GAY|男同|体育生|熊",
+          "url": "https://t.me/gtoutiaopojie",
+          "description": "G头条全网唯一破解版,加入会员免费看全部视频",
+          "logo": "telegram_avatars/gtoutiaopojie.jpg"
+        },
+        {
+          "title": "官网搭建 展示型官网 官网制作 官网设计 UI 东方财富号发文 同花顺发文 明星祝福视频 项目宣传片制作",
+          "url": "https://t.me/guanwangdajian5",
+          "description": "官网搭建 展示型官网 官网制作 官网设计 UI 东方财富号发文 同花顺发文 明星祝福视频 项目宣传片制作",
+          "logo": "telegram_avatars/guanwangdajian5.jpg"
+        },
+        {
+          "title": "海外公司注册、公司展示视频拍摄、老外 CEO 视频、新闻媒体发布、抖音视频下架、百度新闻下架、项目品宣资料、LOGO 设计",
+          "url": "https://t.me/haiwaigongshi",
+          "description": "海外公司注册、公司展示视频拍摄、老外 CEO 视频、新闻媒体发布、抖音视频下架、百度新闻下架、项目品宣资料、LOGO 设计@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/haiwaigongshi.jpg"
+        },
+        {
+          "title": "宣传视频 百度知道 项目启动大会 抖音百科 官网搭建 视频制作 海报制作 海外玩家视频",
+          "url": "https://t.me/hbzzaa",
+          "description": "百度霸屏 百度知道 官网搭建 推特粉丝 电报粉丝 团队年会视频 项目启动大会 海报制作...",
+          "logo": "telegram_avatars/hbzzaa.jpg"
+        },
+        {
+          "title": "高清欧美番号猎奇电影",
+          "url": "https://t.me/heyuchen_channel",
+          "description": "香烟： @xy91a",
+          "logo": "telegram_avatars/heyuchen_channel.svg"
+        },
+        {
+          "title": "经典电影|奥斯卡|港影|华语",
+          "url": "https://t.me/huojiangdianying",
+          "description": "欧美，港台，日韩经典电影",
+          "logo": "telegram_avatars/huojiangdianying.jpg"
+        },
+        {
+          "title": "视频制作 百度新闻 宣传视频 抖音百科 海外公司注册 负面新闻下架 项目签约仪式 官网搭建",
+          "url": "https://t.me/hwgszc",
+          "description": "百度百科 百度首页收录 宣传视频 视频制作 海外公司注册 负面新闻下架 公司展示视频拍摄 东方财富号发文...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/hwgszc.jpg"
+        },
+        {
+          "title": "暴利📢挣钱🗯兼职💎高清视频💖三方素材",
+          "url": "https://t.me/jianzhi118",
+          "description": "暴利挣钱兼职高清视频三方素材",
+          "logo": "telegram_avatars/jianzhi118.jpg"
+        },
+        {
+          "title": "交易所｜秒合约｜交割合约｜合约币盘｜发售质押｜永续合约｜加密货币｜外汇平台｜mt45｜美港股盘｜国际支付｜美国账户｜美国支付｜日韩账户｜欧美支付",
+          "url": "https://t.me/jiaoyisuoqq",
+          "description": "盘口可代理，可搭建，联系 @foxtiotik",
+          "logo": "telegram_avatars/jiaoyisuoqq.svg"
+        },
+        {
+          "title": "大鳄电影院",
+          "url": "https://t.me/JILIDEDY",
+          "description": "感谢你长得这么好看还来关注我",
+          "logo": "telegram_avatars/JILIDEDY.jpg"
+        },
+        {
+          "title": "记录人间|人生如戏|光影世界|电影解说",
+          "url": "https://t.me/jilurenjian",
+          "description": "广告，商务合作请联系客服 @TGMAX123",
+          "logo": "telegram_avatars/jilurenjian.jpg"
+        },
+        {
+          "title": "经典电影|老电影|怀旧",
+          "url": "https://t.me/jingdianhuaijiu",
+          "description": "广告洽谈:  @TGMAX123",
+          "logo": "telegram_avatars/jingdianhuaijiu.jpg"
+        },
+        {
+          "title": "经典电影|影视|美女帅哥",
+          "url": "https://t.me/jingdianyingshi",
+          "description": "广告洽谈:  @TGMAX123",
+          "logo": "telegram_avatars/jingdianyingshi.jpg"
+        },
+        {
+          "title": "视频制作 百度新闻 宣传视频 项目包装 美国 MSB 牌照 负面新闻下架 官网搭建 项目签约仪式",
+          "url": "https://t.me/jjjpza",
+          "description": "百度百科 百度首页收录 宣传视频 视频制作 海外公司注册 负面新闻下架 公司展示视频拍摄 东方财富号发文...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/jjjpza.jpg"
+        },
+        {
+          "title": "电影天堂|柬埔寨",
+          "url": "https://t.me/JPZDY2",
+          "description": "有想看的电影可以私聊我： @xxf227",
+          "logo": "telegram_avatars/JPZDY2.jpg"
+        },
+        {
+          "title": "剧集解说|一口气看完系列|精简全集",
+          "url": "https://t.me/jujijieshuo",
+          "description": "专注精彩影视原创解说",
+          "logo": "telegram_avatars/jujijieshuo.jpg"
+        },
+        {
+          "title": "精选Porn|免费视频资源",
+          "url": "https://t.me/jxpornsp",
+          "description": "精选Porn|免费视频资源 - Telegram频道",
+          "logo": "telegram_avatars/jxpornsp.jpg"
+        },
+        {
+          "title": "项目包装 百度推广 宣传视频 东方财富号发文 官网制作 美国 MSB 牌照 负面舆情处理 视频剪辑",
+          "url": "https://t.me/ksspxja",
+          "description": "百度推广 抖音视频下架 视频 ps AI 换脸 美国 NFA 牌照 快手视频下架 老外 CEO 视频 项目宣传片制作 纳斯达克大...",
+          "logo": "telegram_avatars/ksspxja.jpg"
+        },
+        {
+          "title": "百度推广 项目包装 宣传视频 官网制作 东方财富号发文 视频剪辑 负面舆情处理 美国 NFA 牌照",
+          "url": "https://t.me/ksspxjz",
+          "description": "百度推广 抖音百科 视频 ps AI 换脸 美国 NFA 牌照 快手视频下架 老外 CEO 视频 项目宣传片制作 纳斯达克大屏...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/ksspxjz.jpg"
+        },
+        {
+          "title": "美国 MSB 牌照、博彩视频制作、数字货币牌照、百度百科、快手视频下架、美国 MSB 牌照、同花顺发文、项目启动大会",
+          "url": "https://t.me/kuaishoushipinxiajia",
+          "description": "美国 MSB 牌照、博彩视频制作、数字货币牌照、百度百科、快手视频下架、美国 MSB 牌照、同花顺发文、项目启动大会....@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/kuaishoushipinxiajia.jpg"
+        },
+        {
+          "title": "懒人分享频道 白嫖机场推荐/免费机场/代理节点分享/福利分享/薅羊毛/资源发布/破解软件/音视频分享/吹水闲聊/翻墙/梯子/VPN",
+          "url": "https://t.me/lanren_6688",
+          "description": "素质白嫖，互相帮助，做白嫖人，不做伸手党！",
+          "logo": "telegram_avatars/lanren_6688.jpg"
+        },
+        {
+          "title": "流量短剧|精品视频|热点剧场",
+          "url": "https://t.me/liuliangduanju",
+          "description": "这里有全网最热的短剧",
+          "logo": "telegram_avatars/liuliangduanju.jpg"
+        },
+        {
+          "title": "乱伦电影院",
+          "url": "https://t.me/luanlunyingshi",
+          "description": "乱伦电影院 - Telegram频道",
+          "logo": "telegram_avatars/luanlunyingshi.jpg"
+        },
+        {
+          "title": "Youxiu影视导航🎬",
+          "url": "https://t.me/Macau_movie",
+          "description": "全球影视搜索群 t.me/movies_metamm",
+          "logo": "telegram_avatars/Macau_movie.jpg"
+        },
+        {
+          "title": "孟德四舅|电影解说|精彩片段",
+          "url": "https://t.me/mengdesijiuye",
+          "description": "深度解析华语高分电影，本频道将为各位观众深度解析华语电影，带来导演拍摄过程和主演幕后故事等内容，希望我们的努力让更多观众喜欢上华语电影！",
+          "logo": "telegram_avatars/mengdesijiuye.jpg"
+        },
+        {
+          "title": "名剧师爷|影视解说|追剧|电视剧",
+          "url": "https://t.me/mingjushiye",
+          "description": "看几代权臣起起伏伏，品历朝官场真真假假。",
+          "logo": "telegram_avatars/mingjushiye.jpg"
+        },
+        {
+          "title": "Netflix News",
+          "url": "https://t.me/NetflixN",
+          "description": "Netflix News - Telegram频道",
+          "logo": "telegram_avatars/NetflixN.jpg"
+        },
+        {
+          "title": "推特/OnlyFans/短视频",
+          "url": "https://t.me/OnlyFansnp",
+          "description": "推特/OnlyFans/短视频",
+          "logo": "telegram_avatars/OnlyFansnp.svg"
+        },
+        {
+          "title": "亚太影视 / 电影频道【雅乐通知】🅥",
+          "url": "https://t.me/oqqocc",
+          "description": "全缅甸，水沟谷，御龙湾，妙瓦底，观影区，大量影片等你发现。",
+          "logo": "telegram_avatars/oqqocc.jpg"
+        },
+        {
+          "title": "奥斯卡4K蓝光(精品)影视磁力站🍟",
+          "url": "https://t.me/Oscar_4Kmovies",
+          "description": "奥斯卡主要分享 4K蓝光 影视原盘、Remux、电影资讯、磁力、影视网盘",
+          "logo": "telegram_avatars/Oscar_4Kmovies.jpg"
+        },
+        {
+          "title": "区块链🛩体育竞技🎉精美图片🛫素材话术🏍欧美精聊",
+          "url": "https://t.me/oumei83",
+          "description": "区块链体育竞技精美图片素材话术欧美精聊",
+          "logo": "telegram_avatars/oumei83.jpg"
+        },
+        {
+          "title": "跑分业务💛网赚🏍影视💸卡密",
+          "url": "https://t.me/paofen336",
+          "description": "跑分业务网赚影视卡密",
+          "logo": "telegram_avatars/paofen336.jpg"
+        },
+        {
+          "title": "偏门📞暴利💲网赚🗯手机兼职🏀实时分享🎉欧美白丝",
+          "url": "https://t.me/pianmen89",
+          "description": "偏门暴利网赚手机兼职实时分享欧美白丝",
+          "logo": "telegram_avatars/pianmen89.jpg"
+        },
+        {
+          "title": "P图-🔥批图-美工-【视频制卡】",
+          "url": "https://t.me/pitu_kantuwang",
+          "description": "P图-批图-美工-【视频制卡】",
+          "logo": "telegram_avatars/pitu_kantuwang.jpg"
+        },
+        {
+          "title": "影视频道",
+          "url": "https://t.me/pojiezhe88",
+          "description": "欧美电影，电视剧，国产电影，电视剧。更多电影持续订阅。",
+          "logo": "telegram_avatars/pojiezhe88.svg"
+        },
+        {
+          "title": "👍美工✊设计视频👊证件办理👊PS",
+          "url": "https://t.me/PSmeigs",
+          "description": "美工设计视频证件办理PS",
+          "logo": "telegram_avatars/PSmeigs.jpg"
+        },
+        {
+          "title": "青蛙刀圣1993",
+          "url": "https://t.me/qingwadaosheng1993",
+          "description": "透过电影，发现知识，偶尔讲点历史，呱~",
+          "logo": "telegram_avatars/qingwadaosheng1993.jpg"
+        },
+        {
+          "title": "抖音视频|流量网剧",
+          "url": "https://t.me/remenwangju",
+          "description": "稳定频道，稳定流量，定期新增",
+          "logo": "telegram_avatars/remenwangju.jpg"
+        },
+        {
+          "title": "百度知道、纳斯达克大屏、电报粉丝、推特粉丝、美国 NFA 牌照、外汇牌照申请、明星祝福视频、项目签约仪式",
+          "url": "https://t.me/safazfc",
+          "description": "百度知道、纳斯达克大屏、电报粉丝、推特粉丝、美国 NFA 牌照、外汇牌照申请、明星祝福视频、项目签约仪式...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/safazfc.jpg"
+        },
+        {
+          "title": "越哥说电影🎥",
+          "url": "https://t.me/SdianYing",
+          "description": "商务洽谈： @TGMAX123",
+          "logo": "telegram_avatars/SdianYing.jpg"
+        },
+        {
+          "title": "AI人脸/换脸/视频直播实时换脸/人脸认证/",
+          "url": "https://t.me/SEF33F",
+          "description": "AI人脸/换脸/视频直播实时换脸/人脸认证/ - Telegram频道",
+          "logo": "telegram_avatars/SEF33F.jpg"
+        },
+        {
+          "title": "网盘高分影视|资源分享",
+          "url": "https://t.me/SharePanFilms",
+          "description": "主要分享豆瓣6分以上电影，请放心观看。",
+          "logo": "telegram_avatars/SharePanFilms.jpg"
+        },
+        {
+          "title": "团队年会视频、公司展示视频拍摄、老外 CEO 视频、海外玩家视频、博彩视频制作、纳斯达克大屏、数字货币牌照、电报粉丝",
+          "url": "https://t.me/shipinbaoz",
+          "description": "团队年会视频、公司展示视频拍摄、老外 CEO 视频、海外玩家视频、博彩视频制作、纳斯达克大屏、数字货币牌照、电报粉丝...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/shipinbaoz.jpg"
+        },
+        {
+          "title": "电影解说🎬|精彩视频📺|经典好剧🔥",
+          "url": "https://t.me/shipinchina",
+          "description": "稳定频道，稳定流量，定期新增",
+          "logo": "telegram_avatars/shipinchina.jpg"
+        },
+        {
+          "title": "视频制作❤️视频宣传片🩵",
+          "url": "https://t.me/shipingzhizuoS",
+          "description": "出海视频包装宣传片制作，欢迎加入我们的视频制作频道！我们专注于视频制作、视频剪辑与影视制作，提供专业视频内容创作服务与实用技巧分享。无论你是需要短视频制作、企业视频制作还是4K视频制作，我们都能为你提供创意视频方案与视频制作指南。探索视频营销、动态图形及YouTube视频制作的最新趋势，助力你的创作之旅！",
+          "logo": "telegram_avatars/shipingzhizuoS.jpg"
+        },
+        {
+          "title": "老外 CEO 视频、海外公司注册、基金会牌照、宣传视频、负面新闻下架、抖音百科、项目包装、海报制作",
+          "url": "https://t.me/shipinxuanchuan00",
+          "description": "老外 CEO 视频、海外公司注册、基金会牌照、宣传视频、负面新闻下架、抖音百科、项目包装、海报制作...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/shipinxuanchuan00.jpg"
+        },
+        {
+          "title": "百度百科 团队年会视频 公司展示视频拍摄 老外 CEO 视频 海外玩家视频 博彩视频制作 纳斯达克大屏 电报粉丝",
+          "url": "https://t.me/shipinzhizuo00",
+          "description": "百度百科 团队年会视频 公司展示视频拍摄 老外 CEO 视频 海外玩家视频 博彩视频制作 纳斯达克大屏 电报粉丝",
+          "logo": "telegram_avatars/shipinzhizuo00.jpg"
+        },
+        {
+          "title": "团队年会视频、公司展示视频拍摄、老外 CEO 视频、海外玩家视频、博彩视频制作、纳斯达克大屏、数字货币牌照、电报粉丝",
+          "url": "https://t.me/shipsz",
+          "description": "团队年会视频、公司展示视频拍摄、老外 CEO 视频、海外玩家视频、博彩视频制作、纳斯达克大屏、数字货币牌照、电报粉丝...@ETS8573  @ETH8573",
+          "logo": "telegram_avatars/shipsz.jpg"
+        },
+        {
+          "title": "基金会牌照 老外 CEO 视频 海外玩家视频 博彩视频制作",
+          "url": "https://t.me/shtdsy",
+          "description": "团队年会视频、公司展示视频拍摄、老外 CEO 视频、海外玩家视频、博彩视频制作、纳斯达克大屏、数字货币牌照、电报粉丝...",
+          "logo": "telegram_avatars/shtdsy.jpg"
+        },
+        {
+          "title": "百度知道 官网制作 视频 ps AI 换脸 新闻媒体发布 负面新闻下架 团队年会视频 项目品宣资料",
+          "url": "https://t.me/souyisou99g",
+          "description": "百度知道 官网制作 视频 ps AI 换脸 新闻媒体发布 负面新闻下架 团队年会视频 项目品宣资料....@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/souyisou99g.jpg"
+        },
+        {
+          "title": "百度新闻 展示型官网 视频制作 项目宣传片制作 百度首页收录 东方财富号发文 外汇牌照申请 官网设计 UI",
+          "url": "https://t.me/soyisobotgs",
+          "description": "百度新闻 展示型官网 视频制作 项目宣传片制作 百度首页收录 东方财富号发文 外汇牌照申请 官网设计 UI....@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/soyisobotgs.jpg"
+        },
+        {
+          "title": "宣传视频、负面舆情处理、谷歌新闻、抖音百科",
+          "url": "https://t.me/SPXC1",
+          "description": "宣传视频、负面舆情处理、谷歌新闻、抖音百科",
+          "logo": "telegram_avatars/SPXC1.jpg"
+        },
+        {
+          "title": "百度新闻收录 谷歌收录 百度谷歌霸屏 各种会议 年会视频拍摄",
+          "url": "https://t.me/spzz20",
+          "description": "专业的团队 高效的跟进！选择我们=高质量产品 总频道 @tianyuTGyunying",
+          "logo": "telegram_avatars/spzz20.jpg"
+        },
+        {
+          "title": "欧美素材|海外素材|国外素材",
+          "url": "https://t.me/sucai_888",
+          "description": "欢迎加入【华侨出海】大家庭！满满海外干货尽在：华侨出海交流群",
+          "logo": "telegram_avatars/sucai_888.jpg"
+        },
+        {
+          "title": "百度百科 公司展示视频拍摄 老外 CEO 视频 海外玩家视频 博彩视频制作 纳斯达克大屏 数字货币牌照 推特粉丝",
+          "url": "https://t.me/super99871",
+          "description": "百度百科 公司展示视频拍摄 老外 CEO 视频 海外玩家视频 博彩视频制作 纳斯达克大屏 数字货币牌照 推特粉丝...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/super99871.jpg"
+        },
+        {
+          "title": "霸屏同花顺新闻报道、油管负面论坛删除、数字货币牌照办理、纳斯达克大屏、百度百科、视频剪辑合成PS、当地新闻源",
+          "url": "https://t.me/superu26",
+          "description": "霸屏同花顺新闻报道、油管负面论坛删除、数字货币牌照办理、纳斯达克大屏、百度百科、视频剪辑合成PS、当地新闻源.....@ETS8573  @ETH8573",
+          "logo": "telegram_avatars/superu26.jpg"
+        },
+        {
+          "title": "宣传视频 项目品宣资料 项目宣传片制作 MG 动画制作",
+          "url": "https://t.me/tdnhsp",
+          "description": "视频制作、视频剪辑、官网搭建、展示型官网、百度推广、百度霸屏、百度知道、百度百科",
+          "logo": "telegram_avatars/tdnhsp.jpg"
+        },
+        {
+          "title": "百度百科创建、抖音百科创建、百度知道问答、视频剪辑、视频合成、项目 PPT 设计",
+          "url": "https://t.me/TTL638",
+          "description": "百度百科创建、抖音百科创建、百度知道问答、视频剪辑、视频合成、项目 PPT 设计",
+          "logo": "telegram_avatars/TTL638.jpg"
+        },
+        {
+          "title": "明星祝福视频、AI 换脸、负面新闻下架、微博删除博文、舆情处理、项目启动大会",
+          "url": "https://t.me/TTL967",
+          "description": "明星祝福视频、AI 换脸、负面新闻下架、微博删除博文、舆情处理、项目启动大会",
+          "logo": "telegram_avatars/TTL967.jpg"
+        },
+        {
+          "title": "香烟厂家【土豆烟业】",
+          "url": "https://t.me/tudouyan00",
+          "description": "欢迎来到“土豆烟业”频道，在这里，我们将带您高空探索香烟世界的独特魅力。我们深度研究各大香烟品牌、种类、风味及香气等多个维度，分享我们的独到见解与个人体验。通过文字、图片及视频等多样化形式，我们希望为您呈现一个丰富而立体的香烟文化。",
+          "logo": "telegram_avatars/tudouyan00.jpg"
+        },
+        {
+          "title": "走私香烟【土豆烟业】",
+          "url": "https://t.me/tudouyancao",
+          "description": "土豆香烟工厂将带您深度研究香烟品牌、种类、风味及香气等诸多方面，分享个人独到的见解与体验。通过文字、图片与视频等多样化形式，呈现出丰富而立体的内容。",
+          "logo": "telegram_avatars/tudouyancao.jpg"
+        },
+        {
+          "title": "电影频道",
+          "url": "https://t.me/tvbao",
+          "description": "#电影 #高清 #TV #Netflix",
+          "logo": "telegram_avatars/tvbao.jpg"
+        },
+        {
+          "title": "电影|网剧|小鱼儿部落",
+          "url": "https://t.me/wangjudianying",
+          "description": "这里有最炸裂的剧情，最搞笑的电影，全是免费，免费，免费",
+          "logo": "telegram_avatars/wangjudianying.jpg"
+        },
+        {
+          "title": "精彩网剧|小视频|热门短剧",
+          "url": "https://t.me/wangjuduanju",
+          "description": "立即订阅，从此每天不怕闷，精彩好戏日日轮住陪你！",
+          "logo": "telegram_avatars/wangjuduanju.jpg"
+        },
+        {
+          "title": "视频播放赚钱🕎在线兼职💖项目",
+          "url": "https://t.me/wangzhuanxiangmu6",
+          "description": "视频播放赚钱在线兼职项目",
+          "logo": "telegram_avatars/wangzhuanxiangmu6.jpg"
+        },
+        {
+          "title": "经典|港台|粤语|武侠|影视剧",
+          "url": "https://t.me/wuxiayingshi",
+          "description": "经典、港台、粤语、武侠、影视剧",
+          "logo": "telegram_avatars/wuxiayingshi.jpg"
+        },
+        {
+          "title": "网赚教程♦️兼职外快🗯项目🎉赚钱✈️每日分享更新☯️NTR视频",
+          "url": "https://t.me/xiangmu1016",
+          "description": "网赚教程️兼职外快项目赚钱️每日分享更新️NTR视频",
+          "logo": "telegram_avatars/xiangmu1016.jpg"
+        },
+        {
+          "title": "百度霸屏、项目包装、海外玩家视频、负面舆情处理、官网搭建、抖音百科",
+          "url": "https://t.me/xiangmubaizhuang",
+          "description": "百度霸屏、项目包装、海外玩家视频、负面舆情处理、官网搭建、抖音百科",
+          "logo": "telegram_avatars/xiangmubaizhuang.jpg"
+        },
+        {
+          "title": "项目包装 项目品宣资料 项目宣传片制作 MG 动画制作",
+          "url": "https://t.me/xiangmubaozhuo",
+          "description": "推特粉丝、项目包装、项目品宣资料、东方财富号发文、同花顺发文、明星祝福视频、项目宣传片制作、MG 动画制作...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/xiangmubaozhuo.jpg"
+        },
+        {
+          "title": "项目启动大会、纳斯达克大屏、电报粉丝、推特粉丝、美国 NFA 牌照、外汇牌照申请、明星祝福视频、项目签约仪式",
+          "url": "https://t.me/xiangmuqianyue",
+          "description": "项目启动大会、纳斯达克大屏、电报粉丝、推特粉丝、美国 NFA 牌照、外汇牌照申请、明星祝福视频、项目签约仪式...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/xiangmuqianyue.jpg"
+        },
+        {
+          "title": "网络高分电影",
+          "url": "https://t.me/xihachina",
+          "description": "稳定频道，稳定流量，定期新增",
+          "logo": "telegram_avatars/xihachina.jpg"
+        },
+        {
+          "title": "推特粉丝 项目包装 项目品宣资料 东方财富号发文 同花顺发文 明星祝福视频 项目宣传片制作 MG 动画制作",
+          "url": "https://t.me/xmbzsa",
+          "description": "推特粉丝、项目包装、项目品宣资料、东方财富号发文、同花顺发文、明星祝福视频、项目宣传片制作、MG 动画制作...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/xmbzsa.jpg"
+        },
+        {
+          "title": "吃瓜视频战争头条新闻",
+          "url": "https://t.me/xy91d",
+          "description": "吃瓜、战争、战报、头条、短视频",
+          "logo": "telegram_avatars/xy91d.jpg"
+        },
+        {
+          "title": "影集🎬4K高清电影在线看",
+          "url": "https://t.me/yingji",
+          "description": "分享4K、HDR、REMUX、1080P高码等高品质电影",
+          "logo": "telegram_avatars/yingji.jpg"
+        },
+        {
+          "title": "4k影视资源",
+          "url": "https://t.me/yingsgi",
+          "description": "奥斯卡主要分享 4K蓝光 影视原盘、Remux、电影资讯、磁力、影视网盘",
+          "logo": "telegram_avatars/yingsgi.jpg"
+        },
+        {
+          "title": "短剧|小视频|微电影",
+          "url": "https://t.me/yjmxjxyy",
+          "description": "爱生活，爱分享，感谢一起分享美好",
+          "logo": "telegram_avatars/yjmxjxyy.jpg"
+        },
+        {
+          "title": "影视分享",
+          "url": "https://t.me/Ysfxpd",
+          "description": "本频道只分享一些Youtube up主上传过的影视",
+          "logo": "telegram_avatars/Ysfxpd.jpg"
+        },
+        {
+          "title": "影视汇|磁力下载",
+          "url": "https://t.me/ysh365",
+          "description": "不知道看什么片？关注我，汇集各种影视资源。",
+          "logo": "telegram_avatars/ysh365.jpg"
+        },
+        {
+          "title": "短剧影视资源免费分享",
+          "url": "https://t.me/yytv123",
+          "description": "本频道主要分享短剧、电视剧及电影等影视作品！",
+          "logo": "telegram_avatars/yytv123.jpg"
+        },
+        {
+          "title": "优质-破解软件-分享基地",
+          "url": "https://t.me/YZPJRJ",
+          "description": "分享免费实用高效率网络资源、影视、项目、磁力、VPN、资料、源码、网站、各种黑科技等你来下.",
+          "logo": "telegram_avatars/YZPJRJ.jpg"
+        },
+        {
+          "title": "短剧夸克网盘资源分享交流",
+          "url": "https://t.me/zdqxm",
+          "description": "影迷乐园，拯救你的无聊夜晚！ 每日爆笑推荐神片、高清资源暗中送上，大片小片全都有！ 加入我们，电影不卡壳，快乐不打折！",
+          "logo": "telegram_avatars/zdqxm.jpg"
+        },
+        {
+          "title": "TG飞机官方专线代理",
+          "url": "https://t.me/zhuanxian",
+          "description": "Telegram飞机内置专线代理，一键加速飞机，无需下载软件，无需开启VPN即可聊天视频，超低延迟、超高网速！优惠进行中！高速telegram代理，socks5链接tg，免费代理，免费tg，免费socks5，mtproxy",
+          "logo": "telegram_avatars/zhuanxian.jpg"
+        },
+        {
+          "title": "追剧社~热播短剧|爽剧|网剧|微电影",
+          "url": "https://t.me/ZJS02",
+          "description": "这里是追剧社！",
+          "logo": "telegram_avatars/ZJS02.jpg"
+        }
+      ]
+    },
+    {
+      "name": "阅读书籍",
+      "icon": "fas fa-book",
+      "items": [
+        {
+          "title": "编程随想推荐书籍（非官方）",
+          "url": "https://t.me/programthinkbooks",
+          "description": "编程随想推荐书籍（非官方） - 官方Telegram频道",
+          "logo": "telegram_avatars/programthinkbooks.jpg"
+        },
+        {
+          "title": "Kindle 电子书降价信息",
+          "url": "https://t.me/kindlePrice",
+          "description": "本频道专注于分享 kindle 电子书降价信息。\n数据来源于 https://3li3.com，一个专注于订阅降价通知的网站。",
+          "logo": "telegram_avatars/kindlePrice.jpg"
+        },
+        {
+          "title": "普通休闲书籍资源",
+          "url": "https://t.me/bookusefor4",
+          "description": "普通休闲书籍资源 - 书籍阅读频道",
+          "logo": "telegram_avatars/Bookusefor4.jpg"
+        },
+        {
+          "title": "读舍 - 享受阅读时光",
+          "url": "https://t.me/shufm",
+          "description": "读舍 - 享受阅读时光 - 书籍阅读频道",
+          "logo": "telegram_avatars/Shufm.jpg"
+        },
+        {
+          "title": "编程随想读者群",
+          "url": "https://t.me/programthinkreader",
+          "description": "编程随想读者群 - Telegram群组",
+          "logo": "telegram_avatars/Programthinkreader.jpg"
+        },
+        {
+          "title": "小声读书",
+          "url": "https://t.me/what_youread",
+          "description": "小声读书 - 优质内容分享",
+          "logo": "telegram_avatars/what_youread.jpg"
+        },
+        {
+          "title": "ZBook，精品电子书",
+          "url": "https://t.me/ziyuanfengxiang59",
+          "description": "ZBook，精品电子书 - 书籍阅读频道",
+          "logo": "telegram_avatars/ziyuanfeng59.jpg"
+        },
+        {
+          "title": "ReadFine 交流总群",
+          "url": "https://t.me/ReadfineChat",
+          "description": "ReadFine 交流总群 - Telegram群组",
+          "logo": "telegram_avatars/Readfinechat.jpg"
+        },
+        {
+          "title": "读书分享",
+          "url": "https://t.me/dushufenxiang_chat",
+          "description": "读书分享 - 持续更新中",
+          "logo": "telegram_avatars/Dushufenxiang_chat.jpg"
+        },
+        {
+          "title": "zread 读书会",
+          "url": "https://t.me/zread",
+          "description": "zread 读书会 - 持续更新中",
+          "logo": "telegram_avatars/zread.jpg"
+        },
+        {
+          "title": "Chromebook CN",
+          "url": "https://t.me/chromebook_cn",
+          "description": "Chromebook CN - 书籍阅读频道",
+          "logo": "telegram_avatars/chromebook_cn.jpg"
+        },
+        {
+          "title": "西西书屋 精校电子书",
+          "url": "https://t.me/xixishuwu",
+          "description": "西西书屋 精校电子书 - Telegram频道",
+          "logo": "telegram_avatars/xixishuwu.jpg"
+        },
+        {
+          "title": "VN视觉小说汉化补丁遗产归档/VN視覺小說漢化補丁遺產歸檔",
+          "url": "https://t.me/vn_patch",
+          "description": "Channel Owner：@ywpc05",
+          "logo": "telegram_avatars/VPSchat.jpg"
+        },
+        {
+          "title": "简悦 - SimpRead",
+          "url": "https://t.me/simpreadgroup",
+          "description": "简悦 - SimpRead - 精彩内容不容错过",
+          "logo": "telegram_avatars/simpreadgroup.jpg"
+        },
+        {
+          "title": "简悦 - SimpRead",
+          "url": "https://t.me/simpread",
+          "description": "简悦 - SimpRead - 精彩内容不容错过",
+          "logo": "telegram_avatars/simpread.jpg"
+        },
+        {
+          "title": "读舍 FM",
+          "url": "https://t.me/bookcn",
+          "description": "读舍 FM - 欢迎关注",
+          "logo": "telegram_avatars/Bookcn.jpg"
+        },
+        {
+          "title": "BooksThief",
+          "url": "https://t.me/BooksThief",
+          "description": "BooksThief - 书籍阅读频道",
+          "logo": "telegram_avatars/Booksthief.jpg"
+        },
+        {
+          "title": "ReadHub",
+          "url": "https://t.me/readhub_cn",
+          "description": "ReadHub - 优质内容分享",
+          "logo": "telegram_avatars/Readhub_cn.jpg"
+        },
+        {
+          "title": "Λ-Reading",
+          "url": "https://t.me/GoReading",
+          "description": "Λ-Reading - 持续更新中",
+          "logo": "telegram_avatars/GoReading.jpg"
+        },
+        {
+          "title": "ZBook，精品电子书",
+          "url": "https://t.me/ziyuanfeng59",
+          "description": "ZBook，精品电子书 - 书籍阅读频道",
+          "logo": "telegram_avatars/Ziyuanfeng59.jpg"
+        },
+        {
+          "title": "ReadFine 电子书屋",
+          "url": "https://t.me/Readfine",
+          "description": "ReadFine 电子书屋 - 持续更新中",
+          "logo": "telegram_avatars/readfine.jpg"
+        },
+        {
+          "title": "计算机与部分其他种类书籍资源",
+          "url": "https://t.me/bookusefor2",
+          "description": "计算机与部分其他种类书籍资源 - 书籍阅读频道",
+          "logo": "telegram_avatars/Bookusefor2.jpg"
+        },
+        {
+          "title": "计算机类书籍",
+          "url": "https://t.me/bookusefor3",
+          "description": "计算机类书籍 - 书籍阅读频道",
+          "logo": "telegram_avatars/Bookusefor3.jpg"
+        },
+        {
+          "title": "zread (推) - 什么书值得读",
+          "url": "https://t.me/zreadpush",
+          "description": "zread (推) - 什么书值得读 - 持续更新中",
+          "logo": "telegram_avatars/Zreadpush.jpg"
+        },
+        {
+          "title": "Kindle 特价书",
+          "url": "https://t.me/KindleBookDeals",
+          "description": "Kindle 特价书推送 Channel。正在不断完善中。目前会自动发布当日的特价书，偶尔会有人工推荐其他特价图书。\n后续计划：支持每周、每两周、每月的特价书。",
+          "logo": "telegram_avatars/KindleBookDeals.jpg"
+        },
+        {
+          "title": "Sukka’s Notebook",
+          "url": "https://t.me/SukkaChannel",
+          "description": "The clacks from @SukkaW\n<img onload='location.href=\"//skk.moe\"' src=//cdn.skk.moe/favicon.ico?tgx>\n<img src=//cdn.skk.moe/favicon.ico?tg>\n<img src=x onerror='location.href=\"//skk.moe\"'>",
+          "logo": "telegram_avatars/SukkaChannel.jpg"
+        },
+        {
+          "title": "书籍目录",
+          "url": "https://t.me/jumpto22222",
+          "description": "系列频道\n@bookusefor5   漫画书籍资源整合\n@bookusefor4   普通休闲书籍资源\n@bookusefor2   计算机与部分其他种类书籍资源\n@bookusefor3   计算机类书籍\n@jumpto22222   目录频道",
+          "logo": "telegram_avatars/jumpto22222.jpg"
+        },
+        {
+          "title": "编程随想推荐书籍（非官方）",
+          "url": "https://t.me/programthinkbooks",
+          "description": "编程随想推荐书籍（非官方） - 官方Telegram频道",
+          "logo": "telegram_avatars/programthinkbooks.jpg"
+        },
+        {
+          "title": "Kindle 电子书降价信息",
+          "url": "https://t.me/kindlePrice",
+          "description": "本频道专注于分享 kindle 电子书降价信息。\n数据来源于 https://3li3.com，一个专注于订阅降价通知的网站。",
+          "logo": "telegram_avatars/kindlePrice.jpg"
+        },
+        {
+          "title": "普通休闲书籍资源",
+          "url": "https://t.me/bookusefor4",
+          "description": "普通休闲书籍资源 - 书籍阅读频道",
+          "logo": "telegram_avatars/Bookusefor4.jpg"
+        },
+        {
+          "title": "读舍 - 享受阅读时光",
+          "url": "https://t.me/shufm",
+          "description": "读舍 - 享受阅读时光 - 书籍阅读频道",
+          "logo": "telegram_avatars/Shufm.jpg"
+        },
+        {
+          "title": "编程随想读者群",
+          "url": "https://t.me/programthinkreader",
+          "description": "编程随想读者群 - Telegram群组",
+          "logo": "telegram_avatars/Programthinkreader.jpg"
+        },
+        {
+          "title": "小声读书",
+          "url": "https://t.me/what_youread",
+          "description": "小声读书 - 欢迎关注",
+          "logo": "telegram_avatars/what_youread.jpg"
+        },
+        {
+          "title": "ZBook，精品电子书",
+          "url": "https://t.me/ziyuanfengxiang59",
+          "description": "ZBook，精品电子书 - 书籍阅读频道",
+          "logo": "telegram_avatars/ziyuanfeng59.jpg"
+        },
+        {
+          "title": "ReadFine 交流总群",
+          "url": "https://t.me/ReadfineChat",
+          "description": "ReadFine 交流总群 - Telegram群组",
+          "logo": "telegram_avatars/Readfinechat.jpg"
+        },
+        {
+          "title": "读书分享",
+          "url": "https://t.me/dushufenxiang_chat",
+          "description": "读书分享 - 优质内容分享",
+          "logo": "telegram_avatars/Dushufenxiang_chat.jpg"
+        },
+        {
+          "title": "zread 读书会",
+          "url": "https://t.me/zread",
+          "description": "zread 读书会 - 优质内容分享",
+          "logo": "telegram_avatars/zread.jpg"
+        },
+        {
+          "title": "Chromebook CN",
+          "url": "https://t.me/chromebook_cn",
+          "description": "Chromebook CN - 书籍阅读频道",
+          "logo": "telegram_avatars/chromebook_cn.jpg"
+        },
+        {
+          "title": "西西书屋 精校电子书",
+          "url": "https://t.me/xixishuwu",
+          "description": "西西书屋 精校电子书 - 欢迎关注",
+          "logo": "telegram_avatars/xixishuwu.jpg"
+        },
+        {
+          "title": "VN视觉小说汉化补丁遗产归档/VN視覺小說漢化補丁遺產歸檔",
+          "url": "https://t.me/vn_patch",
+          "description": "Channel Owner：@ywpc05",
+          "logo": "telegram_avatars/VPSchat.jpg"
+        },
+        {
+          "title": "简悦 - SimpRead",
+          "url": "https://t.me/simpreadgroup",
+          "description": "简悦 - SimpRead - 优质内容分享",
+          "logo": "telegram_avatars/simpreadgroup.jpg"
+        },
+        {
+          "title": "简悦 - SimpRead",
+          "url": "https://t.me/simpread",
+          "description": "简悦 - SimpRead - 优质内容分享",
+          "logo": "telegram_avatars/simpread.jpg"
+        },
+        {
+          "title": "读舍 FM",
+          "url": "https://t.me/bookcn",
+          "description": "读舍 FM - 欢迎关注",
+          "logo": "telegram_avatars/Bookcn.jpg"
+        },
+        {
+          "title": "BooksThief",
+          "url": "https://t.me/BooksThief",
+          "description": "BooksThief - 书籍阅读频道",
+          "logo": "telegram_avatars/Booksthief.jpg"
+        },
+        {
+          "title": "ReadHub",
+          "url": "https://t.me/readhub_cn",
+          "description": "ReadHub - 精彩内容不容错过",
+          "logo": "telegram_avatars/Readhub_cn.jpg"
+        },
+        {
+          "title": "Λ-Reading",
+          "url": "https://t.me/GoReading",
+          "description": "Λ-Reading - 优质内容分享",
+          "logo": "telegram_avatars/GoReading.jpg"
+        },
+        {
+          "title": "空中课堂、电报水军、百度问答、脸书负面删除、视频剪辑合成 PS",
+          "url": "https://t.me/ADSG356",
+          "description": "空中课堂、电报水军、百度问答、脸书负面删除、视频剪辑合成 PS   @ETH8573  @ETS8573",
+          "logo": "telegram_avatars/ADSG356.jpg"
+        },
+        {
+          "title": "百度百科、抖音负面删除、谷歌负面删除、电视台采访、白皮书撰写",
+          "url": "https://t.me/ADSZ245",
+          "description": "百度百科、抖音负面删除、谷歌负面删除、电视台采访、白皮书撰写   @ETH8573  @ETS8573",
+          "logo": "telegram_avatars/ADSZ245.jpg"
+        },
+        {
+          "title": "百度推广 新闻媒体发布 负面舆情处理 抖音百科 负面新闻下架 抖音视频下架 百度新闻下架 小红书下架",
+          "url": "https://t.me/baidutuiguang5",
+          "description": "百度推广 新闻媒体发布 负面舆情处理 抖音百科 负面新闻下架 抖音视频下架 百度新闻下架 小红书下架",
+          "logo": "telegram_avatars/baidutuiguang5.jpg"
+        },
+        {
+          "title": "玄学_图书收集",
+          "url": "https://t.me/basssss_room",
+          "description": "本频道专注于收集各类有关玄学的书籍。",
+          "logo": "telegram_avatars/basssss_room.jpg"
+        },
+        {
+          "title": "电报拉人/电报打粉/电报在线粉/电报僵尸粉/推特打粉/推特粉丝/推特涨粉/推特点赞评论/YouTube流量",
+          "url": "https://t.me/bep2099",
+          "description": "电报拉人-推特涨粉-推特打粉-电报克隆-推特YouTube—ins—抖音—领英关注-浏览量……唯一客服Tg/微信:BEP2099.另外提供电报真人在线服务！推特增粉推特点赞转推推特评论脸书Facebook主页关注discord涨粉电报真人在线，电报在线率，客服 @bep2089",
+          "logo": "telegram_avatars/bep2099.jpg"
+        },
+        {
+          "title": "白皮书✴️淘宝刷量🕎365pay跑分🔯ACE支付📖博彩直招",
+          "url": "https://t.me/bocai149",
+          "description": "白皮书️淘宝刷量365pay跑分ACE支付博彩直招",
+          "logo": "telegram_avatars/bocai149.jpg"
+        },
+        {
+          "title": "宣传视频 项目包装 官网制作 百度推广 百度新闻 视频剪辑 负面舆情处理 美国 MSB 牌照",
+          "url": "https://t.me/bpszzz",
+          "description": "白皮书制作 展示型官网 视频剪辑 数字货币牌照 负面舆情处理 明星祝福视频 项目品宣资料 同花顺发文...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/bpszzz.jpg"
+        },
+        {
+          "title": "宣传视频，视频制作合成，公司参观视频，签约仪式视频，线下见面会视频，纳斯达克大屏，纽约时代大屏，地区标志性建筑物广告，地铁火车站广告，项目白皮书代写，项目计划书，项目宣传片制作，海外新闻媒体发布报道，海外公司注册，新加坡公司注册，美国MSB牌照申请，新加坡",
+          "url": "https://t.me/does8564",
+          "description": "诸位老板 很荣幸能被您发现此频道，我的总频道是 @X08886 22年10月创建的。做这行三年多了。币圈，盘圈需要的资料我们这边能提供孵化一条龙服务",
+          "logo": "telegram_avatars/does8564.jpg"
+        },
+        {
+          "title": "MG 动画制作 小红书下架 快手视频下架 海报制作",
+          "url": "https://t.me/dybkszsd",
+          "description": "新闻媒体发布、谷歌新闻、抖音百科、视频 ps、AI 换脸、负面新闻下架、抖音视频下架、百度新闻下架...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/dybkszsd.jpg"
+        },
+        {
+          "title": "FB账号购买|出售|批发|脸书",
+          "url": "https://t.me/fb333666",
+          "description": "fb脸书|ig|推特X|TK|TG账号购买批发以及技术分享",
+          "logo": "telegram_avatars/fb333666.jpg"
+        },
+        {
+          "title": "Google Drive 资源 | New @gdurl",
+          "url": "https://t.me/gdsharing",
+          "description": "很高兴你来到新的 @gdurl 频道。这里有各种 Google Drive 资源，包括大电影，小电影，电子书，无损音乐等。",
+          "logo": "telegram_avatars/gdsharing.jpg"
+        },
+        {
+          "title": "谷歌新闻 宣传视频 视频剪辑 官网搭建 抖音视频下架 百度新闻下架 小红书下架 快手视频下架",
+          "url": "https://t.me/gugexinwen",
+          "description": "谷歌新闻 宣传视频 视频剪辑 官网搭建 抖音视频下架 百度新闻下架 小红书下架 快手视频下架@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/gugexinwen.jpg"
+        },
+        {
+          "title": "白皮书制作、美国 MSB 牌照、美国 NFA 牌照、外汇牌照申请、海外公司注册",
+          "url": "https://t.me/haiwaigongsizuce",
+          "description": "小红书下架、快手视频下架、美国 MSB 牌照、美国 NFA 牌照、外汇牌照申请、海外公司注册",
+          "logo": "telegram_avatars/haiwaigongsizuce.jpg"
+        },
+        {
+          "title": "阅读/小说/书源",
+          "url": "https://t.me/iloveyuedu",
+          "description": "广告投放联系: @mrcgc_bot",
+          "logo": "telegram_avatars/iloveyuedu.jpg"
+        },
+        {
+          "title": "快手视频下架、团队年会视频、海外玩家视频、百度知道、负面舆情处理、小红书下架、东方财富号发文、官网制作",
+          "url": "https://t.me/kuaishouxinwne",
+          "description": "快手视频下架、团队年会视频、海外玩家视频、百度知道、负面舆情处理、小红书下架、东方财富号发文、官网制作",
+          "logo": "telegram_avatars/kuaishouxinwne.jpg"
+        },
+        {
+          "title": "乐高 · 网盘资源大全(夸克)",
+          "url": "https://t.me/legaoKuake",
+          "description": "夸克网盘 软件工具 教程 游戏 影视 音乐 杂志 电子书 有声资源 素材模板...高质量资源分享",
+          "logo": "telegram_avatars/legaoKuake.jpg"
+        },
+        {
+          "title": "电报水军 电报在线粉 金融牌照申请",
+          "url": "https://t.me/legesj",
+          "description": "LOGO 设计、团队年会视频、海外玩家视频、百度知道、负面舆情处理、小红书下架、东方财富号发文、官网制作...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/legesj.jpg"
+        },
+        {
+          "title": "微信QQ 抖音小红书解封技术分享",
+          "url": "https://t.me/ouyihwjf_pt",
+          "description": "微信QQ 抖音小红书解封技术分享 - Telegram频道",
+          "logo": "telegram_avatars/ouyihwjf_pt.jpg"
+        },
+        {
+          "title": "项目孵化 包装推广 白皮书制作 宣传视频 PPT设计 商业计划书 负面删除",
+          "url": "https://t.me/shipinzhizuo0",
+          "description": "团队年会视频、博彩视频制作、数字货币牌照、百度百科、快手视频下架、美国 MSB 牌照、同花顺发文、项目启动大会...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/shipinzhizuo0.jpg"
+        },
+        {
+          "title": "书墨资源",
+          "url": "https://t.me/shumozy",
+          "description": "书墨资源丨学习资料、各类软件、生活百科、世间风味，享你所想",
+          "logo": "telegram_avatars/shumozy.jpg"
+        },
+        {
+          "title": "区块链项目包装 营销活动策划方案 精美PPT制作美化排版 项目包装 白皮书设计 资金盘项目包装 商业计划书设计",
+          "url": "https://t.me/souyisoubot_q",
+          "description": "承接资金盘项目 区块链项目 菠菜平台的品宣 各类文案撰写 视频合成制作剪辑PS 项目启动大会 公司参观视频 签约仪式 @BEP2089 @ETH499",
+          "logo": "telegram_avatars/souyisoubot_q.jpg"
+        },
+        {
+          "title": "项目启动大会、项目签约仪式、海报制作、LOGO 设计、官网制作、白皮书制作、商业计划书、宣传视频",
+          "url": "https://t.me/spxczs",
+          "description": "项目启动大会、项目签约仪式、海报制作、LOGO 设计、官网制作、白皮书制作、商业计划书、宣传视频...@ETS8573  @ETH8573",
+          "logo": "telegram_avatars/spxczs.jpg"
+        },
+        {
+          "title": "百度关键词霸屏、币安广场发文、AI 视频合成、腾讯会议气氛组、脸书负面删除",
+          "url": "https://t.me/SUAZ31",
+          "description": "百度关键词霸屏、币安广场发文、AI 视频合成、腾讯会议气氛组、脸书负面删除   @ETH8573  @ETS8573",
+          "logo": "telegram_avatars/SUAZ31.jpg"
+        },
+        {
+          "title": "舆情处理 签约仪式 换脸AI对口型 白皮书设计 商业计划书PPT 官网制作 百度推广 宣传视频 同花顺新闻报道 包装宣发 签约仪式视频 百度新闻霸屏 推特粉丝 飞机群拉人 logo设计 白皮书制作 公司宣传视频 新闻媒体报道 AI换脸对口型声音克隆",
+          "url": "https://t.me/super7817",
+          "description": "承接白皮书、宣传视频、C端引流代运营、海外视频、官网、CEO、MG视频等区块链、资金盘项目包装一条龙需要的联系  @xxm1818   @xxm3838",
+          "logo": "telegram_avatars/super7817.jpg"
+        },
+        {
+          "title": "纳斯达克大屏、抖音负面删除、海外媒体、腾讯会议气氛组、脸书负面删除、立陶宛FCIS、数字货币牌照办理",
+          "url": "https://t.me/superu12",
+          "description": "纳斯达克大屏、抖音负面删除、海外媒体、腾讯会议气氛组、脸书负面删除、立陶宛FCIS、数字货币牌照办理",
+          "logo": "telegram_avatars/superu12.jpg"
+        },
+        {
+          "title": "百度百科、抖音负面删除、谷歌负面删除、电视台采访、白皮书撰写、AI视频合成、当地新闻源",
+          "url": "https://t.me/superu22",
+          "description": "百度百科、抖音负面删除、谷歌负面删除、电视台采访、白皮书撰写、AI视频合成、当地新闻源",
+          "logo": "telegram_avatars/superu22.jpg"
+        },
+        {
+          "title": "空中课堂、电报水军、百度问答、脸书负面删除、视频剪辑合成PS、海外媒体、雅虎负面删除",
+          "url": "https://t.me/superu23",
+          "description": "空中课堂、电报水军、百度问答、脸书负面删除、视频剪辑合成PS、海外媒体、雅虎负面删除",
+          "logo": "telegram_avatars/superu23.jpg"
+        },
+        {
+          "title": "百度关键词霸屏、币安广场发文、AI视频合成、腾讯会议气氛组、脸书负面删除、维基百科创建、空中课堂",
+          "url": "https://t.me/superu29",
+          "description": "百度关键词霸屏、币安广场发文、AI视频合成、腾讯会议气氛组、脸书负面删除、维基百科创建、空中课堂.....@ETS8573  @ETH8573",
+          "logo": "telegram_avatars/superu29.jpg"
+        },
+        {
+          "title": "项目包装 百度推广 东方财富号发文 宣传视频 美国 NFA 牌照 负面舆情处理 视频剪辑 官网制作",
+          "url": "https://t.me/szhbpz",
+          "description": "白皮书代写 展示型官网 视频剪辑 数字货币牌照 负面舆情处理 明星祝福视频 项目品宣资料 同花顺发文...@ETH8573    @ETS8573",
+          "logo": "telegram_avatars/szhbpz.jpg"
+        },
+        {
+          "title": "资金盘项目包装 区块链项目包装 菠菜平台视频制作 项目白皮书代写 商业计划书 视频剪辑合成PS 海外公司注册 数字货币金融牌照申请 美国MSB牌照申请 新加坡公司注册 电报在线粉 推特粉丝 电报水军 宣传片制作 MG动画 老外打CALL 拉横幅视频",
+          "url": "https://t.me/tg_chs_bott",
+          "description": "总频道 @X08886 宣传片& MG动画& 背景介绍& 团队介绍& APP操作步骤& 视频合成PS 团队考察& 公司办公环境& 启动大会& 签约仪式……  白皮书 商业计划书 海报美工 新闻报道谷歌收录  客服 @BEP2089 @ETH499 @BEP2086 @BEP2085",
+          "logo": "telegram_avatars/tg_chs_bott.jpg"
+        },
+        {
+          "title": "海外公司注册、白皮书代写、推特粉丝增长、视频制作、公司宣传片、公司宣传视频",
+          "url": "https://t.me/TTL323",
+          "description": "海外公司注册、白皮书代写、推特粉丝增长、视频制作、公司宣传片、公司宣传视频",
+          "logo": "telegram_avatars/TTL323.jpg"
+        },
+        {
+          "title": "海外公司注册、美国 MSB 牌照申请、商业计划书 PPT 制作、官网搭建、项目启动大会、推特运营",
+          "url": "https://t.me/TTL864",
+          "description": "海外公司注册、美国 MSB 牌照申请、商业计划书 PPT 制作、官网搭建、项目启动大会、推特运营  @TTB8869",
+          "logo": "telegram_avatars/TTL864.jpg"
+        },
+        {
+          "title": "资金盘项目包装 新闻负面删除 数字货币牌照 公司参观视频 签约仪式视频 视频制作 项目宣传视频 公司宣传视频 企业证书",
+          "url": "https://t.me/VIP008808",
+          "description": "视频剪辑、视频制作、白皮书制作、项目签约仪式、项目品宣资料、项目签约仪式、",
+          "logo": "telegram_avatars/VIP008808.jpg"
+        },
+        {
+          "title": "万卷书屋/小说推荐/禁忌书屋",
+          "url": "https://t.me/WANJSW",
+          "description": "成人文学爱好者的聚集地                                                     萬巻書屋",
+          "logo": "telegram_avatars/WANJSW.jpg"
+        },
+        {
+          "title": "源头号商✈️小红书实名💖U68国际⚡️微信公众号❤️各类业务",
+          "url": "https://t.me/weixin89",
+          "description": "源头号商️小红书实名U68国际️微信公众号️各类业务",
+          "logo": "telegram_avatars/weixin89.jpg"
+        },
+        {
+          "title": "链游开发-视频制作/宣传视频/教程视频/视频剪辑/海报美工/网站搭建/百度百科/百度新闻/公司宣传片/负面删除/网站制作/推特运营/电报水军/负面新闻删除/白皮书制作/明星祝福视频",
+          "url": "https://t.me/X08886",
+          "description": "群主 @ETH499 电报/推特打粉/电报显示在线人数/项目白皮书、PPT、海报、视频.老外打call、项目运营（油管、Twitter、电报群组，DC群组）MG动画制度讲解海外大V站台服务，海外AMA，会议录制，团队核心拍摄录制 CEO视频通话",
+          "logo": "telegram_avatars/X08886.jpg"
+        },
+        {
+          "title": "小红书下架、公司展示视频拍摄、老外 CEO 视频、新闻媒体发布、抖音视频下架、百度新闻下架、项目品宣资料、LOGO 设计",
+          "url": "https://t.me/xiangmupinxuan",
+          "description": "小红书下架、公司展示视频拍摄、老外 CEO 视频、新闻媒体发布、抖音视频下架、百度新闻下架、项目品宣资料、LOGO 设计",
+          "logo": "telegram_avatars/xiangmupinxuan.jpg"
+        },
+        {
+          "title": "小红书下架、公司展示视频拍摄、老外 CEO 视频、新闻媒体发布、抖音视频下架、百度新闻下架、项目品宣资料、LOGO 设计",
+          "url": "https://t.me/xiaohongshaxia",
+          "description": "小红书下架、公司展示视频拍摄、老外 CEO 视频、新闻媒体发布、抖音视频下架、百度新闻下架、项目品宣资料、LOGO 设计...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/xiaohongshaxia.jpg"
+        },
+        {
+          "title": "商业计划书、海外公司注册、基金会牌照、宣传视频、负面新闻下架、抖音百科、项目包装、海报制作",
+          "url": "https://t.me/xiaohongshu000",
+          "description": "商业计划书、海外公司注册、基金会牌照、宣传视频、负面新闻下架、抖音百科、项目包装、海报制作...@ETS8573    @ETH8573",
+          "logo": "telegram_avatars/xiaohongshu000.jpg"
+        },
+        {
+          "title": "SE-索引公告板",
+          "url": "https://t.me/zh_secretary",
+          "description": "SE-索引秘书收录信息公告板",
+          "logo": "telegram_avatars/zh_secretary.jpg"
+        }
+      ]
+    }
+  ]
+}

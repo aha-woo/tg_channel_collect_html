@@ -416,7 +416,7 @@ header nav a.active {
 #content {
     padding: 20px 24px;
     width: 100%;
-    max-width: 1400px; /* 限制最大宽度 */
+    max-width: 100%; /* 自适应可用宽度 */
     margin: 0 auto; /* 居中显示 */
     box-sizing: border-box;
 }
@@ -426,7 +426,7 @@ header nav a.active {
     position: relative;
     margin-bottom: 40px;
     width: 100%;
-    max-width: 1200px; /* 限制最大宽度，确保3个卡片能完整显示 */
+    max-width: 100%; /* 自适应可用宽度 */
     margin: 0 auto; /* 居中显示 */
     display: flex;
     align-items: center;
@@ -608,13 +608,21 @@ header nav a.active {
 @media (max-width: 1399px) {
     .ad-carousel-card {
         flex: 0 0 300px;
+        min-width: 280px; /* 确保在小屏幕上也能显示 */
     }
 }
 
 @media (max-width: 1199px) {
     .ad-carousel-card {
         flex: 0 0 280px;
+        min-width: 260px;
     }
+}
+
+/* 侧边栏展开时，广告卡片稍微缩小以适应可用空间 */
+.sidebar.expanded ~ .main-content .ad-carousel-card {
+    flex: 0 0 320px;
+    min-width: 280px;
 }
 
 @media (max-width: 1023px) {
@@ -735,12 +743,17 @@ header nav a.active {
 /* ========== 卡片网格 ========== */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr)); /* 默认5列 */
     gap: 16px;
     margin-bottom: 24px;
     width: 100%;
     max-width: 100%; /* 确保不超出容器 */
     box-sizing: border-box;
+}
+
+/* 侧边栏展开时，自动调整为4列以适应可用宽度 */
+.sidebar.expanded ~ .main-content .grid-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 /* ========== 展开更多按钮 ========== */
@@ -986,20 +999,32 @@ header nav a.active {
 
 /* ========== 响应式 ========== */
 /* 默认显示5列，只有在屏幕宽度不足时才减少列数 */
+/* 响应式断点：根据可用宽度调整列数 */
 @media (max-width: 1599px) {
-    .grid-container {
+    /* 侧边栏收起时 */
+    .sidebar:not(.expanded) ~ .main-content .grid-container {
         grid-template-columns: repeat(5, minmax(0, 1fr));
     }
-}
-
-@media (max-width: 1399px) {
-    .grid-container {
+    /* 侧边栏展开时 */
+    .sidebar.expanded ~ .main-content .grid-container {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 
+@media (max-width: 1399px) {
+    .sidebar:not(.expanded) ~ .main-content .grid-container {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .sidebar.expanded ~ .main-content .grid-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 1199px) {
-    .grid-container {
+    .sidebar:not(.expanded) ~ .main-content .grid-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .sidebar.expanded ~ .main-content .grid-container {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }

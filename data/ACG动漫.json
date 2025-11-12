@@ -1,0 +1,451 @@
+{
+  "id": "ACG动漫",
+  "parentName": "ACG动漫",
+  "parentIcon": "fas fa-ghost",
+  "children": [
+    {
+      "name": "ACG动漫",
+      "icon": "fas fa-user-astronaut",
+      "items": [
+        {
+          "title": "ACGN☆Taiwan",
+          "url": "https://t.me/TaiwanAnime",
+          "description": "ACGN☆Taiwan - 动漫ACG频道",
+          "logo": "telegram_avatars/taiwananime.jpg"
+        },
+        {
+          "title": "一个兴趣使然的动漫切段频道",
+          "url": "https://t.me/xqsranimegif",
+          "description": "兴趣使然旗下唯一动漫图片频道，看动漫图片，看到喜欢的图片就给它单独发出来",
+          "logo": "telegram_avatars/xqsranimegif.jpg"
+        },
+        {
+          "title": "二次元ASMR",
+          "url": "https://t.me/ASMRultra",
+          "description": "二次元ASMR - Telegram频道",
+          "logo": "telegram_avatars/ASMRultra_二次元ASMR_avatar.jpg"
+        },
+        {
+          "title": "动漫 里番 二次元 漫画",
+          "url": "https://t.me/dongman1023",
+          "description": "动漫 里番 二次元 漫画 - Telegram频道",
+          "logo": "telegram_avatars/dongman1023_动漫 里番 二次元 漫画_avatar.jpg"
+        },
+        {
+          "title": "动漫|完结|连载|热门",
+          "url": "https://t.me/dongmanlianzai",
+          "description": "精彩享不停，高清精彩剧集多语种字幕随心看！",
+          "logo": "telegram_avatars/maliquankai.jpg"
+        },
+        {
+          "title": "国漫✿3D同人动漫",
+          "url": "https://t.me/kanvam",
+          "description": "国漫✿3D同人动漫 - Telegram频道",
+          "logo": "telegram_avatars/kanvam_国漫✿3D同人动漫_avatar.jpg"
+        },
+        {
+          "title": "动漫里番 ｜原神｜漫画",
+          "url": "https://t.me/MadouSAV",
+          "description": "动漫里番 ｜原神｜漫画 - Telegram频道",
+          "logo": "telegram_avatars/MadouSAV_动漫里番 ｜原神｜漫画_avatar.jpg"
+        },
+        {
+          "title": "GAL/RPG/ADV/SLG/工口/壁纸/动漫/二次元",
+          "url": "https://t.me/menghuaacg",
+          "description": "GAL/RPG/ADV/SLG/工口/壁纸/动漫/二次元 - Telegram频道",
+          "logo": "telegram_avatars/tsbblog.jpg"
+        },
+        {
+          "title": "🐼【二次元】3DCG MDD 里番 同人动画",
+          "url": "https://t.me/pandandm",
+          "description": "🐼【二次元】3DCG MDD 里番 同人动画 - Telegram频道",
+          "logo": "telegram_avatars/pandandm_🐼【二次元】3DCG MDD 里番 同人动画_avatar.jpg"
+        },
+        {
+          "title": "精品H漫动漫里番分享👍",
+          "url": "https://t.me/xcc256zzxxc",
+          "description": "精品H漫动漫里番分享👍 - Telegram频道",
+          "logo": "telegram_avatars/xcc256zzxxc_精品H漫动漫里番分享👍_avatar.jpg"
+        },
+        {
+          "title": "嗶咔漫畫頻道 Pica Channel - 十年相伴",
+          "url": "https://t.me/PicACG",
+          "description": "嗶咔漫畫官方頻道，由官方及官方授權者營運。",
+          "logo": "telegram_avatars/PicACG_嗶咔漫畫頻道 Pica Channel - 十年相伴_avatar.jpg"
+        },
+        {
+          "title": "3D漫画(禁漫|国漫/日漫/美漫)",
+          "url": "https://t.me/manhua_3D",
+          "description": "3D漫画(禁漫|国漫/日漫/美漫) - Telegram频道",
+          "logo": "telegram_avatars/qinghua_box.jpg"
+        },
+        {
+          "title": "海贼王 One Piece 动漫更新提醒",
+          "url": "https://t.me/tingtalk_op",
+          "description": "I'm Gonna Be King of the Pirates!\n主频道 @tingtalk",
+          "logo": "telegram_avatars/tingtalk_op.jpg"
+        },
+        {
+          "title": "二次元 x 动漫里番精选",
+          "url": "https://t.me/dongman98",
+          "description": "自用机场：https://t.me/dongman98/11",
+          "logo": "telegram_avatars/dongman98_二次元 x 动漫里番精选_avatar.jpg"
+        },
+        {
+          "title": "日韩小姐姐💟漫画大长腿😍纯欲包臀裙",
+          "url": "https://t.me/rihanxiaojiejie",
+          "description": "所有资源出自互联网收集整理，本频道不参与制作，如果侵犯了您的合法权益，请联系我们删除。",
+          "logo": "telegram_avatars/rihanxiaojiejie_日韩小姐姐💟漫画大长腿😍纯欲包臀裙_avatar.jpg"
+        },
+        {
+          "title": "屑魔女的3D动漫收藏夹😘（安利二号频道）",
+          "url": "https://t.me/zijianzhang02",
+          "description": "屑魔女的3D动漫收藏夹😘（安利二号频道） - Telegram频道",
+          "logo": "telegram_avatars/zijianzhang02_屑魔女的3D动漫收藏夹😘（安利二号频道）_avatar.jpg"
+        },
+        {
+          "title": "岁寒输入法交流",
+          "url": "https://t.me/SuiHanIME",
+          "description": "岁寒输入法交流 - 欢迎关注",
+          "logo": "telegram_avatars/Suihanime.jpg"
+        },
+        {
+          "title": "Picacomic News",
+          "url": "https://t.me/PicACG",
+          "description": "Picacomic News - 新闻资讯频道",
+          "logo": "telegram_avatars/Picacg.jpg"
+        },
+        {
+          "title": "二次元R18动漫资源分享[3D｜同人｜动画｜ACG｜MMD｜VAM]",
+          "url": "https://t.me/acgr18",
+          "description": "二次元R18动漫资源分享[3D｜同人｜动画｜ACG｜MMD｜... - Telegram频道",
+          "logo": "telegram_avatars/acgr18_二次元R18动漫资源分享[3D｜同人｜动画｜ACG｜MMD｜VAM]_avatar.jpg"
+        },
+        {
+          "title": "月之屋-续-兴趣是ACGN资源分享",
+          "url": "https://t.me/newmoonhouse2",
+          "description": "月之屋-续-兴趣是ACGN资源分享 - Telegram频道",
+          "logo": "telegram_avatars/newmoonhouse2_月之屋-续-兴趣是ACGN资源分享_avatar.jpg"
+        },
+        {
+          "title": "嗶咔漫畫頻道 Pica Channel - 十年相伴",
+          "url": "https://t.me/PicACG",
+          "description": "嗶咔漫畫官方頻道，由官方及官方授權者營運。",
+          "logo": "telegram_avatars/PicACG_嗶咔漫畫頻道 Pica Channel - 十年相伴_avatar.jpg"
+        },
+        {
+          "title": "海贼王 One Piece 动漫更新提醒",
+          "url": "https://t.me/tingtalk_op",
+          "description": "I'm Gonna Be King of the Pirates!\n主频道 @tingtalk",
+          "logo": "telegram_avatars/tingtalk_op.jpg"
+        },
+        {
+          "title": "二次元 x 动漫里番精选",
+          "url": "https://t.me/dongman98",
+          "description": "自用机场：https://t.me/dongman98/11",
+          "logo": "telegram_avatars/dongman98_二次元 x 动漫里番精选_avatar.jpg"
+        },
+        {
+          "title": "日韩小姐姐💟漫画大长腿😍纯欲包臀裙",
+          "url": "https://t.me/rihanxiaojiejie",
+          "description": "所有资源出自互联网收集整理，本频道不参与制作，如果侵犯了您的合法权益，请联系我们删除。",
+          "logo": "telegram_avatars/rihanxiaojiejie_日韩小姐姐💟漫画大长腿😍纯欲包臀裙_avatar.jpg"
+        },
+        {
+          "title": "屑魔女的3D动漫收藏夹😘（安利二号频道）",
+          "url": "https://t.me/zijianzhang02",
+          "description": "屑魔女的3D动漫收藏夹😘（安利二号频道） - Telegram频道",
+          "logo": "telegram_avatars/zijianzhang02_屑魔女的3D动漫收藏夹😘（安利二号频道）_avatar.jpg"
+        },
+        {
+          "title": "岁寒输入法交流",
+          "url": "https://t.me/SuiHanIME",
+          "description": "岁寒输入法交流 - 欢迎关注",
+          "logo": "telegram_avatars/Suihanime.jpg"
+        },
+        {
+          "title": "Picacomic News",
+          "url": "https://t.me/PicACG",
+          "description": "Picacomic News - 新闻资讯频道",
+          "logo": "telegram_avatars/Picacg.jpg"
+        },
+        {
+          "title": "二次元R18动漫资源分享[3D｜同人｜动画｜ACG｜MMD｜VAM]",
+          "url": "https://t.me/acgr18",
+          "description": "二次元R18动漫资源分享[3D｜同人｜动画｜ACG｜MMD｜... - Telegram频道",
+          "logo": "telegram_avatars/acgr18_二次元R18动漫资源分享[3D｜同人｜动画｜ACG｜MMD｜VAM]_avatar.jpg"
+        },
+        {
+          "title": "月之屋-续-兴趣是ACGN资源分享",
+          "url": "https://t.me/newmoonhouse2",
+          "description": "月之屋-续-兴趣是ACGN资源分享 - Telegram频道",
+          "logo": "telegram_avatars/newmoonhouse2_月之屋-续-兴趣是ACGN资源分享_avatar.jpg"
+        },
+        {
+          "title": "嗶咔漫畫頻道 Pica Channel - 十年相伴",
+          "url": "https://t.me/PicACG",
+          "description": "嗶咔漫畫官方頻道，由官方及官方授權者營運。",
+          "logo": "telegram_avatars/PicACG_嗶咔漫畫頻道 Pica Channel - 十年相伴_avatar.jpg"
+        },
+        {
+          "title": "哆啦 B 梦 ACG 绅士游戏分享",
+          "url": "https://t.me/dlbmeng1",
+          "description": "哆啦 B 梦 ACG 绅士游戏分享 - 游戏相关频道",
+          "logo": "telegram_avatars/dlbmeng1.jpg"
+        },
+        {
+          "title": "免费黄油 | gal.games",
+          "url": "https://t.me/FreeGalgame",
+          "description": "免费黄油 | gal.games - Telegram频道",
+          "logo": "telegram_avatars/gamecn.jpg"
+        },
+        {
+          "title": "绅士黄油真人游戏",
+          "url": "https://t.me/THXHYZYS",
+          "description": "绅士黄油真人游戏 - Telegram频道",
+          "logo": "telegram_avatars/THXHYZYS_绅士黄油真人游戏_avatar.jpg"
+        },
+        {
+          "title": "海贼王 One Piece 动漫更新提醒",
+          "url": "https://t.me/tingtalk_op",
+          "description": "I'm Gonna Be King of the Pirates!\n主频道 @tingtalk",
+          "logo": "telegram_avatars/tingtalk_op.jpg"
+        },
+        {
+          "title": "二次元 x 动漫里番精选",
+          "url": "https://t.me/dongman98",
+          "description": "自用机场：https://t.me/dongman98/11",
+          "logo": "telegram_avatars/dongman98_二次元 x 动漫里番精选_avatar.jpg"
+        },
+        {
+          "title": "哆啦 B 梦 ACG 绅士游戏分享",
+          "url": "https://t.me/dlbmeng1",
+          "description": "哆啦 B 梦 ACG 绅士游戏分享 - 游戏相关频道",
+          "logo": "telegram_avatars/dlbmeng1.jpg"
+        },
+        {
+          "title": "免费黄油 | gal.games",
+          "url": "https://t.me/FreeGalgame",
+          "description": "免费黄油 | gal.games - Telegram频道",
+          "logo": "telegram_avatars/gamecn.jpg"
+        },
+        {
+          "title": "绅士黄油真人游戏",
+          "url": "https://t.me/THXHYZYS",
+          "description": "绅士黄油真人游戏 - Telegram频道",
+          "logo": "telegram_avatars/THXHYZYS_绅士黄油真人游戏_avatar.jpg"
+        },
+        {
+          "title": "安卓黄油",
+          "url": "https://t.me/Galgamesisn",
+          "description": "安卓黄油 - Telegram频道",
+          "logo": "telegram_avatars/Galgamesisn_安卓黄油_avatar.jpg"
+        },
+        {
+          "title": "哆啦 B 梦 ACG 绅士游戏分享",
+          "url": "https://t.me/dlbmeng1",
+          "description": "哆啦 B 梦 ACG 绅士游戏分享 - 游戏相关频道",
+          "logo": "telegram_avatars/dlbmeng1.jpg"
+        },
+        {
+          "title": "免费黄油 | gal.games",
+          "url": "https://t.me/FreeGalgame",
+          "description": "免费黄油 | gal.games - Telegram频道",
+          "logo": "telegram_avatars/gamecn.jpg"
+        },
+        {
+          "title": "绅士黄油真人游戏",
+          "url": "https://t.me/THXHYZYS",
+          "description": "绅士黄油真人游戏 - Telegram频道",
+          "logo": "telegram_avatars/THXHYZYS_绅士黄油真人游戏_avatar.jpg"
+        },
+        {
+          "title": "【OCEBox】🔞黄油中心×每日更新",
+          "url": "https://t.me/oceboxa",
+          "description": "想就像这样悠闲的成为专业的黄油频道呢~",
+          "logo": "telegram_avatars/oceboxa_【OCEBox】🔞黄油中心×每日更新_avatar.jpg"
+        },
+        {
+          "title": "日韩小姐姐💟漫画大长腿😍纯欲包臀裙",
+          "url": "https://t.me/rihanxiaojiejie",
+          "description": "所有资源出自互联网收集整理，本频道不参与制作，如果侵犯了您的合法权益，请联系我们删除。",
+          "logo": "telegram_avatars/rihanxiaojiejie_日韩小姐姐💟漫画大长腿😍纯欲包臀裙_avatar.jpg"
+        },
+        {
+          "title": "屑魔女的3D动漫收藏夹😘（安利二号频道）",
+          "url": "https://t.me/zijianzhang02",
+          "description": "屑魔女的3D动漫收藏夹😘（安利二号频道） - Telegram频道",
+          "logo": "telegram_avatars/zijianzhang02_屑魔女的3D动漫收藏夹😘（安利二号频道）_avatar.jpg"
+        },
+        {
+          "title": "ACG Stickers",
+          "url": "https://t.me/ACGStickers",
+          "description": "ACG Stickers - 动漫ACG频道",
+          "logo": "telegram_avatars/ACGStickers.jpg"
+        },
+        {
+          "title": "岁寒输入法交流",
+          "url": "https://t.me/SuiHanIME",
+          "description": "岁寒输入法交流 - 精彩内容不容错过",
+          "logo": "telegram_avatars/Suihanime.jpg"
+        },
+        {
+          "title": "Picacomic News",
+          "url": "https://t.me/PicACG",
+          "description": "Picacomic News - 新闻资讯频道",
+          "logo": "telegram_avatars/Picacg.jpg"
+        },
+        {
+          "title": "二次元R18动漫资源分享[3D｜同人｜动画｜ACG｜MMD｜VAM]",
+          "url": "https://t.me/acgr18",
+          "description": "二次元R18动漫资源分享[3D｜同人｜动画｜ACG｜MMD｜... - Telegram频道",
+          "logo": "telegram_avatars/acgr18_二次元R18动漫资源分享[3D｜同人｜动画｜ACG｜MMD｜VAM]_avatar.jpg"
+        },
+        {
+          "title": "月之屋-续-兴趣是ACGN资源分享",
+          "url": "https://t.me/newmoonhouse2",
+          "description": "月之屋-续-兴趣是ACGN资源分享 - Telegram频道",
+          "logo": "telegram_avatars/newmoonhouse2_月之屋-续-兴趣是ACGN资源分享_avatar.jpg"
+        },
+        {
+          "title": "游嬉姬萌领域 黄油/黄游/SLG",
+          "url": "https://t.me/yunjibl_xyz",
+          "description": "黄油 黄游 精品资源发布",
+          "logo": "telegram_avatars/tsbblog.jpg"
+        },
+        {
+          "title": "ACG 萌",
+          "url": "https://t.me/acg_moe",
+          "description": "ACG 萌 - 动漫ACG频道",
+          "logo": "telegram_avatars/Acg_Moe.jpg"
+        },
+        {
+          "title": "ACG便利贴(免费黄油)",
+          "url": "https://t.me/Zhzbzx",
+          "description": "ACG便利贴(免费黄油) - Telegram频道",
+          "logo": "telegram_avatars/Zhzbzx_ACG便利贴(免费黄油)_avatar.jpg"
+        },
+        {
+          "title": "黄油联盟公示栏",
+          "url": "https://t.me/ButterLeague",
+          "description": "黄油联盟公示栏 - Telegram频道",
+          "logo": "telegram_avatars/ButterLeague_黄油联盟公示栏_avatar.jpg"
+        },
+        {
+          "title": "黄油 | 多娜多娜",
+          "url": "https://t.me/dohnaduona",
+          "description": "黄油 | 多娜多娜 - Telegram频道",
+          "logo": "telegram_avatars/sohadays.jpg"
+        },
+        {
+          "title": "黄油派对|每日全天候营业",
+          "url": "https://t.me/huangyou_A",
+          "description": "黄油派对|每日全天候营业 - Telegram频道",
+          "logo": "telegram_avatars/shuangyunews_rss.jpg"
+        },
+        {
+          "title": "【OCEBox】🔞黄油中心×每日更新",
+          "url": "https://t.me/oceboxa",
+          "description": "想就像这样悠闲的成为专业的黄油频道呢~",
+          "logo": "telegram_avatars/oceboxa_【OCEBox】🔞黄油中心×每日更新_avatar.jpg"
+        },
+        {
+          "title": "ACG Stickers",
+          "url": "https://t.me/ACGStickers",
+          "description": "ACG Stickers - 动漫ACG频道",
+          "logo": "telegram_avatars/ACGStickers.jpg"
+        },
+        {
+          "title": "游嬉姬萌领域 黄油/黄游/SLG",
+          "url": "https://t.me/yunjibl_xyz",
+          "description": "黄油 黄游 精品资源发布",
+          "logo": "telegram_avatars/tsbblog.jpg"
+        },
+        {
+          "title": "【OCEBox】🔞黄油中心×每日更新",
+          "url": "https://t.me/oceboxa",
+          "description": "想就像这样悠闲的成为专业的黄油频道呢~",
+          "logo": "telegram_avatars/oceboxa_【OCEBox】🔞黄油中心×每日更新_avatar.jpg"
+        },
+        {
+          "title": "ACG Stickers",
+          "url": "https://t.me/ACGStickers",
+          "description": "ACG Stickers - 动漫ACG频道",
+          "logo": "telegram_avatars/ACGStickers.jpg"
+        },
+        {
+          "title": "游嬉姬萌领域 黄油/黄游/SLG",
+          "url": "https://t.me/yunjibl_xyz",
+          "description": "黄油 黄游 精品资源发布",
+          "logo": "telegram_avatars/tsbblog.jpg"
+        },
+        {
+          "title": "长安动漫 Animation",
+          "url": "https://t.me/changandongman",
+          "description": "最新国漫持续更新！",
+          "logo": "telegram_avatars/changandongman.jpg"
+        },
+        {
+          "title": "动漫|短片解说|治愈动画🔥",
+          "url": "https://t.me/dongfangdm",
+          "description": "稳定频道，稳定流量，定期新增",
+          "logo": "telegram_avatars/dongfangdm.jpg"
+        },
+        {
+          "title": "动漫/电影🍬【糖果影院】",
+          "url": "https://t.me/dongmantang1",
+          "description": "电影动漫",
+          "logo": "telegram_avatars/dongmantang1.jpg"
+        },
+        {
+          "title": "凡人修仙传【影视/国产动漫】韩立-南宫婉",
+          "url": "https://t.me/FanRenXiuXianZhuan_TRJ",
+          "description": "赞助商： 2028体育",
+          "logo": "telegram_avatars/FanRenXiuXianZhuan_TRJ.jpg"
+        },
+        {
+          "title": "国漫聚合【国产动漫/动画】免费资源",
+          "url": "https://t.me/GuoManTG",
+          "description": "唐人街频道导航",
+          "logo": "telegram_avatars/GuoManTG.jpg"
+        },
+        {
+          "title": "国产动漫 Chinese Anime",
+          "url": "https://t.me/guo_man",
+          "description": "本频道会收集TG上的动画和更新高清4K动漫剧集和电影，主要更新国产的动漫和电影",
+          "logo": "telegram_avatars/guo_man.jpg"
+        },
+        {
+          "title": "动漫|治愈|动画解说",
+          "url": "https://t.me/jieyazhiyu",
+          "description": "稳定频道，稳定流量，定期新增",
+          "logo": "telegram_avatars/jieyazhiyu.jpg"
+        },
+        {
+          "title": "经典动漫|二次元|漫展",
+          "url": "https://t.me/jingdiandongman",
+          "description": "经典动漫展",
+          "logo": "telegram_avatars/jingdiandongman.jpg"
+        },
+        {
+          "title": "里番精选~ACG|二次元|无修动漫",
+          "url": "https://t.me/lfdm01",
+          "description": "里番精选，热门动漫，黄漫，色漫，二次元",
+          "logo": "telegram_avatars/lfdm01.jpg"
+        },
+        {
+          "title": "影视动漫分享|SeedHub|夸克|网盘|🧲",
+          "url": "https://t.me/seedhub_pro",
+          "description": "频道每日推送热门和新上架影视动漫资源 (为了安全，不发英语作品)",
+          "logo": "telegram_avatars/seedhub_pro.jpg"
+        },
+        {
+          "title": "仙逆【动漫/国漫】免费首发",
+          "url": "https://t.me/XianNi2",
+          "description": "赞助商： 2028体育",
+          "logo": "telegram_avatars/XianNi2.jpg"
+        }
+      ]
+    }
+  ]
+}

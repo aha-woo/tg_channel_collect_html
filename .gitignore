@@ -1,31 +1,68 @@
-# 环境变量文件（包含敏感信息）
-.env
-data.json
-# Python缓存
+# Python开发脚本（不需要部署）
+*.py
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
 
-# 下载的头像文件
-telegram_avatars/
+# 原始数据源（不需要部署）
+download/
+爬下来的TG 频道信息/
+telegram_descriptions/
 
-# 进度文件（断点续传）
-fetch_progress.json
+# 本地测试文件（Windows）
+start_server.bat
+start_server.ps1
+*.bat
+*.ps1
 
-# 已删除条目备份
-deleted_items.json
+# 临时文件
+data.json
+*.log
+*.tmp
 
-# 系统文件
-.DS_Store
-Thumbs.db
+# 文档文件（可选，保留README.md）
+*.md
+!README.md
+!DEPLOYMENT_FILES.md
 
-# IDE
+# IDE配置文件
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+.project
+.classpath
+.settings/
 
-# 日志
-*.log
+# 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
 
+# Node.js（如果使用）
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# 备份文件
+*.bak
+*.backup
+*~
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local

@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "title": "Telegram导航 - TG频道群组导航",
+    "description": "收录优质Telegram频道、群组、机器人等资源",
+    "updateTime": "2025-11-10"
+  },
+  "categories": [
+    {
+      "id": "Telegram",
+      "parentName": "Telegram",
+      "parentIcon": "fab fa-telegram",
+      "file": "Telegram.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "Telegram官方",
+          "icon": "fas fa-certificate",
+          "itemCount": 120
+        },
+        {
+          "name": "Telegram工具",
+          "icon": "fas fa-tools",
+          "itemCount": 1
+        },
+        {
+          "name": "TG机器人",
+          "icon": "fas fa-robot",
+          "itemCount": 284
+        }
+      ]
+    },
+    {
+      "id": "ACG动漫",
+      "parentName": "ACG动漫",
+      "parentIcon": "fas fa-ghost",
+      "file": "ACG动漫.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "ACG动漫",
+          "icon": "fas fa-user-astronaut",
+          "itemCount": 73
+        }
+      ]
+    },
+    {
+      "id": "书籍/音乐/影视",
+      "parentName": "书籍/音乐/影视",
+      "parentIcon": "fas fa-film",
+      "file": "书籍音乐影视.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "视频平台",
+          "icon": "fas fa-video",
+          "itemCount": 28
+        },
+        {
+          "name": "音乐影视",
+          "icon": "fas fa-music",
+          "itemCount": 181
+        },
+        {
+          "name": "阅读书籍",
+          "icon": "fas fa-book",
+          "itemCount": 86
+        }
+      ]
+    },
+    {
+      "id": "其他",
+      "parentName": "其他",
+      "parentIcon": "fas fa-folder",
+      "file": "其他.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "其他",
+          "icon": "fas fa-tag",
+          "itemCount": 1167
+        }
+      ]
+    },
+    {
+      "id": "娱乐场信息",
+      "parentName": "娱乐场/博彩",
+      "parentIcon": "fas fa-dice",
+      "file": "娱乐场信息.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "娱乐场信息",
+          "icon": "fas fa-coins",
+          "itemCount": 546
+        }
+      ]
+    },
+    {
+      "id": "成人乐园",
+      "parentName": "成人乐园",
+      "parentIcon": "fas fa-heart",
+      "file": "成人乐园.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "成人乐园",
+          "icon": "fas fa-heart",
+          "itemCount": 1568
+        }
+      ]
+    },
+    {
+      "id": "技术/工具",
+      "parentName": "技术/工具",
+      "parentIcon": "fas fa-tools",
+      "file": "技术工具.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "技术/工具",
+          "icon": "fas fa-tools",
+          "itemCount": 834
+        }
+      ]
+    },
+    {
+      "id": "新闻资讯",
+      "parentName": "新闻资讯",
+      "parentIcon": "fas fa-newspaper",
+      "file": "新闻资讯.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "新闻资讯",
+          "icon": "fas fa-newspaper",
+          "itemCount": 251
+        }
+      ]
+    },
+    {
+      "id": "游戏",
+      "parentName": "游戏",
+      "parentIcon": "fas fa-gamepad",
+      "file": "游戏.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "游戏",
+          "icon": "fas fa-gamepad",
+          "itemCount": 187
+        },
+        {
+          "name": "外挂专区",
+          "icon": "fas fa-code",
+          "itemCount": 99
+        }
+      ]
+    },
+    {
+      "id": "生活/娱乐",
+      "parentName": "生活/娱乐",
+      "parentIcon": "fas fa-smile",
+      "file": "生活娱乐.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "生活/娱乐",
+          "icon": "fas fa-smile",
+          "itemCount": 58
+        }
+      ]
+    },
+    {
+      "id": "社交/聊天",
+      "parentName": "社交/聊天",
+      "parentIcon": "fas fa-comments",
+      "file": "社交聊天.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "社交/聊天",
+          "icon": "fas fa-comments",
+          "itemCount": 577
+        }
+      ]
+    },
+    {
+      "id": "金融理财",
+      "parentName": "金融理财",
+      "parentIcon": "fab fa-bitcoin",
+      "file": "金融理财.json",
+      "preload": false,
+      "children": [
+        {
+          "name": "金融",
+          "icon": "fas fa-chart-line",
+          "itemCount": 528
+        },
+        {
+          "name": "灰产",
+          "icon": "fas fa-mask",
+          "itemCount": 119
+        },
+        {
+          "name": "交易所",
+          "icon": "fas fa-exchange-alt",
+          "itemCount": 14
+        },
+        {
+          "name": "虚拟货币",
+          "icon": "fab fa-bitcoin",
+          "itemCount": 45
+        }
+      ]
+    }
+  ]
+}

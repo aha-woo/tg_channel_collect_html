@@ -317,11 +317,16 @@ function renderContent() {
     const isAdultVerified = localStorage.getItem('adultVerified') === 'true';
     
     jsonData.categories.forEach((category, catIndex) => {
+        // 跳过隐藏的分类
+        if (category.hidden === true) {
+            return;
+        }
+        
         category.children.forEach((child, childIndex) => {
             if (!child.items || child.items.length === 0) return;
             
-            // 检查是否是"TEST A"分类
-            const isPendingCategory = category.parentName === 'TEST A';
+            // 检查是否是成人内容分类（成人乐园）
+            const isPendingCategory = category.parentName === '成人乐园';
             
             const sectionId = `section-${catIndex}-${childIndex}`;
             
@@ -361,7 +366,7 @@ function renderContent() {
                 titleRow.appendChild(ageWarning);
                 titleRow.appendChild(verifyBtn);
             } else {
-                // 已认证或非TEST A分类：显示免责声明
+                // 已认证或非成人内容分类：显示免责声明
                 const disclaimer = document.createElement('div');
                 disclaimer.classList.add('section-disclaimer');
                 disclaimer.innerHTML = `
@@ -373,7 +378,7 @@ function renderContent() {
             
             sectionContainer.appendChild(titleRow);
             
-            // 如果是TEST A分类且未通过认证，不显示内容，只显示标题
+            // 如果是成人内容分类且未通过认证，不显示内容，只显示标题
             if (isPendingCategory && !isAdultVerified) {
                 contentDiv.appendChild(sectionContainer);
                 return;
@@ -471,7 +476,12 @@ function generateNavigationMenu() {
     let sectionIndex = 0;
     
     jsonData.categories.forEach((category, catIndex) => {
-        const isPendingCategory = category.parentName === 'TEST A';
+        // 跳过隐藏的分类
+        if (category.hidden === true) {
+            return;
+        }
+        
+        const isPendingCategory = category.parentName === '成人乐园';
         
         const parentLi = document.createElement('li');
         parentLi.classList.add('menu-item', 'menu-item-parent');
@@ -484,7 +494,7 @@ function generateNavigationMenu() {
         parentLink.href = '#';
         
         if (isPendingCategory && !isAdultVerified) {
-            // TEST A分类未认证：显示锁定图标，点击弹出认证
+            // 成人内容分类未认证：显示锁定图标，点击弹出认证
             parentLink.innerHTML = `
                 <i class="${category.parentIcon || 'fas fa-lock'}"></i>
                 <span class="menu-item-text">${category.parentName}</span>
@@ -503,7 +513,7 @@ function generateNavigationMenu() {
             menu.appendChild(parentLi);
             return; // 未认证时不继续处理子菜单
         } else {
-            // 正常分类或已认证的TEST A分类：正常显示
+            // 正常分类或已认证的成人内容分类：正常显示
             parentLink.innerHTML = `
                 <i class="${category.parentIcon}"></i>
                 <span class="menu-item-text">${category.parentName}</span>
@@ -598,7 +608,7 @@ function setupAgeVerification() {
             localStorage.setItem('adultVerified', 'true');
             // 隐藏弹窗
             hideAgeVerificationModal();
-            // 重新渲染内容和菜单（会显示TEST A分类的子菜单和内容）
+            // 重新渲染内容和菜单（会显示成人内容分类的子菜单和内容）
             renderContent();
             generateNavigationMenu();
         });
@@ -775,26 +785,89 @@ function setupModals() {
 
 // ========== 加载JSON数据并渲染 ==========
 function loadAndRenderData() {
-    fetch('data.json')
+    // 优先尝试加载拆分后的数据（data/index.json）
+    fetch('data/index.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error('无法加载数据文件');
+                throw new Error('无法加载索引文件');
             }
             return response.json();
         })
-        .then(data => {
-            jsonData = data;
-            console.log('JSON数据加载成功:', data);
+        .then(indexData => {
+            console.log('索引数据加载成功:', indexData);
             
-            // 渲染内容
-            renderContent();
+            // 加载所有分类文件并合并
+            const categoryPromises = indexData.categories.map(category => {
+                return fetch(`data/${category.file}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            console.warn(`无法加载分类文件: ${category.file}`);
+                            return null;
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        console.warn(`加载分类文件失败: ${category.file}`, error);
+                        return null;
+                    });
+            });
             
-            // 生成导航菜单
-            generateNavigationMenu();
+            return Promise.all(categoryPromises).then(categoryDataList => {
+                // 合并数据，保留 hidden 字段
+                const mergedData = {
+                    meta: indexData.meta,
+                    categories: categoryDataList
+                        .map((data, index) => {
+                            if (data === null) return null;
+                            const indexCategory = indexData.categories[index];
+                            return {
+                                id: data.id,
+                                parentName: data.parentName,
+                                parentIcon: data.parentIcon,
+                                hidden: indexCategory.hidden || false,  // 保留 hidden 字段
+                                children: data.children
+                            };
+                        })
+                        .filter(data => data !== null)
+                };
+                
+                jsonData = mergedData;
+                console.log('数据合并成功:', mergedData);
+                
+                // 渲染内容
+                renderContent();
+                
+                // 生成导航菜单
+                generateNavigationMenu();
+            });
+        })
+        .catch(error => {
+            console.warn('加载拆分数据失败，尝试加载单文件 data.json:', error);
+            
+            // 如果拆分数据加载失败，回退到单文件模式
+            return fetch('data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('无法加载数据文件');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    jsonData = data;
+                    console.log('JSON数据加载成功（单文件模式）:', data);
+                    
+                    // 渲染内容
+                    renderContent();
+                    
+                    // 生成导航菜单
+                    generateNavigationMenu();
+                });
         })
         .catch(error => {
             console.error('加载数据时出错:', error);
             const contentDiv = document.getElementById('content');
+            if (!contentDiv) return;
+            
             contentDiv.innerHTML = '';
             
             const errorContainer = document.createElement('div');
@@ -808,7 +881,7 @@ function loadAndRenderData() {
             errorTitle.textContent = '数据加载失败';
             
             const errorMsg = document.createElement('p');
-            errorMsg.textContent = '请确保 data.json 文件存在且格式正确';
+            errorMsg.textContent = '请确保 data/index.json 或 data.json 文件存在且格式正确';
             
             const errorDetail = document.createElement('p');
             errorDetail.style.cssText = 'font-size: 0.9em; color: #999;';
