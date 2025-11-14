@@ -1,5 +1,6 @@
-# Python开发脚本（不需要部署）
+# Python开发脚本（不需要部署，但保留fetch_telegram_avatars.py）
 *.py
+!fetch_telegram_avatars.py
 __pycache__/
 *.pyc
 *.pyo
@@ -25,10 +26,12 @@ data.json
 *.log
 *.tmp
 
-# 文档文件（可选，保留README.md）
+# 文档文件（可选，保留必要的文档）
 *.md
 !README.md
-!DEPLOYMENT_FILES.md
+!DEPLOY_CHECKLIST.md
+!SECURITY.md
+!PERFORMANCE_OPTIMIZATION.md
 
 # IDE配置文件
 .vscode/

@@ -7,11 +7,12 @@
 ## 📁 项目结构
 
 ### 核心文件
-- `index.html` / `index-json.html` - 主页面（支持两种数据格式）
+- `index-json.html` - 主页面（JSON版本）
 - `style.css` - 样式文件
-- `script.js` / `script-json.js` - JavaScript 逻辑
-- `data.json` - JSON 格式数据（推荐）
-- `uploaddata.md` - Markdown 格式数据（旧版）
+- `script-json.js` - JavaScript 逻辑
+- `data/` - 数据目录（包含所有分类的JSON文件）
+  - `index.json` - 分类索引文件
+  - `*.json` - 各分类数据文件
 
 ### 配置文件
 - `nginx_security.conf` - Nginx 安全配置模板
@@ -70,7 +71,7 @@ http-server -p 8000
 
 ### JSON 格式（推荐）
 
-使用 `index-json.html` + `data.json`
+使用 `index-json.html` + `data/` 目录下的JSON文件
 
 **优点：**
 - ✅ 结构清晰，易于解析
@@ -265,7 +266,7 @@ pm2 stop fetch-telegram-avatars     # 停止
 1. **版本号更新**：修改 CSS/JS 后必须更新版本号
 2. **浏览器缓存**：部署后使用 `Ctrl + F5` 强制刷新
 3. **速率限制**：头像获取脚本已优化，避免触发限制
-4. **数据备份**：修改数据前建议备份 `data.json`
+4. **数据备份**：修改数据前建议备份 `data/` 目录
 
 ---
 

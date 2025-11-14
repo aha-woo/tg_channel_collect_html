@@ -1,12 +1,51 @@
 # VPS 部署检查清单
 
+## 📦 必要文件清单
+
+### 1. 前端文件
+- `index-json.html` - 主页面（JSON版本）
+- `style.css` - 样式文件
+- `script-json.js` - JSON数据脚本
+
+### 2. 数据文件
+- `data/` 目录下的所有 `.json` 文件：
+  - `index.json` - 分类索引
+  - `Telegram.json`
+  - `成人乐园.json`
+  - `ACG动漫.json`
+  - `书籍音乐影视.json`
+  - `游戏.json`
+  - `娱乐场信息.json`
+  - `金融理财.json`
+  - `新闻资讯.json`
+  - `社交聊天.json`
+  - `技术工具.json`
+  - `生活娱乐.json`
+  - `其他.json`
+  - 以及其他分类JSON文件
+
+### 3. 资源文件
+- `telegram_avatars/` 目录 - 所有头像图片
+- `tglogo.jpg` - 网站图标
+
+### 4. 配置文件（可选，但推荐）
+- `ecosystem.config.js` - PM2配置文件
+- `nginx_security.conf` - Nginx安全配置
+- `start_pm2.sh` - PM2启动脚本（Linux）
+- `fetch_telegram_avatars.py` - 头像获取脚本
+
+### 5. 文档文件（可选）
+- `README.md` - 项目说明
+
+---
+
 ## 📋 部署后需要做的事情
 
 ### ✅ 1. 上传更新的文件到VPS
 
 ```bash
 # 在本地执行，将更新的文件上传到VPS
-scp index.html index-json.html style.css script.js script-json.js root@你的VPS_IP:/var/www/tg_nav/
+scp index-json.html style.css script-json.js root@你的VPS_IP:/var/www/tg_nav/
 ```
 
 或者使用Git：
@@ -81,16 +120,78 @@ curl -I http://你的域名或IP | grep -i "content-type"
 
 ### ✅ 5. 更新版本号（重要！如果修改了CSS/JS）
 
-**如果修改了 `style.css` 或 `script.js` 或 `script-json.js`，必须更新版本号！**
+**如果修改了 `style.css` 或 `script-json.js`，必须更新版本号！**
 
-在 `index.html` 和 `index-json.html` 中：
+#### 为什么需要版本号？
+
+由于 Nginx 配置了静态文件缓存（CSS/JS 文件缓存 1 年），浏览器会缓存旧版本的文件。添加版本号参数可以强制浏览器下载新版本。
+
+#### 何时需要更新版本号？
+
+**只有在修改了以下文件时才需要更新版本号：**
+- `style.css` - 修改了样式
+- `script-json.js` - 修改了 JavaScript 逻辑
+
+**不需要更新版本号的情况：**
+- 只修改了 HTML 文件（HTML 不缓存）
+- 只修改了数据文件（data/*.json）
+- 只修改了 Python 脚本或配置文件
+
+#### 如何更新版本号？
+
+**方法一：使用日期作为版本号（推荐）**
+
+每次更新时使用当天日期，格式：`YYYYMMDD_vN`
+
+例如：
+- 2025年1月5日 → `v=20250105_v1`
+- 2025年1月10日 → `v=20250110_v1`
+
+**在 `index-json.html` 中更新：**
 ```html
-<!-- 将版本号改为新日期 -->
-<link rel="stylesheet" href="style.css?v=20250105">  <!-- 改为新版本 -->
-<script src="script.js?v=20250105"></script>  <!-- 改为新版本 -->
+<!-- 版本号：20251110_v17（需与 meta app-version 和 script-json.js 保持一致） -->
+<link rel="stylesheet" href="style.css?v=20251110_v17" id="style-css">
+<script src="script-json.js?v=20251110_v17"></script>
 ```
 
-详细说明见：`VERSION_UPDATE.md`
+**同时更新 meta 标签：**
+```html
+<meta name="app-version" content="20251110_v17">
+```
+
+#### 更新步骤
+
+1. **修改 CSS 或 JS 文件**
+2. **更新版本号**
+   - 在 `index-json.html` 中找到所有版本号
+   - 将版本号改为新的（如 `v=20250106_v1`）
+   - 同时更新 `meta name="app-version"` 标签
+3. **提交到 Git**
+   ```bash
+   git add .
+   git commit -m "更新样式/功能 v=20250106"
+   git push
+   ```
+4. **在 VPS 上拉取更新**
+   ```bash
+   cd /var/www/tg_nav
+   git pull origin main
+   sudo systemctl reload nginx
+   ```
+5. **清除浏览器缓存**
+   - 按 `Ctrl + F5` 强制刷新
+   - 或者使用无痕模式测试
+
+#### 批量替换版本号（快速方法）
+
+使用查找替换功能，一次性更新所有版本号：
+- **查找：** `v=20251110_v17`
+- **替换为：** `v=20250106_v1`（新版本号）
+
+在 `index-json.html` 中执行替换，包括：
+- `<link rel="stylesheet" href="style.css?v=...">`
+- `<script src="script-json.js?v=...">`
+- `<meta name="app-version" content="...">`
 
 ---
 
@@ -121,7 +222,7 @@ curl -I http://你的域名或IP | grep -i "content-type"
 ### 情况1：只修改了 HTML/CSS/JS 文件
 ```bash
 # 1. 上传文件
-scp *.html *.css *.js root@VPS_IP:/var/www/tg_nav/
+scp index-json.html style.css script-json.js root@VPS_IP:/var/www/tg_nav/
 
 # 2. 重新加载Nginx（推荐）
 sudo nginx -t && sudo systemctl reload nginx
@@ -183,8 +284,8 @@ bash start_pm2.sh
 ### 问题1：修改后看不到效果
 1. **检查文件是否上传成功**
    ```bash
-   ls -la /var/www/tg_nav/index.html
-   cat /var/www/tg_nav/index.html | head -20
+   ls -la /var/www/tg_nav/index-json.html
+   cat /var/www/tg_nav/index-json.html | head -20
    ```
 
 2. **清除浏览器缓存**（Ctrl+F5）
@@ -238,8 +339,9 @@ python3 fetch_telegram_avatars.py
 cd /var/www/tg_nav
 
 # 备份当前文件（可选）
-cp index.html index.html.backup.$(date +%Y%m%d_%H%M%S)
+cp index-json.html index-json.html.backup.$(date +%Y%m%d_%H%M%S)
 cp style.css style.css.backup.$(date +%Y%m%d_%H%M%S)
+cp script-json.js script-json.js.backup.$(date +%Y%m%d_%H%M%S)
 
 # 从Git拉取更新（如果使用Git）
 # git pull origin main
@@ -267,7 +369,8 @@ sudo nginx -t && sudo systemctl reload nginx && echo "✅ Nginx重载成功" || 
 
 1. **每次修改前先备份**
    ```bash
-   cp index.html index.html.backup.$(date +%Y%m%d)
+   cp index-json.html index-json.html.backup.$(date +%Y%m%d)
+   cp style.css style.css.backup.$(date +%Y%m%d)
    ```
 
 2. **使用Git管理代码**
@@ -295,6 +398,34 @@ sudo nginx -t && sudo systemctl reload nginx && echo "✅ Nginx重载成功" || 
 5. **设置监控告警**
    - 监控网站可访问性
    - 监控PM2进程状态
+
+---
+
+---
+
+## 🎯 最小部署文件清单
+
+如果只部署最小必要文件，只需要：
+
+```
+tg_html/
+├── index-json.html
+├── style.css
+├── script-json.js
+├── tglogo.jpg
+├── data/
+│   └── *.json (所有分类JSON文件)
+├── telegram_avatars/
+│   └── *.jpg (所有头像文件)
+└── ecosystem.config.js (可选)
+```
+
+## 📊 文件大小估算
+
+- HTML/CSS/JS: ~500KB
+- JSON数据文件: ~50-100MB（取决于数据量）
+- 头像图片: ~100-500MB（取决于数量）
+- **总计**: ~150-600MB
 
 ---
 

@@ -1,6 +1,6 @@
-// ========== JSON数据加载脚本 ==========
-// 这是专门用于加载 data.json 的脚本
-// 如果要使用JSON格式，请在 index.html 中将 script.js 替换为 script-json.js
+// ========== JSON数据加载脚本（懒加载版本） ==========
+// 这是专门用于加载拆分后的 JSON 数据文件的脚本
+// 数据文件位于 data/ 目录下，使用 index.json 作为索引
 
 // ========== 全局变量 ==========
 let sectionsData = [];
@@ -842,26 +842,8 @@ function loadAndRenderData() {
             });
         })
         .catch(error => {
-            console.warn('加载拆分数据失败，尝试加载单文件 data.json:', error);
-            
-            // 如果拆分数据加载失败，回退到单文件模式
-            return fetch('data.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('无法加载数据文件');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    jsonData = data;
-                    console.log('JSON数据加载成功（单文件模式）:', data);
-                    
-                    // 渲染内容
-                    renderContent();
-                    
-                    // 生成导航菜单
-                    generateNavigationMenu();
-                });
+            console.error('加载拆分数据失败:', error);
+            throw error; // 不再回退到 data.json，直接抛出错误
         })
         .catch(error => {
             console.error('加载数据时出错:', error);
@@ -881,7 +863,7 @@ function loadAndRenderData() {
             errorTitle.textContent = '数据加载失败';
             
             const errorMsg = document.createElement('p');
-            errorMsg.textContent = '请确保 data/index.json 或 data.json 文件存在且格式正确';
+            errorMsg.textContent = '请确保 data/index.json 文件存在且格式正确';
             
             const errorDetail = document.createElement('p');
             errorDetail.style.cssText = 'font-size: 0.9em; color: #999;';
