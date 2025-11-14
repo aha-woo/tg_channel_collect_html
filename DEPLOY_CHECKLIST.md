@@ -149,14 +149,14 @@ curl -I http://你的域名或IP | grep -i "content-type"
 
 **在 `index-json.html` 中更新：**
 ```html
-<!-- 版本号：20251110_v17（需与 meta app-version 和 script-json.js 保持一致） -->
-<link rel="stylesheet" href="style.css?v=20251110_v17" id="style-css">
-<script src="script-json.js?v=20251110_v17"></script>
+<!-- 版本号：20251114_v1（需与 meta app-version 和 script-json.js 保持一致） -->
+<link rel="stylesheet" href="style.css?v=20251114_v1" id="style-css">
+<script src="script-json.js?v=20251114_v1"></script>
 ```
 
 **同时更新 meta 标签：**
 ```html
-<meta name="app-version" content="20251110_v17">
+<meta name="app-version" content="20251114_v1">
 ```
 
 #### 更新步骤
@@ -185,8 +185,8 @@ curl -I http://你的域名或IP | grep -i "content-type"
 #### 批量替换版本号（快速方法）
 
 使用查找替换功能，一次性更新所有版本号：
-- **查找：** `v=20251110_v17`
-- **替换为：** `v=20250106_v1`（新版本号）
+- **查找：** `v=20251114_v1`
+- **替换为：** `v=YYYYMMDD_vN`（新版本号，如 `v=20251115_v1`）
 
 在 `index-json.html` 中执行替换，包括：
 - `<link rel="stylesheet" href="style.css?v=...">`

@@ -185,11 +185,12 @@ sudo systemctl reload nginx
 如果修改了 CSS/JS 文件，必须更新版本号：
 
 ```html
-<link rel="stylesheet" href="style.css?v=20250106">
-<script src="script.js?v=20250106"></script>
+<link rel="stylesheet" href="style.css?v=20251114_v1">
+<script src="script-json.js?v=20251114_v1"></script>
+<meta name="app-version" content="20251114_v1">
 ```
 
-详细说明见：`VERSION_UPDATE.md`
+详细说明见：`DEPLOY_CHECKLIST.md`
 
 ### 4. 完整部署清单
 
@@ -245,10 +246,10 @@ pm2 stop fetch-telegram-avatars     # 停止
 
 ## 📝 版本更新
 
-- **当前版本**：v=20250106
-- **更新说明**：添加访问计数器，优化速率限制
+- **当前版本**：v=20251114_v1
+- **更新说明**：清理冗余文件，移除data.json依赖，优化代码结构
 
-每次修改 CSS/JS 后记得更新版本号，详见：`VERSION_UPDATE.md`
+每次修改 CSS/JS 后记得更新版本号，详见：`DEPLOY_CHECKLIST.md`
 
 ---
 
