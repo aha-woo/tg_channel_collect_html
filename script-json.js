@@ -384,6 +384,12 @@ function renderContent() {
                 return;
             }
             
+            // 在"ACG动漫"分类前插入带图片的广告栏
+            if (child.name === 'ACG动漫' && category.parentName === 'ACG动漫') {
+                const imageAdBanner = createImageAdBanner();
+                contentDiv.appendChild(imageAdBanner);
+            }
+            
             // 在"常用机器人"分类前插入广告位A
             if (child.name === '常用机器人') {
                 const adSpaceA = createAdSpaceA();
@@ -462,6 +468,46 @@ function createAdSpaceA() {
     `;
     
     adContainer.appendChild(adBox);
+    return adContainer;
+}
+
+// ========== 创建带图片的广告栏 ==========
+function createImageAdBanner() {
+    const adContainer = document.createElement('div');
+    adContainer.classList.add('ad-image-banner-container');
+    
+    const adBanner = document.createElement('div');
+    adBanner.classList.add('ad-image-banner');
+    
+    // 创建广告链接
+    const adLink = document.createElement('a');
+    adLink.href = '#'; // 可以修改为实际广告链接
+    adLink.target = '_blank';
+    adLink.rel = 'noopener noreferrer';
+    
+    // 创建广告图片
+    const adImage = document.createElement('img');
+    adImage.src = 'https://via.placeholder.com/1200x200/0088cc/ffffff?text=广告位B'; // 可以修改为实际广告图片URL
+    adImage.alt = '广告B';
+    adImage.classList.add('ad-image-banner-img');
+    
+    // 图片加载失败时的处理
+    adImage.onerror = function() {
+        // 如果图片加载失败，显示占位符
+        this.style.display = 'none';
+        const placeholder = document.createElement('div');
+        placeholder.classList.add('ad-image-banner-placeholder');
+        placeholder.innerHTML = `
+            <i class="fas fa-image"></i>
+            <p>广告位B</p>
+        `;
+        adLink.appendChild(placeholder);
+    };
+    
+    adLink.appendChild(adImage);
+    adBanner.appendChild(adLink);
+    adContainer.appendChild(adBanner);
+    
     return adContainer;
 }
 
