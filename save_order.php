@@ -4,12 +4,17 @@
  * 接收前端订单数据，保存到文件并调用Python脚本发送到Telegram
  */
 
+// 设置错误报告（生产环境可关闭）
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // 不显示错误，但记录到日志
+
+// 设置响应头
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
-// 处理OPTIONS请求
+// 处理OPTIONS预检请求
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
@@ -18,13 +23,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // 只接受POST请求
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['success' => false, 'error' => '只支持POST请求']);
+    echo json_encode([
+        'success' => false, 
+        'error' => '只支持POST请求',
+        'method' => $_SERVER['REQUEST_METHOD']
+    ]);
     exit;
 }
 
 // 读取POST数据
 $input = file_get_contents('php://input');
+
+if (empty($input)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => '请求体为空']);
+    exit;
+}
+
 $order_data = json_decode($input, true);
+
+if (json_last_error() !== JSON_ERROR_NONE) {
+    http_response_code(400);
+    echo json_encode([
+        'success' => false, 
+        'error' => 'JSON解析失败: ' . json_last_error_msg(),
+        'input' => substr($input, 0, 100) // 只返回前100个字符用于调试
+    ]);
+    exit;
+}
 
 if (!$order_data) {
     http_response_code(400);
@@ -71,7 +97,17 @@ if (!$order_exists) {
 }
 
 // 保存订单到文件
-file_put_contents($orders_file, json_encode($orders, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+$save_result = file_put_contents($orders_file, json_encode($orders, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+
+if ($save_result === false) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false, 
+        'error' => '保存订单文件失败，请检查文件权限',
+        'file' => $orders_file
+    ]);
+    exit;
+}
 
 // 调用Python脚本处理订单（异步执行，不阻塞响应）
 $python_script = __DIR__ . '/fetch_telegram_avatars.py';

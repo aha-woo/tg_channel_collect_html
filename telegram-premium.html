@@ -1081,30 +1081,11 @@
             // 发送订单到服务器（保存到文件并发送到TG）
             sendOrderToServer(currentOrder);
             
-            // 打开 Telegram 联系
-            const message = `你好，我想开通 Telegram Premium ${currentOrder.plan}套餐。
-
-订单信息：
-- 订单号：${currentOrder.orderId}
-- 要开通的账号：${currentOrder.account}
-- 套餐：${currentOrder.plan}
-- 价格：¥${currentOrder.priceCNY} (≈ ${currentOrder.priceUSDT} USDT)
-- 邮箱：${currentOrder.email}
-
-请告诉我如何支付。开通成功后，我会通过 Telegram 和邮箱通知您。`;
-            
-            const telegramLink = `https://t.me/youryhc?text=${encodeURIComponent(message)}`;
-            window.open(telegramLink, '_blank');
-            
             // 关闭模态框
             closeOrderModal();
             
-            // 显示成功提示
-            alert('订单已提交！\n\n订单号：' + currentOrder.orderId + '\n\n开通成功后，我们会通过 Telegram 和邮箱双通知您。\n\n请通过 Telegram 联系我们完成支付。');
-            
-            // 清空输入框
-            document.getElementById('userAccount').value = '';
-            document.getElementById('userEmail').value = '';
+            // 跳转到付款页面
+            window.location.href = `payment.html?orderId=${currentOrder.orderId}`;
         }
         
         // 发送订单到服务器
@@ -1117,18 +1098,32 @@
                 },
                 body: JSON.stringify(order)
             })
-            .then(response => response.json())
+            .then(response => {
+                // 检查响应状态
+                if (!response.ok) {
+                    // 尝试读取错误信息
+                    return response.text().then(text => {
+                        try {
+                            const data = JSON.parse(text);
+                            throw new Error(data.error || `HTTP ${response.status}: ${response.statusText}`);
+                        } catch (e) {
+                            throw new Error(`HTTP ${response.status}: ${response.statusText}\n响应: ${text.substring(0, 200)}`);
+                        }
+                    });
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.success) {
-                    console.log('订单已保存到服务器并发送到Telegram');
+                    console.log('✅ 订单已保存到服务器并发送到Telegram');
                 } else {
-                    console.error('订单保存失败：', data.error);
+                    console.error('❌ 订单保存失败：', data.error);
                 }
             })
             .catch(error => {
-                console.error('发送订单失败：', error);
+                console.error('❌ 发送订单失败：', error.message);
                 // 如果后端不可用，至少保存到localStorage
-                console.log('后端不可用，订单已保存到本地存储');
+                console.log('💾 后端不可用，订单已保存到本地存储');
             });
         }
         

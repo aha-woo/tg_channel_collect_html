@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单支付 - Telegram Premium 代开服务</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="tglogo.jpg">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #0088cc;
+            --primary-hover: #0099dd;
+            --accent-color: #4caf50;
+            --bg-main: #ffffff;
+            --bg-section: #f8f9fa;
+            --text-primary: #1c1e21;
+            --text-secondary: #606770;
+            --border-color: #dfe1e5;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-main);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header .order-id {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .order-info {
+            background: var(--bg-section);
+            padding: 25px;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+        }
+        
+        .order-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .order-info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-info-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .order-info-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .price-highlight {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+        
+        .payment-methods {
+            margin-bottom: 30px;
+        }
+        
+        .payment-methods h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+        
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .payment-option {
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--bg-main);
+        }
+        
+        .payment-option:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .payment-option.active {
+            border-color: var(--primary-color);
+            background: #e3f2fd;
+        }
+        
+        .payment-option .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .payment-option.alipay .icon {
+            color: #1677ff;
+        }
+        
+        .payment-option.wechat .icon {
+            color: #07c160;
+        }
+        
+        .payment-option.usdt .icon {
+            color: #26a17b;
+        }
+        
+        .payment-option .name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .payment-qr {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-section);
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .payment-qr.active {
+            display: block;
+        }
+        
+        .payment-qr h3 {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+        
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 20px;
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: var(--radius);
+        }
+        
+        .payment-info {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .payment-info h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .payment-info p {
+            color: #856404;
+            margin: 5px 0;
+        }
+        
+        .payment-address {
+            background: var(--bg-section);
+            padding: 15px;
+            border-radius: var(--radius);
+            margin: 15px 0;
+            word-break: break-all;
+            font-family: monospace;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 14px 30px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-section);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--border-color);
+        }
+        
+        .copy-btn {
+            margin-left: 10px;
+            padding: 5px 10px;
+            font-size: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .copy-btn:hover {
+            background: var(--primary-hover);
+        }
+        
+        .notice {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+        }
+        
+        .notice p {
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-credit-card"></i> 订单支付</h1>
+            <div class="order-id" id="orderIdDisplay">订单号：加载中...</div>
+        </div>
+        
+        <div class="content">
+            <!-- 订单信息 -->
+            <div class="order-info">
+                <div class="order-info-item">
+                    <span class="order-info-label">订单号：</span>
+                    <span class="order-info-value" id="orderId">-</span>
+                </div>
+                <div class="order-info-item">
+                    <span class="order-info-label">要开通的账号：</span>
+                    <span class="order-info-value" id="account">-</span>
+                </div>
+                <div class="order-info-item">
+                    <span class="order-info-label">套餐：</span>
+                    <span class="order-info-value" id="plan">-</span>
+                </div>
+                <div class="order-info-item">
+                    <span class="order-info-label">支付金额：</span>
+                    <span class="order-info-value price-highlight" id="price">-</span>
+                </div>
+            </div>
+            
+            <!-- 支付方式选择 -->
+            <div class="payment-methods">
+                <h2><i class="fas fa-wallet"></i> 选择支付方式</h2>
+                <div class="payment-options">
+                    <div class="payment-option alipay active" data-method="alipay">
+                        <div class="icon"><i class="fab fa-alipay"></i></div>
+                        <div class="name">支付宝</div>
+                    </div>
+                    <div class="payment-option wechat" data-method="wechat">
+                        <div class="icon"><i class="fab fa-weixin"></i></div>
+                        <div class="name">微信支付</div>
+                    </div>
+                    <div class="payment-option usdt" data-method="usdt">
+                        <div class="icon"><i class="fab fa-bitcoin"></i></div>
+                        <div class="name">USDT</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 支付宝支付 -->
+            <div class="payment-qr active" id="alipay-qr">
+                <h3>支付宝扫码支付</h3>
+                <div class="qr-code" id="alipay-qr-code">
+                    <div>请通过 Telegram 联系客服获取支付二维码</div>
+                </div>
+                <div class="payment-info">
+                    <h3><i class="fas fa-info-circle"></i> 支付说明</h3>
+                    <p>1. 使用支付宝扫描上方二维码完成支付</p>
+                    <p>2. 支付完成后，请截图保存支付凭证</p>
+                    <p>3. 我们将通过 Telegram 和邮箱通知您开通结果</p>
+                </div>
+            </div>
+            
+            <!-- 微信支付 -->
+            <div class="payment-qr" id="wechat-qr">
+                <h3>微信扫码支付</h3>
+                <div class="qr-code" id="wechat-qr-code">
+                    <div>请通过 Telegram 联系客服获取支付二维码</div>
+                </div>
+                <div class="payment-info">
+                    <h3><i class="fas fa-info-circle"></i> 支付说明</h3>
+                    <p>1. 使用微信扫描上方二维码完成支付</p>
+                    <p>2. 支付完成后，请截图保存支付凭证</p>
+                    <p>3. 我们将通过 Telegram 和邮箱通知您开通结果</p>
+                </div>
+            </div>
+            
+            <!-- USDT 支付 -->
+            <div class="payment-qr" id="usdt-qr">
+                <h3>USDT 支付</h3>
+                <div class="payment-info">
+                    <h3><i class="fas fa-info-circle"></i> 支付说明</h3>
+                    <p>1. 请向以下 USDT 地址转账：</p>
+                    <div class="payment-address" id="usdt-address">
+                        请通过 Telegram 联系客服获取 USDT 收款地址
+                        <button class="copy-btn" onclick="copyToClipboard('usdt-address')">
+                            <i class="fas fa-copy"></i> 复制
+                        </button>
+                    </div>
+                    <p>2. 转账金额：<strong id="usdt-amount">-</strong> USDT</p>
+                    <p>3. 转账完成后，请将交易哈希（TXID）发送给客服</p>
+                    <p>4. 我们将通过 Telegram 和邮箱通知您开通结果</p>
+                </div>
+            </div>
+            
+            <!-- 操作按钮 -->
+            <div class="actions">
+                <button class="btn btn-primary" onclick="contactTelegram()">
+                    <i class="fab fa-telegram"></i> 联系客服获取支付信息
+                </button>
+                <a href="telegram-premium.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> 返回
+                </a>
+            </div>
+            
+            <!-- 重要提示 -->
+            <div class="notice">
+                <p><strong><i class="fas fa-exclamation-triangle"></i> 重要提示：</strong></p>
+                <p>• 支付完成后，我们会在 24 小时之内完成开通</p>
+                <p>• 开通成功后，我们会通过 Telegram 和邮箱双通知您</p>
+                <p>• 如有任何问题，请通过 Telegram 联系客服</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 从 URL 参数或 localStorage 获取订单信息
+        let orderData = null;
+        
+        // 尝试从 URL 参数获取
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('orderId');
+        
+        if (orderId) {
+            // 从 localStorage 加载订单
+            const orders = JSON.parse(localStorage.getItem('tg_premium_orders') || '[]');
+            orderData = orders.find(o => o.orderId === orderId);
+        } else {
+            // 如果没有订单ID，尝试获取最新的订单
+            const orders = JSON.parse(localStorage.getItem('tg_premium_orders') || '[]');
+            if (orders.length > 0) {
+                orderData = orders[orders.length - 1];
+            }
+        }
+        
+        // 如果还是没有订单，显示错误
+        if (!orderData) {
+            document.querySelector('.container').innerHTML = `
+                <div class="header">
+                    <h1>订单不存在</h1>
+                </div>
+                <div class="content" style="text-align: center; padding: 40px;">
+                    <p style="margin-bottom: 20px;">未找到订单信息，请返回重新下单。</p>
+                    <a href="telegram-premium.html" class="btn btn-primary">返回下单页面</a>
+                </div>
+            `;
+        } else {
+            // 显示订单信息
+            document.getElementById('orderId').textContent = orderData.orderId;
+            document.getElementById('orderIdDisplay').textContent = `订单号：${orderData.orderId}`;
+            document.getElementById('account').textContent = orderData.account;
+            document.getElementById('plan').textContent = orderData.plan;
+            document.getElementById('price').textContent = `¥${orderData.priceCNY} (≈ ${orderData.priceUSDT} USDT)`;
+            document.getElementById('usdt-amount').textContent = orderData.priceUSDT;
+        }
+        
+        // 支付方式选择
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // 移除所有 active 类
+                document.querySelectorAll('.payment-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                document.querySelectorAll('.payment-qr').forEach(qr => {
+                    qr.classList.remove('active');
+                });
+                
+                // 添加 active 类
+                this.classList.add('active');
+                const method = this.dataset.method;
+                document.getElementById(`${method}-qr`).classList.add('active');
+            });
+        });
+        
+        // 复制到剪贴板
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent.replace('复制', '').trim();
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('已复制到剪贴板！');
+                });
+            } else {
+                // 降级方案
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('已复制到剪贴板！');
+            }
+        }
+        
+        // 联系 Telegram 客服
+        function contactTelegram() {
+            if (!orderData) return;
+            
+            const message = `你好，我想支付 Telegram Premium ${orderData.plan}套餐的订单。
+
+订单信息：
+- 订单号：${orderData.orderId}
+- 要开通的账号：${orderData.account}
+- 套餐：${orderData.plan}
+- 支付金额：¥${orderData.priceCNY} (≈ ${orderData.priceUSDT} USDT)
+- 邮箱：${orderData.email}
+
+请提供支付二维码或收款地址。`;
+            
+            const telegramLink = `https://t.me/youryhc?text=${encodeURIComponent(message)}`;
+            window.open(telegramLink, '_blank');
+        }
+    </script>
+</body>
+</html>
+
