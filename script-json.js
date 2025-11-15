@@ -481,7 +481,7 @@ function createImageAdBanner() {
     
     // 创建广告链接
     const adLink = document.createElement('a');
-    adLink.href = '#'; // 可以修改为实际广告链接
+    adLink.href = 'telegram-premium.html'; // 跳转到Telegram会员代开页面
     adLink.target = '_blank';
     adLink.rel = 'noopener noreferrer';
     

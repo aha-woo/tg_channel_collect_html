@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Premium 会员代开服务 - 专业、安全、快速</title>
+    
+    <!-- 安全头 -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline'; 
+                   style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
+                   img-src 'self' data: https:; 
+                   font-src 'self' https://cdnjs.cloudflare.com data:;">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="tglogo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="tglogo.jpg">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #0088cc;
+            --primary-hover: #0099dd;
+            --accent-color: #4caf50;
+            --bg-main: #ffffff;
+            --bg-section: #f8f9fa;
+            --text-primary: #1c1e21;
+            --text-secondary: #606770;
+            --text-tertiary: #8a8d91;
+            --border-color: #dfe1e5;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo i {
+            font-size: 24px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* 主要内容 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 40px 0 30px;
+        }
+        
+        .hero-section h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .hero-section .subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* 主内容区域 - 左右布局 */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 32px;
+            margin: 40px 0;
+        }
+        
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .right-column {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+        
+        /* 卡片网格 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 60px 0;
+        }
+        
+        .feature-card {
+            background: var(--bg-main);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .feature-card .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+        
+        /* 套餐价格 - 右侧固定 */
+        .pricing-section {
+            background: var(--bg-main);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border-color);
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .pricing-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .pricing-header p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .pricing-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .pricing-item {
+            background: var(--bg-section);
+            border-radius: var(--radius);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .pricing-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-color);
+        }
+        
+        .pricing-item.featured {
+            border-color: var(--accent-color);
+            background: linear-gradient(135deg, #f0f9f0 0%, #ffffff 100%);
+            position: relative;
+        }
+        
+        .pricing-item.featured::before {
+            content: '推荐';
+            position: absolute;
+            top: -10px;
+            right: 16px;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .pricing-item .period {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .pricing-item .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .pricing-item .price {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .pricing-item .price .currency {
+            font-size: 18px;
+            vertical-align: top;
+        }
+        
+        .pricing-item .usdt-price {
+            font-size: 14px;
+            color: var(--text-tertiary);
+        }
+        
+        .pricing-item .btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .pricing-item .btn:hover {
+            background: var(--primary-hover);
+        }
+        
+        .pricing-item.featured .btn {
+            background: var(--accent-color);
+        }
+        
+        .pricing-item.featured .btn:hover {
+            background: #45a049;
+        }
+        
+        /* 人工代开说明 */
+        .manual-service-notice {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .manual-service-notice i {
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+        
+        /* 邮箱输入框 */
+        .email-input-section {
+            margin-bottom: 20px;
+        }
+        
+        .email-input-section label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .email-input-section input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .email-input-section input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .email-input-section .hint {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-top: 6px;
+        }
+        
+        /* 订单模态框 */
+        .order-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .order-modal.show {
+            display: flex;
+        }
+        
+        .order-modal-content {
+            background: white;
+            border-radius: var(--radius);
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .order-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .order-modal-header h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .order-modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .order-modal-close:hover {
+            color: var(--text-primary);
+        }
+        
+        .order-info {
+            background: var(--bg-section);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .order-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .order-info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-info-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        
+        .order-info-value {
+            color: var(--text-primary);
+        }
+        
+        .order-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .order-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .order-actions .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .order-actions .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .order-actions .btn-secondary {
+            background: var(--bg-section);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+        
+        .order-actions .btn-secondary:hover {
+            background: var(--border-color);
+        }
+        
+        .section-header {
+            margin-bottom: 24px;
+        }
+        
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .section-header p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        /* 流程步骤 */
+        .process-section {
+            background: var(--bg-main);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: start;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg-section);
+            border-radius: var(--radius);
+        }
+        
+        .process-step .step-number {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .process-step-content {
+            flex: 1;
+        }
+        
+        .process-step h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        
+        .process-step p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+        
+        /* 会员优势和技巧合并 */
+        .features-tips-section {
+            background: var(--bg-main);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+        
+        .features-tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        
+        .feature-tip-card {
+            background: var(--bg-section);
+            border-radius: var(--radius);
+            padding: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-tip-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .feature-tip-card .icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .feature-tip-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        
+        .feature-tip-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 13px;
+        }
+        
+        /* 注意事项 */
+        .notice-section {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: var(--radius);
+        }
+        
+        .notice-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notice-section h3 i {
+            color: #ffc107;
+            font-size: 20px;
+        }
+        
+        .notice-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .notice-section li {
+            padding: 6px 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .notice-section li::before {
+            content: '•';
+            color: #ffc107;
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .right-column {
+                position: static;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 30px 0 20px;
+            }
+            
+            .hero-section h1 {
+                font-size: 28px;
+            }
+            
+            .hero-section .subtitle {
+                font-size: 14px;
+            }
+            
+            .section-header h2 {
+                font-size: 20px;
+            }
+            
+            .features-tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .main-content {
+                margin: 20px 0;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index-json.html" class="logo">
+                <i class="fab fa-telegram"></i>
+                <span>TG导航</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index-json.html">首页</a></li>
+                <li><a href="#pricing">套餐价格</a></li>
+                <li><a href="#process">代开流程</a></li>
+                <li><a href="#contact">联系客服</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Telegram Premium 会员代开（电报）</h1>
+            <p class="subtitle">专业、安全、快速 - 24小时之内完成开通，立即享受会员权益</p>
+        </div>
+    </section>
+    
+    <!-- 主内容区域 - 左右布局 -->
+    <div class="container">
+        <div class="main-content">
+            <!-- 左侧内容 -->
+            <div class="left-column">
+                <!-- 代开流程 -->
+                <section id="process" class="process-section">
+                    <div class="section-header">
+                        <h2>🛠️ 代开流程</h2>
+                        <p>简单四步，快速开通 Telegram Premium 会员</p>
+                    </div>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="process-step-content">
+                                <h3>填写账号信息</h3>
+                                <p>在右侧填写要开通的 Telegram 账号（用户名或手机号）和邮箱地址，不需要密码</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="process-step-content">
+                                <h3>选择套餐周期</h3>
+                                <p>选择 3个月 / 半年 / 1年 套餐（1年价格更优），根据需求选择最适合的周期</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="process-step-content">
+                                <h3>支付订单</h3>
+                                <p>支持支付宝 / 微信 / USDT / 银行转账等多种支付方式，安全便捷</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="process-step-content">
+                                <h3>等待开通</h3>
+                                <p>24小时之内完成开通，成功后可立即享受会员权益，我们会通过 Telegram 和邮箱双通知您</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 注意事项 -->
+                <section class="notice-section">
+                    <h3><i class="fas fa-exclamation-triangle"></i> ⚠️ 注意事项</h3>
+                    <ul>
+                        <li>代开仅支持官方 Premium 功能，权益与官方直充完全一致</li>
+                        <li>开通过程中不会索取密码或私密信息，安全可靠</li>
+                        <li>Premium 功能受 Telegram 官方规则限制，不影响账号安全</li>
+                        <li>一经开通不可退款，请确认账号信息无误后再下单</li>
+                        <li>如有任何问题，请及时联系客服，我们会在第一时间为您解决</li>
+                    </ul>
+                </section>
+                
+                <!-- 会员优势和高级玩法合并 -->
+                <section class="features-tips-section">
+                    <div class="section-header">
+                        <h2>💡 会员优势与高效玩法</h2>
+                        <p>解锁 Telegram 全部高级功能，提升你的沟通体验</p>
+                    </div>
+                    
+                    <div class="features-tips-grid">
+                        <div class="feature-tip-card">
+                            <div class="icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <h4>跨国传输大文件</h4>
+                            <p>Premium 可无压力传送 4GB 视频、工程文件、影视资源，打破地域限制</p>
+                        </div>
+                        
+                        <div class="feature-tip-card">
+                            <div class="icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <h4>多设备无缝同步</h4>
+                            <p>在手机、平板、电脑同时登录，传输速度显著提升，随时随地访问</p>
+                        </div>
+                        
+                        <div class="feature-tip-card">
+                            <div class="icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4>语音转文字</h4>
+                            <p>长语音秒变文字，节省时间，提高沟通效率，特别适合会议记录</p>
+                        </div>
+                        
+                        <div class="feature-tip-card">
+                            <div class="icon">
+                                <i class="fas fa-archive"></i>
+                            </div>
+                            <h4>频道内容备份</h4>
+                            <p>大文件上限配合云端存储，可长期保存重要资料，建立个人知识库</p>
+                        </div>
+                        
+                        <div class="feature-tip-card">
+                            <div class="icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>个性化品牌形象</h4>
+                            <p>频道主可用专属动画头像、贴纸提升视觉识别度，打造专业品牌</p>
+                        </div>
+                        
+                        <div class="feature-tip-card">
+                            <div class="icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h4>优先体验新功能</h4>
+                            <p>第一时间体验 Telegram 最新功能，享受最前沿的通讯体验</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- 右侧价格信息 -->
+            <div class="right-column">
+                <section id="pricing" class="pricing-section">
+                    <div class="pricing-header">
+                        <h2>套餐价格</h2>
+                        <p>价格优惠，支持多种支付方式</p>
+                    </div>
+                    
+                    <!-- 人工代开说明 -->
+                    <div class="manual-service-notice">
+                        <i class="fas fa-user-cog"></i>
+                        <strong>人工代开服务</strong>：我们提供专业的人工代开服务，24小时之内完成开通，安全可靠。
+                    </div>
+                    
+                    <!-- 账号输入 -->
+                    <div class="email-input-section">
+                        <label for="userAccount">
+                            <i class="fab fa-telegram"></i> Telegram 账号（要开通的账号）
+                        </label>
+                        <input type="text" id="userAccount" placeholder="请输入 Telegram 用户名（如：@username）" required>
+                        <div class="hint">请输入要开通 Premium 的 Telegram 账号（用户名格式：@username）</div>
+                    </div>
+                    
+                    <!-- 邮箱输入 -->
+                    <div class="email-input-section">
+                        <label for="userEmail">
+                            <i class="fas fa-envelope"></i> 邮箱地址（开通后接收通知）
+                        </label>
+                        <input type="email" id="userEmail" placeholder="请输入您的邮箱地址" required>
+                        <div class="hint">开通成功后，我们会通过 Telegram 和邮箱双通知您</div>
+                    </div>
+                    
+                    <div class="pricing-list">
+                        <div class="pricing-item">
+                            <div class="period">3个月</div>
+                            <div class="price-row">
+                                <div class="price">
+                                    <span class="currency">¥</span>140
+                                </div>
+                                <div class="usdt-price">≈ 19.5 USDT</div>
+                            </div>
+                            <button class="btn" onclick="submitOrder('3个月', 140, 19.5)">立即开通</button>
+                        </div>
+                        
+                        <div class="pricing-item featured">
+                            <div class="period">半年</div>
+                            <div class="price-row">
+                                <div class="price">
+                                    <span class="currency">¥</span>199
+                                </div>
+                                <div class="usdt-price">≈ 27.7 USDT</div>
+                            </div>
+                            <button class="btn" onclick="submitOrder('半年', 199, 27.7)">立即开通</button>
+                        </div>
+                        
+                        <div class="pricing-item">
+                            <div class="period">1年</div>
+                            <div class="price-row">
+                                <div class="price">
+                                    <span class="currency">¥</span>329
+                                </div>
+                                <div class="usdt-price">≈ 45.8 USDT</div>
+                            </div>
+                            <button class="btn" onclick="submitOrder('1年', 329, 45.8)">立即开通</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 联系客服 -->
+    <section id="contact" class="container" style="padding: 60px 0; text-align: center;">
+        <div class="section-header">
+            <h2>联系客服</h2>
+            <p>有任何问题，欢迎随时联系我们</p>
+        </div>
+        
+        <div style="display: flex; justify-content: center; gap: 32px; margin-top: 32px; flex-wrap: wrap;">
+            <a href="mailto:dlxmyhc@gmail.com" style="display: flex; align-items: center; gap: 12px; color: var(--text-primary); text-decoration: none; padding: 16px 24px; background: var(--bg-section); border-radius: var(--radius); transition: transform 0.3s;">
+                <i class="fas fa-envelope" style="font-size: 24px; color: var(--primary-color);"></i>
+                <div style="text-align: left;">
+                    <div style="font-weight: 600;">邮箱</div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">dlxmyhc@gmail.com</div>
+                </div>
+            </a>
+            
+            <a href="https://t.me/youryhc" target="_blank" style="display: flex; align-items: center; gap: 12px; color: var(--text-primary); text-decoration: none; padding: 16px 24px; background: var(--bg-section); border-radius: var(--radius); transition: transform 0.3s;">
+                <i class="fab fa-telegram" style="font-size: 24px; color: var(--primary-color);"></i>
+                <div style="text-align: left;">
+                    <div style="font-weight: 600;">Telegram</div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">@youryhc</div>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Telegram Premium 代开服务. 专业、安全、快速.</p>
+        </div>
+    </footer>
+    
+    <!-- 订单确认模态框 -->
+    <div id="orderModal" class="order-modal">
+        <div class="order-modal-content">
+            <div class="order-modal-header">
+                <h3>确认订单信息</h3>
+                <button class="order-modal-close" onclick="closeOrderModal()">&times;</button>
+            </div>
+            
+            <div class="order-info" id="orderInfo">
+                <!-- 订单信息将动态填充 -->
+            </div>
+            
+            <div class="order-actions">
+                <button class="btn-secondary" onclick="closeOrderModal()">取消</button>
+                <button class="btn-primary" onclick="confirmOrder()">确认并提交</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentOrder = null;
+        
+        // 提交订单
+        function submitOrder(plan, priceCNY, priceUSDT) {
+            const account = document.getElementById('userAccount').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            
+            if (!account) {
+                alert('请输入要开通的 Telegram 账号（用户名格式：@username）');
+                document.getElementById('userAccount').focus();
+                return;
+            }
+            
+            // 验证账号格式（必须是@开头或纯用户名）
+            if (!account.startsWith('@') && !/^[a-zA-Z0-9_]+$/.test(account)) {
+                alert('请输入有效的 Telegram 用户名（格式：@username 或 username）');
+                document.getElementById('userAccount').focus();
+                return;
+            }
+            
+            // 统一格式：如果没有@，自动添加
+            if (!account.startsWith('@')) {
+                account = '@' + account;
+            }
+            
+            if (!email) {
+                alert('请输入邮箱地址，以便接收开通通知');
+                document.getElementById('userEmail').focus();
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                alert('请输入有效的邮箱地址');
+                document.getElementById('userEmail').focus();
+                return;
+            }
+            
+            // 创建订单对象
+            currentOrder = {
+                plan: plan,
+                priceCNY: priceCNY,
+                priceUSDT: priceUSDT,
+                account: account, // 已统一格式为@username
+                email: email,
+                timestamp: new Date().toISOString(),
+                orderId: 'TG-' + Date.now(),
+                status: 'pending' // pending: 待处理, processing: 处理中, completed: 已完成, cancelled: 已取消
+            };
+            
+            // 显示订单确认模态框
+            showOrderModal(currentOrder);
+        }
+        
+        // 显示订单模态框
+        function showOrderModal(order) {
+            const orderInfo = document.getElementById('orderInfo');
+            orderInfo.innerHTML = `
+                <div class="order-info-item">
+                    <span class="order-info-label">订单号：</span>
+                    <span class="order-info-value">${order.orderId}</span>
+                </div>
+                <div class="order-info-item">
+                    <span class="order-info-label">要开通的账号：</span>
+                    <span class="order-info-value">${order.account}</span>
+                </div>
+                <div class="order-info-item">
+                    <span class="order-info-label">套餐：</span>
+                    <span class="order-info-value">${order.plan}</span>
+                </div>
+                <div class="order-info-item">
+                    <span class="order-info-label">价格：</span>
+                    <span class="order-info-value">¥${order.priceCNY} (≈ ${order.priceUSDT} USDT)</span>
+                </div>
+                <div class="order-info-item">
+                    <span class="order-info-label">邮箱：</span>
+                    <span class="order-info-value">${order.email}</span>
+                </div>
+                <div class="order-info-item">
+                    <span class="order-info-label">下单时间：</span>
+                    <span class="order-info-value">${new Date(order.timestamp).toLocaleString('zh-CN')}</span>
+                </div>
+            `;
+            
+            document.getElementById('orderModal').classList.add('show');
+        }
+        
+        // 关闭订单模态框
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('show');
+        }
+        
+        // 确认订单
+        function confirmOrder() {
+            if (!currentOrder) return;
+            
+            // 保存订单到 localStorage
+            saveOrderToStorage(currentOrder);
+            
+            // 发送订单到服务器（保存到文件并发送到TG）
+            sendOrderToServer(currentOrder);
+            
+            // 打开 Telegram 联系
+            const message = `你好，我想开通 Telegram Premium ${currentOrder.plan}套餐。
+
+订单信息：
+- 订单号：${currentOrder.orderId}
+- 要开通的账号：${currentOrder.account}
+- 套餐：${currentOrder.plan}
+- 价格：¥${currentOrder.priceCNY} (≈ ${currentOrder.priceUSDT} USDT)
+- 邮箱：${currentOrder.email}
+
+请告诉我如何支付。开通成功后，我会通过 Telegram 和邮箱通知您。`;
+            
+            const telegramLink = `https://t.me/youryhc?text=${encodeURIComponent(message)}`;
+            window.open(telegramLink, '_blank');
+            
+            // 关闭模态框
+            closeOrderModal();
+            
+            // 显示成功提示
+            alert('订单已提交！\n\n订单号：' + currentOrder.orderId + '\n\n开通成功后，我们会通过 Telegram 和邮箱双通知您。\n\n请通过 Telegram 联系我们完成支付。');
+            
+            // 清空输入框
+            document.getElementById('userAccount').value = '';
+            document.getElementById('userEmail').value = '';
+        }
+        
+        // 发送订单到服务器
+        function sendOrderToServer(order) {
+            // 发送到后端脚本保存订单并发送到TG
+            fetch('save_order.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(order)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('订单已保存到服务器并发送到Telegram');
+                } else {
+                    console.error('订单保存失败：', data.error);
+                }
+            })
+            .catch(error => {
+                console.error('发送订单失败：', error);
+                // 如果后端不可用，至少保存到localStorage
+                console.log('后端不可用，订单已保存到本地存储');
+            });
+        }
+        
+        // 保存订单到 localStorage
+        function saveOrderToStorage(order) {
+            try {
+                let orders = JSON.parse(localStorage.getItem('tg_premium_orders') || '[]');
+                orders.push(order);
+                // 只保留最近50个订单
+                if (orders.length > 50) {
+                    orders = orders.slice(-50);
+                }
+                localStorage.setItem('tg_premium_orders', JSON.stringify(orders));
+                console.log('订单已保存到本地存储');
+            } catch (e) {
+                console.error('保存订单失败：', e);
+            }
+        }
+        
+        // 发送订单邮件（通过 mailto）
+        function sendOrderEmail(order) {
+            const subject = `Telegram Premium 代开订单 - ${order.orderId}`;
+            const body = `订单详情：
+
+订单号：${order.orderId}
+要开通的账号：${order.account}
+套餐：${order.plan}
+价格：¥${order.priceCNY} (≈ ${order.priceUSDT} USDT)
+客户邮箱：${order.email}
+下单时间：${new Date(order.timestamp).toLocaleString('zh-CN')}
+
+请尽快处理此订单。开通成功后，请通过 Telegram 和邮箱双通知客户。`;
+            
+            const mailtoLink = `mailto:dlxmyhc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // 尝试打开邮件客户端（可选，不强制）
+            // window.location.href = mailtoLink;
+            
+            // 同时保存订单信息到剪贴板（备用）
+            const orderText = `订单号：${order.orderId}\n要开通的账号：${order.account}\n套餐：${order.plan}\n价格：¥${order.priceCNY}\n邮箱：${order.email}`;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(orderText).then(() => {
+                    console.log('订单信息已复制到剪贴板');
+                });
+            }
+        }
+        
+        // 验证邮箱格式
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // 点击模态框外部关闭
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeOrderModal();
+            }
+        });
+        
+        // ESC 键关闭模态框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeOrderModal();
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // 页面加载时检查是否有保存的订单
+        window.addEventListener('load', function() {
+            try {
+                const orders = JSON.parse(localStorage.getItem('tg_premium_orders') || '[]');
+                if (orders.length > 0) {
+                    console.log('本地存储的订单数量：', orders.length);
+                }
+            } catch (e) {
+                console.error('读取订单失败：', e);
+            }
+        });
+    </script>
+</body>
+</html>
+
+

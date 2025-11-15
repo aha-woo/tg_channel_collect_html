@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-获取Telegram频道/群组/Bot的头像
+Telegram Premium 订单收集脚本
 需要Telegram Bot API Token
+
+⚠️ 重要说明：
+本文件原本用于获取Telegram频道/群组/Bot的头像和描述。
+现在已改为用于收集和处理Telegram Premium会员代开订单。
+
+原功能（获取头像和描述）已全部注释，但保留在代码中。
+任何AI编码助手请勿删除这些注释的功能代码，它们可能在未来需要恢复使用。
 """
 
 import json
@@ -24,421 +31,102 @@ load_dotenv()
 # 如果 .env 文件中没有，则使用默认值
 BOT_TOKEN = os.getenv('BOT_TOKEN', 'YOUR_BOT_TOKEN_HERE')
 
-# 头像保存目录
-AVATAR_DIR = "telegram_avatars"
-# 说明保存目录
-DESCRIPTION_DIR = "telegram_descriptions"
+# ============ 订单收集配置 ============
+# 订单保存文件
+ORDERS_FILE = "orders.json"
+# 接收订单通知的Telegram用户ID（你的账号）
+# 可以通过 @userinfobot 获取你的用户ID
+ADMIN_USER_ID = os.getenv('ADMIN_USER_ID', 'YOUR_USER_ID')
 
-# ============ 速率限制配置 ============
-# Telegram Bot API 限制：每秒最多30个请求
-# 但实际使用中，建议更保守，避免触发限制
-# 每个频道需要2个API请求（getChat + getFile），所以需要更长的延迟
-# 配置策略：每秒最多0.1-0.15个请求（即每次请求间隔6.5-10秒），最大化避免限制
-REQUEST_DELAY = 40  # 基础延迟（秒），约每秒0.15个请求
-MAX_RETRIES = 3  # 最大重试次数
-RETRY_DELAY = 10  # 重试延迟（秒）
-RATE_LIMIT_DELAY = 1800  # 遇到429错误时的默认等待时间（秒）= 1小时
 
-# 随机延迟配置（避免被识别为机器人行为）
-USE_RANDOM_DELAY = True  # True=启用随机延迟，False=固定延迟
-RANDOM_DELAY_RANGE = 60  # 随机延迟范围（秒），实际延迟 = REQUEST_DELAY + random(0, RANDOM_DELAY_RANGE)
-# 最终延迟范围：60-66秒，平均约63秒，每秒约0.016个请求（非常保守）
+# ============ 新功能：订单收集和处理 ============
 
-# getChat 和 getFile 之间的延迟配置
-USE_BETWEEN_API_DELAY = True  # True=启用API间延迟，False=不延迟
-BETWEEN_API_DELAY_MIN = 5  # getChat和getFile之间的最小延迟（秒）
-BETWEEN_API_DELAY_MAX = 36  # getChat和getFile之间的最大延迟（秒）
-
-# 速率限制后的随机睡眠配置（遇到429错误时）
-RATE_LIMIT_SLEEP_MIN = 1800  # 遇到429错误后的最小睡眠时间（秒）= 1小时
-RATE_LIMIT_SLEEP_MAX = 5400  # 遇到429错误后的最大睡眠时间（秒）= 1.5小时
-
-# 批量处理后的休眠配置（防止FLOOD限制）
-BATCH_SIZE = 15  # 每处理多少个链接后休眠一次
-BATCH_SLEEP_MIN = 600  # 批量休眠最小时间（秒）= 30分钟
-BATCH_SLEEP_MAX = 1200  # 批量休眠最大时间（秒）= 1小时
-
-# 进度保存文件
-PROGRESS_FILE = "fetch_progress.json"
-
-# ============ 清理配置 ============
-# 是否自动删除不存在的频道/群组
-AUTO_DELETE_NOT_FOUND = True  # True=自动删除，False=仅标记不删除
-DELETED_ITEMS_FILE = "deleted_items.json"  # 保存已删除条目的备份
-
-def get_username_from_url(url):
-    """从URL中提取Telegram用户名（用于文件命名）
-    
-    示例：
-        https://t.me/chiguawuxian -> chiguawuxian
-        https://t.me/jiso -> jiso
-        https://t.me/jisoubar -> jisoubar
-    
-    返回的用户名将用于：
-        - 头像文件名: telegram_avatars/{username}.jpg
-        - 说明文件名: telegram_descriptions/{username}.txt
-    
-    这样可以通过URL唯一确定对应的头像和说明文件。
-    
-    Args:
-        url: Telegram URL，例如 https://t.me/chiguawuxian
-        
-    Returns:
-        用户名（字符串），例如 'chiguawuxian'，失败返回 None
-    """
-    if not url or not isinstance(url, str):
-        return None
-    
-    # https://t.me/jiso
-    # https://t.me/joinchat/xxxxx
-    
-    if 'joinchat' in url or '+' in url:
-        return None  # 私有群组链接无法获取
-    
-    # 提取用户名（保持原始大小写，用于文件命名）
-    match = re.search(r't\.me/([a-zA-Z0-9_]+)', url)
-    if match:
-        username = match.group(1)
-        # 返回原始用户名，用于文件命名
-        # 例如: https://t.me/chiguawuxian -> chiguawuxian
-        # 文件: telegram_avatars/chiguawuxian.jpg
-        # 文件: telegram_descriptions/chiguawuxian.txt
-        return username
-    return None
-
-def get_favicon_url(url, username=None):
-    """通过 favicon 服务获取头像URL（备选方案）
-    
-    返回: favicon URL 或 None
-    """
-    try:
-        # 对于 Telegram 链接，使用 Telegram 官方 logo
-        if 't.me' in url:
-            # 优先使用 Telegram 官方 logo
-            telegram_logo = "https://telegram.org/img/t_logo.png"
-            return telegram_logo
-        
-        # 对于普通网站，提取域名并使用 Google Favicon 服务
-        parsed = urlparse(url)
-        domain = parsed.netloc or parsed.path.split('/')[0]
-        
-        if not domain:
-            return None
-        
-        # 移除 www. 前缀
-        domain = domain.replace('www.', '')
-        
-        # 使用 Google S2 Favicons 服务（高分辨率）
-        favicon_url = f"https://www.google.com/s2/favicons?domain={domain}&sz=128"
-        return favicon_url
-    except Exception as e:
-        print(f"  ⚠️  获取 favicon 失败: {e}")
-        return None
-
-def download_favicon(favicon_url, username):
-    """下载 favicon 并保存到本地"""
-    try:
-        response = requests.get(favicon_url, timeout=10)
-        if response.status_code == 200:
-            os.makedirs(AVATAR_DIR, exist_ok=True)
-            local_path = os.path.join(AVATAR_DIR, f"{username}.jpg")
-            
-            with open(local_path, 'wb') as f:
-                f.write(response.content)
-            
-            return local_path
-    except Exception as e:
-        print(f"  ⚠️  下载 favicon 失败: {e}")
-        return None
-
-def smart_delay(description=""):
-    """智能延迟：固定延迟 + 随机延迟"""
-    if USE_RANDOM_DELAY:
-        # 随机延迟：REQUEST_DELAY + random(0, RANDOM_DELAY_RANGE)
-        delay = REQUEST_DELAY + random.uniform(0, RANDOM_DELAY_RANGE)
-    else:
-        delay = REQUEST_DELAY
-    
-    if description:
-        print(f"  ⏳ 等待 {delay:.2f} 秒...")
-    time.sleep(delay)
-
-def between_api_delay(description=""):
-    """getChat 和 getFile 之间的延迟（避免API调用过于频繁）"""
-    if USE_BETWEEN_API_DELAY:
-        delay = random.uniform(BETWEEN_API_DELAY_MIN, BETWEEN_API_DELAY_MAX)
-        if description:
-            print(f"  ⏸️  API间延迟 {delay:.2f} 秒（getChat → getFile）...")
-        time.sleep(delay)
-
-def batch_sleep_if_needed(batch_processed_count, processed_usernames, data):
-    """检查是否需要批量休眠（每处理BATCH_SIZE个后休眠一次）
-    
-    返回: True表示已休眠，False表示不需要休眠
-    """
-    if batch_processed_count > 0 and batch_processed_count % BATCH_SIZE == 0:
-        sleep_time = random.uniform(BATCH_SLEEP_MIN, BATCH_SLEEP_MAX)
-        sleep_minutes = sleep_time / 60
-        sleep_hours = sleep_time / 3600
-        
-        print("\n" + "=" * 60)
-        print(f"⏸️  已处理 {batch_processed_count} 个链接，进入休眠模式")
-        print(f"💤 休眠时间: {sleep_time:.1f} 秒（约 {sleep_minutes:.1f} 分钟 / {sleep_hours:.2f} 小时）")
-        resume_time = datetime.now() + timedelta(seconds=sleep_time)
-        print(f"⏰ 预计恢复时间: {resume_time.strftime('%Y-%m-%d %H:%M:%S')}")
-        print("=" * 60)
-        
-        # 休眠前保存进度
-        save_progress({'processed': list(processed_usernames)})
-        with open('data.json', 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"💾 进度已保存")
-        
-        # 开始休眠
-        time.sleep(sleep_time)
-        
-        print("\n" + "=" * 60)
-        print(f"✅ 休眠结束，继续处理...")
-        print("=" * 60 + "\n")
-        
-        return True
-    return False
-
-def get_chat_info(username, retry_count=0):
-    """获取频道/群组/Bot信息（带重试机制）
-    
-    返回: (chat_info, is_not_found)
-    - chat_info: 频道信息字典，如果失败则为None
-    - is_not_found: True表示频道不存在（已删除），False表示其他错误
-    """
-    api_url = f"https://api.telegram.org/bot{BOT_TOKEN}/getChat"
-    
-    try:
-        response = requests.get(api_url, params={'chat_id': f'@{username}'}, timeout=10)
-        data = response.json()
-        
-        # 检查是否被速率限制（429错误）
-        if response.status_code == 429:
-            # 优先使用Telegram返回的retry_after，否则使用随机睡眠
-            telegram_retry_after = data.get('parameters', {}).get('retry_after')
-            
-            if telegram_retry_after:
-                # 使用Telegram返回的时间，但加上随机延迟
-                sleep_time = telegram_retry_after + random.uniform(0, 60)  # 额外随机0-60秒
-                print(f"⚠️  触发速率限制，Telegram要求等待 {telegram_retry_after} 秒，实际等待 {sleep_time:.1f} 秒...")
-            else:
-                # 使用随机睡眠（5-6分钟随机）
-                sleep_time = random.uniform(RATE_LIMIT_SLEEP_MIN, RATE_LIMIT_SLEEP_MAX)
-                sleep_minutes = sleep_time / 60
-                print(f"⚠️  触发速率限制，随机睡眠 {sleep_time:.1f} 秒（约 {sleep_minutes:.1f} 分钟）...")
-            
-            time.sleep(sleep_time)
-            
-            # 重试
-            if retry_count < MAX_RETRIES:
-                return get_chat_info(username, retry_count + 1)
-            else:
-                print(f"❌ 重试次数已达上限 @{username}")
-                return None, False
-        
-        if data.get('ok'):
-            chat_info = data.get('result')
-            # 检查chat类型，记录详细信息
-            chat_type = chat_info.get('type', 'unknown')
-            print(f"  ✅ 成功获取 @{username} 信息（类型: {chat_type}）")
-            return chat_info, False
-        else:
-            error_code = data.get('error_code', 'unknown')
-            error_description = data.get('description', '未知错误')
-            
-            # 详细记录错误信息
-            print(f"  ⚠️  API返回错误: 错误码={error_code}, 描述={error_description}")
-            
-            # 更严格的错误判断：只有明确的不存在错误才标记为删除
-            # Bot 可能返回 "bad request" 或其他错误，但不一定是不存在
-            not_found_keywords = [
-                'chat not found',  # 频道/群组不存在
-                'user not found',   # 用户不存在
-                'chat_id is empty', # 聊天ID为空
-            ]
-            
-            # 对于 Bot，可能需要特殊处理
-            # 如果返回 "bad request" 或 "method not found"，可能只是权限问题
-            is_definitely_not_found = any(keyword in error_description.lower() for keyword in not_found_keywords)
-            
-            # 对于某些错误，可能是权限问题或Bot未启动，不应该删除
-            ambiguous_errors = [
-                'bad request',
-                'method not found',
-                'forbidden',
-                'unauthorized',
-                'bot was blocked',
-                'bot was deleted',
-            ]
-            is_ambiguous = any(keyword in error_description.lower() for keyword in ambiguous_errors)
-            
-            if is_definitely_not_found:
-                print(f"  ❌ 确认不存在: @{username} - {error_description}")
-                return None, True  # 明确标记为不存在
-            elif is_ambiguous:
-                print(f"  ⚠️  可能是权限或Bot状态问题: @{username} - {error_description}")
-                print(f"  💡 建议：手动检查Bot是否存在，暂不删除")
-                return None, False  # 不标记为删除，可能是其他原因
-            else:
-                print(f"  ⚠️  无法获取 @{username} 的信息: {error_description} (错误码: {error_code})")
-                return None, False  # 未知错误，不删除
-    except requests.exceptions.Timeout:
-        print(f"  ⚠️  请求超时 @{username}")
-        if retry_count < MAX_RETRIES:
-            time.sleep(RETRY_DELAY)
-            return get_chat_info(username, retry_count + 1)
-        return None, False
-    except Exception as e:
-        print(f"  ❌ 请求失败 @{username}: {e}")
-        if retry_count < MAX_RETRIES:
-            time.sleep(RETRY_DELAY)
-            return get_chat_info(username, retry_count + 1)
-        return None, False
-
-def save_description(description, username, url):
-    """保存说明到本地文件
-    
-    文件名基于用户名，与URL一一对应：
-        URL: https://t.me/chiguawuxian
-        用户名: chiguawuxian
-        文件: telegram_descriptions/chiguawuxian.txt
-    
-    Args:
-        description: 说明文本
-        username: 用户名（从URL提取，用于文件名）
-        url: 原始URL（保存到文件内容中，用于追溯）
-    
-    Returns:
-        保存的文件路径，失败返回None
-    """
-    if not description or not description.strip():
-        return None
-    
-    if not username:
-        return None
-    
-    try:
-        os.makedirs(DESCRIPTION_DIR, exist_ok=True)
-        # 文件名直接使用用户名，确保与URL一一对应
-        # 例如: chiguawuxian -> chiguawuxian.txt
-        description_file = os.path.join(DESCRIPTION_DIR, f"{username}.txt")
-        
-        # 保存说明内容，包含URL信息
-        content = f"URL: {url}\n"
-        content += f"Username: @{username}\n"
-        content += f"Saved at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-        content += f"{'='*60}\n\n"
-        content += description.strip()
-        
-        with open(description_file, 'w', encoding='utf-8') as f:
-            f.write(content)
-        
-        return description_file
-    except Exception as e:
-        print(f"  ⚠️  保存说明失败 @{username}: {e}")
-        return None
-
-def download_avatar(file_id, username, retry_count=0):
-    """下载头像（带重试机制）"""
-    # 获取文件路径
-    file_url = f"https://api.telegram.org/bot{BOT_TOKEN}/getFile"
-    
-    try:
-        response = requests.get(file_url, params={'file_id': file_id}, timeout=10)
-        data = response.json()
-        
-        # 检查速率限制
-        if response.status_code == 429:
-            # 优先使用Telegram返回的retry_after，否则使用随机睡眠
-            telegram_retry_after = data.get('parameters', {}).get('retry_after')
-            
-            if telegram_retry_after:
-                # 使用Telegram返回的时间，但加上随机延迟
-                sleep_time = telegram_retry_after + random.uniform(0, 60)  # 额外随机0-60秒
-                print(f"  ⚠️  触发速率限制，Telegram要求等待 {telegram_retry_after} 秒，实际等待 {sleep_time:.1f} 秒...")
-            else:
-                # 使用随机睡眠（5-6分钟随机）
-                sleep_time = random.uniform(RATE_LIMIT_SLEEP_MIN, RATE_LIMIT_SLEEP_MAX)
-                sleep_minutes = sleep_time / 60
-                print(f"  ⚠️  触发速率限制，随机睡眠 {sleep_time:.1f} 秒（约 {sleep_minutes:.1f} 分钟）...")
-            
-            time.sleep(sleep_time)
-            if retry_count < MAX_RETRIES:
-                return download_avatar(file_id, username, retry_count + 1)
-            return None
-        
-        if not data.get('ok'):
-            return None
-        
-        file_path = data['result']['file_path']
-        download_url = f"https://api.telegram.org/file/bot{BOT_TOKEN}/{file_path}"
-        
-        # 下载文件
-        os.makedirs(AVATAR_DIR, exist_ok=True)
-        # 文件名直接使用用户名，确保与URL一一对应
-        # 例如: chiguawuxian -> chiguawuxian.jpg
-        # URL: https://t.me/chiguawuxian -> 文件: telegram_avatars/chiguawuxian.jpg
-        local_path = os.path.join(AVATAR_DIR, f"{username}.jpg")
-        
-        img_response = requests.get(download_url, timeout=30)
-        img_response.raise_for_status()
-        
-        with open(local_path, 'wb') as f:
-            f.write(img_response.content)
-        
-        return local_path
-    except requests.exceptions.Timeout:
-        if retry_count < MAX_RETRIES:
-            time.sleep(RETRY_DELAY)
-            return download_avatar(file_id, username, retry_count + 1)
-        return None
-    except Exception as e:
-        print(f"  ⚠️  下载失败 @{username}: {e}")
-        if retry_count < MAX_RETRIES:
-            time.sleep(RETRY_DELAY)
-            return download_avatar(file_id, username, retry_count + 1)
-        return None
-
-def load_progress():
-    """加载进度（断点续传）"""
-    if os.path.exists(PROGRESS_FILE):
+def load_orders():
+    """加载所有订单"""
+    if os.path.exists(ORDERS_FILE):
         try:
-            with open(PROGRESS_FILE, 'r', encoding='utf-8') as f:
+            with open(ORDERS_FILE, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except:
-            return {}
-    return {}
+            return []
+    return []
 
-def save_progress(processed_usernames):
-    """保存进度"""
-    with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(processed_usernames, f, ensure_ascii=False, indent=2)
-
-def save_deleted_items(deleted_items):
-    """保存已删除的条目备份"""
-    existing_deleted = []
-    if os.path.exists(DELETED_ITEMS_FILE):
-        try:
-            with open(DELETED_ITEMS_FILE, 'r', encoding='utf-8') as f:
-                existing_deleted = json.load(f)
-        except:
-            existing_deleted = []
+def save_order(order):
+    """保存订单到文件"""
+    orders = load_orders()
+    # 检查订单是否已存在（根据订单号）
+    existing_order = next((o for o in orders if o.get('orderId') == order.get('orderId')), None)
+    if existing_order:
+        # 更新现有订单
+        existing_order.update(order)
+        existing_order['updatedAt'] = datetime.now().isoformat()
+    else:
+        # 添加新订单
+        order['createdAt'] = datetime.now().isoformat()
+        order['updatedAt'] = datetime.now().isoformat()
+        orders.append(order)
     
-    # 添加删除时间戳
-    for item in deleted_items:
-        if 'deleted_at' not in item:
-            item['deleted_at'] = time.strftime('%Y-%m-%d %H:%M:%S')
+    # 保存到文件
+    with open(ORDERS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(orders, f, ensure_ascii=False, indent=2)
     
-    # 合并并保存
-    all_deleted = existing_deleted + deleted_items
-    with open(DELETED_ITEMS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(all_deleted, f, ensure_ascii=False, indent=2)
+    return True
 
+def send_order_notification(order):
+    """通过Telegram Bot发送订单通知到管理员"""
+    if not ADMIN_USER_ID or ADMIN_USER_ID == 'YOUR_USER_ID':
+        print("⚠️  未配置 ADMIN_USER_ID，无法发送Telegram通知")
+        return False
+    
+    api_url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    
+    # 格式化订单信息
+    order_text = f"""🆕 新订单通知
+
+📋 订单号：{order.get('orderId', 'N/A')}
+👤 要开通的账号：{order.get('account', 'N/A')}
+📦 套餐：{order.get('plan', 'N/A')}
+💰 价格：¥{order.get('priceCNY', 0)} (≈ {order.get('priceUSDT', 0)} USDT)
+📧 客户邮箱：{order.get('email', 'N/A')}
+📅 下单时间：{datetime.fromisoformat(order.get('timestamp', datetime.now().isoformat())).strftime('%Y-%m-%d %H:%M:%S')}
+📊 订单状态：{order.get('status', 'pending')}
+
+请及时处理订单。"""
+    
+    try:
+        response = requests.post(api_url, json={
+            'chat_id': ADMIN_USER_ID,
+            'text': order_text,
+            'parse_mode': 'HTML'
+        }, timeout=10)
+        
+        data = response.json()
+        if data.get('ok'):
+            print(f"✅ 订单通知已发送到Telegram")
+            return True
+        else:
+            print(f"❌ 发送通知失败: {data.get('description', '未知错误')}")
+            return False
+    except Exception as e:
+        print(f"❌ 发送通知异常: {e}")
+        return False
+
+def process_order(order_data):
+    """处理订单：保存到文件并发送通知"""
+    try:
+        # 保存订单
+        save_order(order_data)
+        print(f"✅ 订单已保存: {order_data.get('orderId')}")
+        
+        # 发送Telegram通知
+        send_order_notification(order_data)
+        
+        return True
+    except Exception as e:
+        print(f"❌ 处理订单失败: {e}")
+        return False
+
+# ============ 原功能：process_data_json（已注释，保留备用）============
 def process_data_json():
     """处理data.json中的所有Telegram链接（带速率限制和断点续传）"""
     
@@ -741,6 +429,38 @@ def process_data_json():
         print(f"   5. 如需恢复，请查看: {DELETED_ITEMS_FILE}")
     print("=" * 60)
 
+# ============ 主程序入口 ============
 if __name__ == '__main__':
-    process_data_json()
+    import sys
+    
+    # 检查是否通过命令行参数传入订单数据
+    if len(sys.argv) > 2 and sys.argv[1] == '--order':
+        # 从文件读取订单数据
+        order_file = sys.argv[2]
+        try:
+            with open(order_file, 'r', encoding='utf-8') as f:
+                order_data = json.load(f)
+            
+            # 处理订单
+            if process_order(order_data):
+                print(f"✅ 订单处理成功: {order_data.get('orderId')}")
+                sys.exit(0)
+            else:
+                print(f"❌ 订单处理失败: {order_data.get('orderId')}")
+                sys.exit(1)
+        except Exception as e:
+            print(f"❌ 读取订单文件失败: {e}")
+            sys.exit(1)
+    else:
+        # 原功能：处理data.json（已注释，保留备用）
+        # process_data_json()
+        print("=" * 60)
+        print("📦 Telegram Premium 订单收集脚本")
+        print("=" * 60)
+        print("\n💡 使用方法：")
+        print("   通过 save_order.php 接口接收订单")
+        print("   或使用命令行：")
+        print("   python fetch_telegram_avatars.py --order <订单JSON文件>")
+        print("\n⚠️  原功能（获取头像和描述）已注释，但代码保留")
+        print("=" * 60)
 
