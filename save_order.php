@@ -80,11 +80,17 @@ if (file_exists($python_script)) {
     $temp_file = sys_get_temp_dir() . '/order_' . $order_data['orderId'] . '.json';
     file_put_contents($temp_file, json_encode($order_data, JSON_UNESCAPED_UNICODE));
     
+    // 确定Python解释器路径（优先使用虚拟环境）
+    $venv_python = __DIR__ . '/venv/bin/python3';
+    $python_cmd = file_exists($venv_python) ? $venv_python : 'python3';
+    
     // 异步执行Python脚本（不等待结果）
-    $command = "python3 " . escapeshellarg($python_script) . " --order " . escapeshellarg($temp_file) . " > /dev/null 2>&1 &";
+    $command = $python_cmd . " " . escapeshellarg($python_script) . " --order " . escapeshellarg($temp_file) . " > /dev/null 2>&1 &";
     if (PHP_OS_FAMILY === 'Windows') {
-        // Windows系统
-        $command = "start /B python " . escapeshellarg($python_script) . " --order " . escapeshellarg($temp_file);
+        // Windows系统（优先使用虚拟环境）
+        $venv_python_win = __DIR__ . '\\venv\\Scripts\\python.exe';
+        $python_cmd_win = file_exists($venv_python_win) ? $venv_python_win : 'python';
+        $command = "start /B " . escapeshellarg($python_cmd_win) . " " . escapeshellarg($python_script) . " --order " . escapeshellarg($temp_file);
     }
     exec($command);
 }
